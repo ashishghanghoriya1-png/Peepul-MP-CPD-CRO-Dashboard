@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+public_dashboard_url.txt
+*.log

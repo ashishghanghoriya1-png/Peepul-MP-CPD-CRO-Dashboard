@@ -1,0 +1,1232 @@
+{
+  "stats": {
+    "districts": [
+      {
+        "value": "Dhar",
+        "count": 19,
+        "percentage": 4.62
+      },
+      {
+        "value": "Balaghat",
+        "count": 17,
+        "percentage": 4.14
+      },
+      {
+        "value": "Betul",
+        "count": 16,
+        "percentage": 3.89
+      },
+      {
+        "value": "Chhatarpur",
+        "count": 13,
+        "percentage": 3.16
+      },
+      {
+        "value": "Sagar",
+        "count": 13,
+        "percentage": 3.16
+      },
+      {
+        "value": "Shivpuri",
+        "count": 13,
+        "percentage": 3.16
+      },
+      {
+        "value": "Morena",
+        "count": 13,
+        "percentage": 3.16
+      },
+      {
+        "value": "Vidisha",
+        "count": 12,
+        "percentage": 2.92
+      },
+      {
+        "value": "Indore",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Raisen",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Mandla",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Chhindwara",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Ratlam",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Ujjain",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Alirajpur",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "Panna",
+        "count": 9,
+        "percentage": 2.19
+      },
+      {
+        "value": "Dewas",
+        "count": 9,
+        "percentage": 2.19
+      },
+      {
+        "value": "Seoni",
+        "count": 9,
+        "percentage": 2.19
+      },
+      {
+        "value": "Narsinghpur",
+        "count": 9,
+        "percentage": 2.19
+      },
+      {
+        "value": "Guna",
+        "count": 9,
+        "percentage": 2.19
+      },
+      {
+        "value": "Katni",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Rewa",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Barwani",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Khandwa",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Jhabua",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Umaria",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "Sidhi",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Shahdol",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Khargone",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Narmadapuram",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Shajapur",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Gwalior",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Anuppur",
+        "count": 7,
+        "percentage": 1.7
+      },
+      {
+        "value": "Bhind",
+        "count": 6,
+        "percentage": 1.46
+      },
+      {
+        "value": "Jabalpur",
+        "count": 6,
+        "percentage": 1.46
+      },
+      {
+        "value": "Mandsaur",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Damoh",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Dindori",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Harda",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Datia",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Ashoknagar",
+        "count": 5,
+        "percentage": 1.22
+      },
+      {
+        "value": "Bhopal",
+        "count": 4,
+        "percentage": 0.97
+      },
+      {
+        "value": "Satna",
+        "count": 4,
+        "percentage": 0.97
+      },
+      {
+        "value": "Sehore",
+        "count": 4,
+        "percentage": 0.97
+      },
+      {
+        "value": "Mauganj",
+        "count": 4,
+        "percentage": 0.97
+      },
+      {
+        "value": "Agar Malwa",
+        "count": 4,
+        "percentage": 0.97
+      },
+      {
+        "value": "Pandhurna",
+        "count": 3,
+        "percentage": 0.73
+      },
+      {
+        "value": "Sheopur",
+        "count": 3,
+        "percentage": 0.73
+      },
+      {
+        "value": "Singrauli",
+        "count": 3,
+        "percentage": 0.73
+      },
+      {
+        "value": "Rajgarh",
+        "count": 3,
+        "percentage": 0.73
+      },
+      {
+        "value": "Burhanpur",
+        "count": 2,
+        "percentage": 0.49
+      },
+      {
+        "value": "Maihar",
+        "count": 2,
+        "percentage": 0.49
+      },
+      {
+        "value": "Niwari",
+        "count": 2,
+        "percentage": 0.49
+      },
+      {
+        "value": "Neemuch",
+        "count": 2,
+        "percentage": 0.49
+      },
+      {
+        "value": "Tikamgarh",
+        "count": 1,
+        "percentage": 0.24
+      }
+    ],
+    "subjects": [
+      {
+        "value": "Maths",
+        "count": 137,
+        "percentage": 33.33
+      },
+      {
+        "value": "Science",
+        "count": 133,
+        "percentage": 32.36
+      },
+      {
+        "value": "Social Science",
+        "count": 120,
+        "percentage": 29.2
+      },
+      {
+        "value": "Hindi",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "English",
+        "count": 6,
+        "percentage": 1.46
+      },
+      {
+        "value": "Sanskrit",
+        "count": 5,
+        "percentage": 1.22
+      }
+    ],
+    "grades": [
+      {
+        "value": "कक्षा 6",
+        "count": 198,
+        "percentage": 48.18
+      },
+      {
+        "value": "कक्षा 8",
+        "count": 107,
+        "percentage": 26.03
+      },
+      {
+        "value": "कक्षा 7",
+        "count": 65,
+        "percentage": 15.82
+      },
+      {
+        "value": "कक्षा 6 कक्षा 7 कक्षा 8",
+        "count": 16,
+        "percentage": 3.89
+      },
+      {
+        "value": "कक्षा 7 कक्षा 8",
+        "count": 10,
+        "percentage": 2.43
+      },
+      {
+        "value": "कक्षा 6 कक्षा 8",
+        "count": 8,
+        "percentage": 1.95
+      },
+      {
+        "value": "कक्षा 6 कक्षा 7",
+        "count": 7,
+        "percentage": 1.7
+      }
+    ],
+    "gender": [
+      {
+        "value": "पुरुष",
+        "count": 352,
+        "percentage": 85.64
+      },
+      {
+        "value": "महिला",
+        "count": 59,
+        "percentage": 14.36
+      }
+    ],
+    "classroom_type": [
+      {
+        "value": "Teaching",
+        "count": 342,
+        "percentage": 83.21
+      },
+      {
+        "value": "Revision",
+        "count": 65,
+        "percentage": 15.82
+      },
+      {
+        "value": "Remediation",
+        "count": 4,
+        "percentage": 0.97
+      }
+    ],
+    "attendance": {
+      "total_enrolled": 12053,
+      "total_present": 6328,
+      "attendance_rate": 52.5,
+      "avg_enrolled": 29.3,
+      "avg_present": 15.4
+    },
+    "experience": {
+      "total_mean_years": 17.59,
+      "total_median_years": 17.0,
+      "exp_68_mean_years": 13.08,
+      "exp_subj_mean_years": 13.48
+    },
+    "pedagogy_single": {
+      "1. शिक्षक कालांश की शुरुआत कैसे करते हैं? (जैसे-पाठ या विषय-वस्तु के बारें मे बताना, कक्षा के अधिकांश विद्यार्थियों से हालचाल पूछना एवं स्वागत करना,  कोई हुक उपयोग करना,  विद्यार्थियों के जीवन से जुड़ी बातचीत करके उनका विषयवस्तु से जुड़ाव बनाना)": [
+        {
+          "value": "iii.शिक्षक कक्षा की शरुआत रोचक तरीके से  हुक तकनीक के  उपयोग से करते है (हुक: एक तकनीक जो विद्यार्थियों को आकर्षित करने के लिए पाठ का परिचय कहानी, वस्तुओं, तथ्य और प्रश्नों के माध्यम से किया जाता है। यह 30 सेकण्ड से 3 मिनट का एक छोटा भाग होता है।)",
+          "count": 144,
+          "percentage": 35.04
+        },
+        {
+          "value": "i.शिक्षक कक्षा की शुरुआत, बिना किसी भूमिका के सीधे पढ़ाने से शुरू कर देते हैं।",
+          "count": 127,
+          "percentage": 30.9
+        },
+        {
+          "value": "ii.शिक्षक कक्षा में कुछ विद्यार्थियों से हाल-चाल पूछते हैं एवं स्वागत करते हैं और फिर पढ़ाना शुरू करते हैं।",
+          "count": 87,
+          "percentage": 21.17
+        },
+        {
+          "value": "iv.शिक्षक कक्षा के प्रारंभ में विद्यार्थियों का स्वागत करते हैं, उनका हाल चाल लेते हुए विषय पर हुक/चर्चा के माध्यम से उनका विषय वस्तु के साथ जुड़ाव बनाकर सकारात्मक शुरुआत करते हैं।",
+          "count": 53,
+          "percentage": 12.9
+        }
+      ],
+      "2.2. पाठ के दौरान विद्यार्थियों की सहभागिता (विद्यार्थियों द्वारा प्रश्न पूछना, तर्क देना या दोहराना एवं पाठ के दौरान अपने विचार साझा करना साथ ही प्रश्नो पर उत्तर देना शामिल हैं) कितनी है?": [
+        {
+          "value": "iii.40% या उससे अधिक (अपेक्षा अनुरूप) विद्यार्थियों की सहभागिता है।",
+          "count": 183,
+          "percentage": 44.53
+        },
+        {
+          "value": "ii.10% - 40% विद्यार्थियों की सहभागिता है और शिक्षक ही अधिकांशतः बोल रहे हैं।",
+          "count": 168,
+          "percentage": 40.88
+        },
+        {
+          "value": "i.10 % से कम विद्यार्थियों की सहभागिता है और अधिकांशतः शिक्षक ही बोल रहे हैं।",
+          "count": 60,
+          "percentage": 14.6
+        }
+      ],
+      "3.1. कक्षा में शिक्षक के द्वारा किस तरह के प्रश्न पूछे गए?": [
+        {
+          "value": "ii.शिक्षक केवल बंद-छोर वाले प्रश्न (close ended) पूछते हैं",
+          "count": 189,
+          "percentage": 45.99
+        },
+        {
+          "value": "iii.शिक्षक बंद और खुले-छोर (close & open-ended questions) वाले प्रश्नों को मिश्रित रूप से पूछते हैं",
+          "count": 185,
+          "percentage": 45.01
+        },
+        {
+          "value": "i.शिक्षक ने प्रश्न नही पूछे",
+          "count": 37,
+          "percentage": 9.0
+        }
+      ],
+      "3.2. क्या शिक्षक प्रश्न का उत्तर लेने से पहले विद्यार्थियों को स्पष्ट रूप से कह कर सोचने के लिए पर्याप्त समय देते हैं?": [
+        {
+          "value": "i.कोई समय नहीं दिया गया, मुख्यतः तत्काल प्रतिक्रिया मांगी गई।",
+          "count": 162,
+          "percentage": 39.42
+        },
+        {
+          "value": "iii.समय दिया गया और अधिकांशतः सोचने के लिए पर्याप्त था।",
+          "count": 111,
+          "percentage": 27.01
+        },
+        {
+          "value": "ii.समय दिया गया, लेकिन दिया गया समय अपर्याप्त था।",
+          "count": 101,
+          "percentage": 24.57
+        },
+        {
+          "value": "nan",
+          "count": 37,
+          "percentage": 9.0
+        }
+      ],
+      "3.3. शिक्षक उत्तर लेने के लिए विद्यार्थियों का चयन किस प्रकार करते हैं? (अधिकांशत : >50% प्रश्नो की संख्या के आधार पर)": [
+        {
+          "value": "i.शिक्षक अधिकांशत: प्रश्नों पर विद्यार्थियों से सामूहिक प्रतिक्रियाएँ लेते हैं।",
+          "count": 199,
+          "percentage": 48.42
+        },
+        {
+          "value": "ii.शिक्षक अधिकांशत: प्रश्नों पर उन विद्यार्थियों से प्रतिक्रियाएँ लेते हैं जो हाथ उठाते हैं/ कुछ  विद्यार्थियों से ही उत्तर लेते हैं ।",
+          "count": 88,
+          "percentage": 21.41
+        },
+        {
+          "value": "iii.शिक्षक अधिकांशत: प्रश्नों पर प्रतिक्रिया हेतु रेन्डम/बिना किसी क्रम के प्रश्न पूछने की तकनीक का उपयोग करते हैं (जैसे कोल्ड कॉलिंग)।",
+          "count": 87,
+          "percentage": 21.17
+        },
+        {
+          "value": "nan",
+          "count": 37,
+          "percentage": 9.0
+        }
+      ],
+      "4. शिक्षक पढ़ाए जा रहे विषय/टॉपिक के बारे में विद्यार्थियों की समझ की जांच (CFU) करने के लिए किस तरीके का अधिकांशतः उपयोग करते हैं? (प्रश्नों की संख्या के आधार पर जांचा जाएगा)": [
+        {
+          "value": "i. अधिकांशतः हाँ/ना में सामूहिक उत्तर लेना",
+          "count": 183,
+          "percentage": 44.53
+        },
+        {
+          "value": "iii.हाँ, अधिकांशतः विद्यार्थियों का त्वरित आकलन (मौखिक या लिखित - जैसे सभी से कुछ सवाल या एक्ज़िट टिकिट) करते हुए उनके अलग अलग जवाब लिए गए|",
+          "count": 106,
+          "percentage": 25.79
+        },
+        {
+          "value": "iv.समझ की जांच नहीं की गई",
+          "count": 63,
+          "percentage": 15.33
+        },
+        {
+          "value": "ii.हाँ, अधिकांशतः कुछ बुनियादी समझ  की जाँच की तकनीक (हाथ उठाना, अंगूठा दिखाना, आदि) का प्रयोग किया गया",
+          "count": 59,
+          "percentage": 14.36
+        }
+      ],
+      "5.1. शिक्षक विद्यार्थियों को स्वतंत्र कार्य करने का समय प्रदान करते हैं एवं कक्षा में भ्रमण करके सहायता करते हैं।": [
+        {
+          "value": "i.शिक्षक स्वतंत्र कार्य के लिए विद्यार्थियों को समय नहीं देते हैं।",
+          "count": 205,
+          "percentage": 49.88
+        },
+        {
+          "value": "iv.शिक्षक स्वतंत्र कार्य के लिए विद्यार्थियों को समय देते हैं और विद्यार्थियों के कार्य की जाँच करने और उनकी सहायता करने के लिए कक्षा में भ्रमण भी करते हैं।",
+          "count": 99,
+          "percentage": 24.09
+        },
+        {
+          "value": "ii.शिक्षक स्वतंत्र कार्य के लिए विद्यार्थियों को समय देते हैं, लेकिन विद्यार्थियों के कार्य की जाँच करने और उनकी सहायता करने के लिए कक्षा में भ्रमण नहीं करते हैं।",
+          "count": 81,
+          "percentage": 19.71
+        },
+        {
+          "value": "iii.शिक्षक स्वतंत्र कार्य के लिए विद्यार्थियों को समय देते हैं और भ्रमण भी करते हैं लेकिन विद्यार्थियों के कार्य की जाँच और उनकी सहायता नहीं करते।",
+          "count": 26,
+          "percentage": 6.33
+        }
+      ],
+      "5.2. शिक्षक विद्यार्थियों को जोड़े या समूह कार्य के अवसर प्रदान करते हैं एवं कक्षा में भ्रमण करके सहायता करते हैं।": [
+        {
+          "value": "i.शिक्षक विद्यार्थियों को समूह कार्य के अवसर प्रदान नहीं करते हैं।",
+          "count": 339,
+          "percentage": 82.48
+        },
+        {
+          "value": "iv.शिक्षक समूह में सीखने के अवसर प्रदान करते हैं और विद्यार्थियों के कार्य की जाँच करने और उनकी सहायता के लिए कक्षा में भ्रमण करते हैं।",
+          "count": 32,
+          "percentage": 7.79
+        },
+        {
+          "value": "ii.शिक्षक समूह में सीखने के अवसर प्रदान करते हैं, लेकिन विद्यार्थियों के कार्य की जाँच करने और उनकी सहायता हेतु कक्षा में भ्रमण नहीं करते हैं।",
+          "count": 28,
+          "percentage": 6.81
+        },
+        {
+          "value": "iii.शिक्षक समूह में सीखने के अवसर प्रदान करते हैं और भ्रमण भी करते हैं लेकिन विद्यार्थियों के कार्य की जाँच और उनकी सहायता नहीं करते।",
+          "count": 12,
+          "percentage": 2.92
+        }
+      ],
+      "6.1. क्या शिक्षक किसी भी विद्यार्थी के साथ अपमानजनक भाषा* या व्यवहार करते हैं, या विद्यार्थियों को शारीरिक दंड देते हैं ? (*जैसे चिल्लाना/डांटना/उपहास/शर्मिंदा करना या सांस्कृतिक/क्षेत्रीय रूप से अपमान सूचक शब्दों का इस्तेमाल आदि)": [
+        {
+          "value": "ii.नहीं",
+          "count": 405,
+          "percentage": 98.54
+        },
+        {
+          "value": "i.हाँ (यदि हाँ, तो कृपया यहाँ उदाहरण का विवरण दें)",
+          "count": 6,
+          "percentage": 1.46
+        }
+      ],
+      "6.2. शिक्षक विद्यार्थियों के साथ सकारात्मक और प्रेरणादायी भाषा का उपयोग करते हैं (मोटिवेशनल या प्रशंसा करते हैं)|": [
+        {
+          "value": "i.हाँ",
+          "count": 366,
+          "percentage": 89.05
+        },
+        {
+          "value": "ii.नहीं",
+          "count": 45,
+          "percentage": 10.95
+        }
+      ],
+      "7. क्या शिक्षक कक्षा के लिए प्रभावी नियम या  दिनचर्या /रूटीन बनाए रखने में सक्षम थे?": [
+        {
+          "value": "i.कक्षा के नियम या दिनचर्या/रूटीन निर्धारित नहीं हैं।",
+          "count": 243,
+          "percentage": 59.12
+        },
+        {
+          "value": "iv.कक्षा के नियम या दिनचर्या/रूटीन निर्धारित हैं और आवश्यकता अनुसार लगातार सुदृढ़ किए जाते हैं एवं प्रभावी भी हैं।",
+          "count": 73,
+          "percentage": 17.76
+        },
+        {
+          "value": "ii.कक्षा के नियम या दिनचर्या/ रूटीन निर्धारित हैं, लेकिन नियमित रूप से सुदृढ़ नहीं किए जाते हैं (आवश्यकता होने पर भी)।",
+          "count": 57,
+          "percentage": 13.87
+        },
+        {
+          "value": "iii.कक्षा के नियम या दिनचर्या/ रूटीन निर्धारित हैं, नियमित रूप से सुदृढ़  किए जाते हैं लेकिन प्रभावी नहीं है।",
+          "count": 38,
+          "percentage": 9.25
+        }
+      ],
+      "8.1. क्या शिक्षक रूढ़िवादिता या भेदभाव जैसे किसी भी मुद्दे पर सजगता से बातचीत कर समावेशी वातावरण को बढ़ावा देते हैं? (अगर शिक्षक द्वारा एक भी नकारात्मक घटना दिखे तो विकल्प ii को चुना जाए)": [
+        {
+          "value": "iii.नहीं देखा गया (शिक्षक ने न तो रूढ़िवादिता या भेदभाव को बढ़ावा दिया/अभ्यास किया और न ही विद्यार्थियों को रूढ़िवादिता या भेदभाव के बारे में जागरूक किया)",
+          "count": 405,
+          "percentage": 98.54
+        },
+        {
+          "value": "ii.शिक्षक ने स्वयं रूढ़िवादिता या भेदभाव को बढ़ावा दिया।",
+          "count": 3,
+          "percentage": 0.73
+        },
+        {
+          "value": "i.हाँ, शिक्षक ने उदाहरण/कहानियाँ/चर्चा के द्वारा विद्यार्थियों को रूढ़िवादिता या भेदभाव के बारे में सक्रिय रूप से जागरूक किया।",
+          "count": 3,
+          "percentage": 0.73
+        }
+      ],
+      "8.2. क्या शिक्षक रूढ़िवादिता या भेदभाव की किसी भी घटना/मुद्दे को संबोधित कर समावेशी वातावरण को बढ़ावा देते है?": [
+        {
+          "value": "i.अवलोकन के दौरान रूढ़िवादिता या भेदभाव की कोई घटना नहीं देखी गई।",
+          "count": 410,
+          "percentage": 99.76
+        },
+        {
+          "value": "ii.रूढ़िवादिता या भेदभाव की एक या अधिक घटनाएं देखी गईं, लेकिन शिक्षक ने मुद्दे को संबोधित नहीं किया/मुद्दे को हल करने में विफल रहे।",
+          "count": 1,
+          "percentage": 0.24
+        }
+      ],
+      "9.1. क्या शिक्षक के पास आज की कक्षा के लिए लिखित पाठ योजना है (स्वयं निर्मित या राज्य से पूर्व-तैयार)?": [
+        {
+          "value": "ii.नहीं",
+          "count": 389,
+          "percentage": 94.65
+        },
+        {
+          "value": "i.हाँ",
+          "count": 22,
+          "percentage": 5.35
+        }
+      ],
+      "9.3. पढ़ाया गया पाठ, पाठ योजना के कितना अनुरूप था?": [
+        {
+          "value": "nan",
+          "count": 389,
+          "percentage": 94.65
+        },
+        {
+          "value": "i.हाँ, पूरी तरह से",
+          "count": 15,
+          "percentage": 3.65
+        },
+        {
+          "value": "ii.हाँ, कुछ हद तक",
+          "count": 7,
+          "percentage": 1.7
+        }
+      ]
+    },
+    "teaching_methods_q2_1": {
+      "(एक से अधिक विकल्प चुने जा सकते हैं)": {
+        "count": 411,
+        "pct": 100.0
+      },
+      "(एक से अधिक विकल्प चुने जा सकते हैं)/i. व्याख्यान करते हैं।": {
+        "count": 338,
+        "pct": 82.24
+      },
+      "(एक से अधिक विकल्प चुने जा सकते हैं)/ii. विद्यार्थियों से पाठ के कुछ हिस्सों को पढ़ने के लिए कहते हैं।": {
+        "count": 165,
+        "pct": 40.15
+      },
+      "(एक से अधिक विकल्प चुने जा सकते हैं)/iii. टीएलएम का उपयोग करते हैं (पाठ्यपुस्तक और ब्लैक/वाइट बोर्ड के अलावा)": {
+        "count": 123,
+        "pct": 29.93
+      },
+      "(एक से अधिक विकल्प चुने जा सकते हैं)/iv. गतिविधि या खेल": {
+        "count": 83,
+        "pct": 20.19
+      },
+      "(एक से अधिक विकल्प चुने जा सकते हैं)/v. अन्य": {
+        "count": 12,
+        "pct": 2.92
+      }
+    },
+    "engagement_techniques_q2_3": {
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)": {
+        "count": 411,
+        "pct": 100.0
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/i.हुक का प्रयोग": {
+        "count": 194,
+        "pct": 47.2
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/ii.थिंक पेयर शेयर": {
+        "count": 38,
+        "pct": 9.25
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iii.समूह चर्चा": {
+        "count": 37,
+        "pct": 9.0
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iv.ऑडियो/ विडियो का उपयोग करके शिक्षण": {
+        "count": 6,
+        "pct": 1.46
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/v.विद्यार्थी के कार्यों (अकादमिक/गैर अकादमिक) पर रचनात्मक फीडबैक (Constructive Feedback)": {
+        "count": 75,
+        "pct": 18.25
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/vi.इनमें से कोई नहीं देखा गया": {
+        "count": 178,
+        "pct": 43.31
+      }
+    },
+    "lesson_plan_components_q9_2": {
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)": {
+        "count": 22,
+        "pct": 5.35
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/i.सीखने के प्रतिफल/लर्निंग आउट्कम": {
+        "count": 18,
+        "pct": 4.38
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/ii.आवश्यक सामग्री (जैसे: टीएलएम)": {
+        "count": 16,
+        "pct": 3.89
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iii.गतिविधियों का विवरण (जैसे: प्रयोग, खेल, चर्चा, समूह कार्य आदि)": {
+        "count": 22,
+        "pct": 5.35
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iv.समझ  की जांच (CFU) हेतु  प्रश्न": {
+        "count": 21,
+        "pct": 5.11
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/v.गृहकार्य": {
+        "count": 22,
+        "pct": 5.35
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/vi.उपरोक्त में से कोई भी नहीं": {
+        "count": 22,
+        "pct": 5.35
+      }
+    },
+    "lesson_execution_components_q10": {
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)": {
+        "count": 411,
+        "pct": 100.0
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/i.TLM  का उपयोग किया": {
+        "count": 121,
+        "pct": 29.44
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/ii.विषय से संबंधित गतिविधियाँ": {
+        "count": 188,
+        "pct": 45.74
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iii.समझ की जाँच (CFU) प्रश्न": {
+        "count": 265,
+        "pct": 64.48
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/iv.गृहकार्य देना": {
+        "count": 258,
+        "pct": 62.77
+      },
+      "(एक से अधिक विकल्प चुनें जा सकते हैं)/v.उपरोक्त में से कोई भी नहीं": {
+        "count": 60,
+        "pct": 14.6
+      }
+    },
+    "notebook_and_infrastructure": {
+      "A. क्या विद्यार्थियों की नोटबुक नियमित रूप से और तुरंत या उचित समय-सीमा के भीतर जांची जाती है? (4-5 रैंडम नोटबुक देखी जाएं)": [
+        {
+          "value": "2. अनियमितता के साथ कभी कभी जाँची जाती है।",
+          "count": 193,
+          "percentage": 46.96
+        },
+        {
+          "value": "1. नियमित रूप से बिना देरी के तुरंत जाँची जाती है।",
+          "count": 159,
+          "percentage": 38.69
+        },
+        {
+          "value": "3.कभी जाँची नहीं जाती",
+          "count": 59,
+          "percentage": 14.36
+        }
+      ],
+      "B. क्या शिक्षक द्वारा, विद्यार्थियों की नोटबुक में त्रुटियां पहचानी और ठीक की जाती हैं?": [
+        {
+          "value": "2.कुछ त्रुटियों की पहचान की जाती है, लेकिन सुधार के सुझाव नहीं दिये जाते हैं।",
+          "count": 176,
+          "percentage": 42.82
+        },
+        {
+          "value": "1.त्रुटियों की न तो पहचान की जाती है और न ही उन्हें सुधारा जाता है।",
+          "count": 133,
+          "percentage": 32.36
+        },
+        {
+          "value": "3.अधिकांश त्रुटियों की पहचान की जाती है और उन्हें सुधारा जाता है।",
+          "count": 69,
+          "percentage": 16.79
+        },
+        {
+          "value": "nan",
+          "count": 33,
+          "percentage": 8.03
+        }
+      ],
+      "C. क्या शिक्षक विद्यार्थियों के काम पर विशिष्ट और रचनात्मक फीडबैक प्रदान करते हैं?": [
+        {
+          "value": "1.कोई फीडबैक नहीं दिया गया।",
+          "count": 213,
+          "percentage": 51.82
+        },
+        {
+          "value": "2.“अच्छा” या “ठीक है” जैसी सामान्य टिप्पणियाँ लिखी गईं।",
+          "count": 149,
+          "percentage": 36.25
+        },
+        {
+          "value": "nan",
+          "count": 33,
+          "percentage": 8.03
+        },
+        {
+          "value": "3.विशिष्ट और करने योग्य फीडबैक दिए गए और लिखे  गए।",
+          "count": 16,
+          "percentage": 3.89
+        }
+      ],
+      "D.1. क्या शिक्षक नोटबुक में उचित व व्यवस्थित लिखावट के साथ प्रस्तुतिकरण  को प्रोत्साहित करते हैं?": [
+        {
+          "value": "1.नोटबुक को साफ़ सुथरा रखने और प्रस्तुतिकरण पर कोई टिप्पणी या फीडबैक नहीं।",
+          "count": 320,
+          "percentage": 77.86
+        },
+        {
+          "value": "2.नोटबुक को साफ सुथरा रखने और प्रस्तुतिकरण पर अनियमित टिप्पणी या फीडबैक।",
+          "count": 48,
+          "percentage": 11.68
+        },
+        {
+          "value": "nan",
+          "count": 33,
+          "percentage": 8.03
+        },
+        {
+          "value": "3.नोटबुक को साफ सुथरा रखने और प्रस्तुतिकरण पर नियमित टिप्पणी या  फीडबैक।",
+          "count": 10,
+          "percentage": 2.43
+        }
+      ],
+      "D.2. विषय-विशिष्ट नोटबुक में कार्य कर रहे विद्यार्थियों की स्थिति": [
+        {
+          "value": "iii.50%  से अधिक विद्यार्थी विषय-विशिष्ट नोटबुक में काम करते हैं।",
+          "count": 190,
+          "percentage": 46.23
+        },
+        {
+          "value": "ii.50%  से कम विद्यार्थी विषय-विशिष्ट नोटबुक में काम करते हैं।",
+          "count": 111,
+          "percentage": 27.01
+        },
+        {
+          "value": "i.अवलोकन के दौरान विषय-विशिष्ट नोटबुक नहीं पायी गईं।",
+          "count": 110,
+          "percentage": 26.76
+        }
+      ],
+      "E. कितने विद्यार्थियों के पास विषय की पाठ्य पुस्तकें थीं?": [
+        {
+          "value": "7",
+          "count": 37,
+          "percentage": 9.0
+        },
+        {
+          "value": "6",
+          "count": 34,
+          "percentage": 8.27
+        },
+        {
+          "value": "10",
+          "count": 26,
+          "percentage": 6.33
+        },
+        {
+          "value": "4",
+          "count": 24,
+          "percentage": 5.84
+        },
+        {
+          "value": "8",
+          "count": 23,
+          "percentage": 5.6
+        },
+        {
+          "value": "5",
+          "count": 22,
+          "percentage": 5.35
+        },
+        {
+          "value": "12",
+          "count": 20,
+          "percentage": 4.87
+        },
+        {
+          "value": "2",
+          "count": 15,
+          "percentage": 3.65
+        },
+        {
+          "value": "13",
+          "count": 14,
+          "percentage": 3.41
+        },
+        {
+          "value": "11",
+          "count": 14,
+          "percentage": 3.41
+        },
+        {
+          "value": "15",
+          "count": 13,
+          "percentage": 3.16
+        },
+        {
+          "value": "9",
+          "count": 13,
+          "percentage": 3.16
+        },
+        {
+          "value": "16",
+          "count": 12,
+          "percentage": 2.92
+        },
+        {
+          "value": "3",
+          "count": 12,
+          "percentage": 2.92
+        },
+        {
+          "value": "18",
+          "count": 12,
+          "percentage": 2.92
+        },
+        {
+          "value": "14",
+          "count": 11,
+          "percentage": 2.68
+        },
+        {
+          "value": "24",
+          "count": 10,
+          "percentage": 2.43
+        },
+        {
+          "value": "20",
+          "count": 10,
+          "percentage": 2.43
+        },
+        {
+          "value": "26",
+          "count": 9,
+          "percentage": 2.19
+        },
+        {
+          "value": "19",
+          "count": 8,
+          "percentage": 1.95
+        },
+        {
+          "value": "21",
+          "count": 8,
+          "percentage": 1.95
+        },
+        {
+          "value": "1",
+          "count": 7,
+          "percentage": 1.7
+        },
+        {
+          "value": "22",
+          "count": 7,
+          "percentage": 1.7
+        },
+        {
+          "value": "23",
+          "count": 6,
+          "percentage": 1.46
+        },
+        {
+          "value": "17",
+          "count": 6,
+          "percentage": 1.46
+        },
+        {
+          "value": "30",
+          "count": 5,
+          "percentage": 1.22
+        },
+        {
+          "value": "0",
+          "count": 4,
+          "percentage": 0.97
+        },
+        {
+          "value": "40",
+          "count": 4,
+          "percentage": 0.97
+        },
+        {
+          "value": "29",
+          "count": 4,
+          "percentage": 0.97
+        },
+        {
+          "value": "25",
+          "count": 4,
+          "percentage": 0.97
+        },
+        {
+          "value": "28",
+          "count": 3,
+          "percentage": 0.73
+        },
+        {
+          "value": "32",
+          "count": 3,
+          "percentage": 0.73
+        },
+        {
+          "value": "38",
+          "count": 2,
+          "percentage": 0.49
+        },
+        {
+          "value": "35",
+          "count": 2,
+          "percentage": 0.49
+        },
+        {
+          "value": "70",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "42",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "55",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "31",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "50",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "56",
+          "count": 1,
+          "percentage": 0.24
+        },
+        {
+          "value": "33",
+          "count": 1,
+          "percentage": 0.24
+        }
+      ],
+      "F.1. क्या कक्षा की दीवारों पर संदर्भ पोस्टर और चार्ट मौजूद हैं?": [
+        {
+          "value": "ii.नहीं",
+          "count": 326,
+          "percentage": 79.32
+        },
+        {
+          "value": "i.हाँ",
+          "count": 85,
+          "percentage": 20.68
+        }
+      ],
+      "F.2. क्या अधिकांश चार्ट और पोस्टर नए या पुराने हैं?": [
+        {
+          "value": "nan",
+          "count": 326,
+          "percentage": 79.32
+        },
+        {
+          "value": "i.अधिकतर नए",
+          "count": 51,
+          "percentage": 12.41
+        },
+        {
+          "value": "ii.अधिकतर पुराने (फटे या ऐसे जिनमें जानकारी स्पष्ट दिख नहीं रही)",
+          "count": 34,
+          "percentage": 8.27
+        }
+      ],
+      "F.3. क्या चार्ट विद्यार्थियों ने बनाए हैं, शिक्षकों ने बनाए हैं, या स्टोर से खरीदे गए हैं?": [
+        {
+          "value": "nan",
+          "count": 326,
+          "percentage": 79.32
+        },
+        {
+          "value": "i.अधिकतर विद्यार्थियों द्वारा बनाए गए",
+          "count": 42,
+          "percentage": 10.22
+        },
+        {
+          "value": "iii.अधिकतर स्टोर से खरीदे गए",
+          "count": 27,
+          "percentage": 6.57
+        },
+        {
+          "value": "ii.अधिकतर शिक्षकों द्वारा बनाया गए",
+          "count": 16,
+          "percentage": 3.89
+        }
+      ],
+      "F.4. प्रासंगिकता - सीखने से संबंध": [
+        {
+          "value": "nan",
+          "count": 326,
+          "percentage": 79.32
+        },
+        {
+          "value": "ii.कक्षा में मौजूद चार्ट/पोस्टर शैक्षणिक विषयों पर हैं, लेकिन कक्षा में शामिल/पढ़ाए नहीं जा रहे हैं।",
+          "count": 44,
+          "percentage": 10.71
+        },
+        {
+          "value": "i.कक्षा में मौजूद चार्ट/पोस्टर प्रासंगिक विषयों पर हैं जिन्हें वर्तमान में कक्षा में शामिल/पढ़ाया जा रहा है।",
+          "count": 27,
+          "percentage": 6.57
+        },
+        {
+          "value": "iii.चार्ट/पोस्टर कक्षा से संबंधित हैं (उदाहरण के लिए कक्षा के नियम/जन्मदिन/समय-सारणी) लेकिन पढ़ाए जा रहे विषयों से प्रासंगिक नहीं हैं।)",
+          "count": 14,
+          "percentage": 3.41
+        }
+      ]
+    },
+    "student_learning_outcomes": {
+      "G.1. पढ़ने के कौशल की जांच: क्या विद्यार्थी धारा प्रवाह के साथ पढ़ पा रहें हैं? (अवलोकनकर्ता किन्ही 3 विद्यार्थियों को हिन्दी की किताब से किसी एक पैराग्राफ- 4-6 लाइन, को पढ़ने को कहेंगे।)": [
+        {
+          "value": "ii.कोई दो विद्यार्थी धाराप्रवाह के साथ पढ़ पा रहें हैं।",
+          "count": 165,
+          "percentage": 40.15
+        },
+        {
+          "value": "i.सभी तीन विद्यार्थी धाराप्रवाह के साथ पढ़ पा रहें हैं।",
+          "count": 133,
+          "percentage": 32.36
+        },
+        {
+          "value": "iii.कोई एक विद्यार्थी धाराप्रवाह के साथ पढ़ पा रहा है।",
+          "count": 98,
+          "percentage": 23.84
+        },
+        {
+          "value": "iv.कोई विद्यार्थी धाराप्रवाह के साथ नहीं पढ़ पा रहा है।",
+          "count": 15,
+          "percentage": 3.65
+        }
+      ],
+      "G.2. क्या विद्यार्थी पढ़कर समझ पा रहें हैं? (विद्यार्थी अपने शब्दों में सार बता पा रहें हैं, कम से कम 70% अंश सही है)": [
+        {
+          "value": "iii.कोई एक विद्यार्थी पढ़े हुए पैराग्राफ का कम से कम 70% समझ पा रहा है।",
+          "count": 136,
+          "percentage": 33.09
+        },
+        {
+          "value": "ii.कोई दो विद्यार्थीपढ़े हुए पैराग्राफ का कम से कम 70% समझ पा रहें हैं।",
+          "count": 115,
+          "percentage": 27.98
+        },
+        {
+          "value": "iv. कोई भी विद्यार्थी पढ़े हुए पैराग्राफ का कम से कम 70% नही समझ पा रहा है।",
+          "count": 92,
+          "percentage": 22.38
+        },
+        {
+          "value": "i.सभी तीन विद्यार्थी पढ़े हुए पैराग्राफ का कम से कम 70% समझ पा रहें हैं।",
+          "count": 68,
+          "percentage": 16.55
+        }
+      ],
+      "G.3. क्या विद्यार्थी लेखन कार्य कर पा रहें हैं? (उन्ही तीन विद्यार्थियों को कम से कम दो लाइन श्रुतलेख करवाया जा सकता है या पढे हुए को अपने शब्दों में लिख सकते हैं।)": [
+        {
+          "value": "ii.किन्ही दो विद्यार्थियों ने बिना किसी त्रुटि के लिखा है।",
+          "count": 144,
+          "percentage": 35.04
+        },
+        {
+          "value": "iii.किसी एक विद्यार्थी ने बिना किसी त्रुटि के लिखा है।",
+          "count": 129,
+          "percentage": 31.39
+        },
+        {
+          "value": "iv.कोई विद्यार्थी नहीं लिख पाया या लेखन में त्रुटि है।",
+          "count": 79,
+          "percentage": 19.22
+        },
+        {
+          "value": "i.सभी तीन विद्यार्थियों ने बिना किसी त्रुटि के लिखा है।",
+          "count": 59,
+          "percentage": 14.36
+        }
+      ]
+    }
+  },
+  "qwen_analysis": {
+    "positive_strengths": "# Analysis of Observer Feedback: Madhya Pradesh Classroom Practices\n\nBased on the provided observer feedback notes, the following analysis identifies key pedagogical strengths, specific examples of implementation, and emerging practices. The data reflects a high level of adherence to active learning methodologies and positive classroom management standards.\n\n### 1. Top 5 Recurring Positive Ped",
+    "scope_areas_for_improvement": "",
+    "professional_development_needs": "# Teacher Professional Development (PD) Needs Analysis Report\n\nBased on the provided feedback from teachers and observers, the following analysis identifies specific training gaps and support requirements. While a significant portion of responses indicated no immediate need (\"No\"), the qualitative requests highlight critical areas for intervention.\n\n## 1. Major Subject-Specific Training Needs\nTeachers are requesting specialized content that goes beyond general pedagogy, specifically addressing subject matter expertise and curriculum alignment.\n\n*   **History (Social Studies):**\n    *   **Strategy Development:** Explicit request for training on how to teach History easily and effectively.\n    *   **Curriculum Alignment:** Need for state-provided lesson plans covering all chapters per subject.\n*   **English Language:**\n    *   **Subject Mismatch Resolution:** Teachers trained in Social Science (MT) are currently teaching English. There is a need for English-specific pedagogy to bridge this gap.\n*   **Sanskrit:**\n    *   **Non-Specialist Support:** Request for specific teaching practices and methodologies for teachers who are not Sanskrit specialists.\n*   **General Language & Content:**\n    *   **Simplification:** Requests to simplify the language in training modules and textbooks to ensure better comprehension.\n\n## 2. Key Pedagogical Training Requirements\nThe feedback emphasizes practical, actionable classroom strategies over theoretical knowledge. Teachers need support on \"how-to\" implementation.\n\n*   **Lesson Planning & Execution:**\n    *   **Pre-made Resources:** High demand for pre-made lesson plans and state-provided chapter-wise plans to reduce preparation burden.\n    *   **Customization:** Requests for lesson plans tailored specifically to the class context (class-appropriate).\n    *   **Instructional Videos:** Need for videos demonstrating how to teach specific lessons and execute lesson plans effectively.\n*   **Activities & Teaching Learning Materials (TLM):**\n    *   **Resource Availability:** Teachers need TLMs provided or guidance on making them (\"If TLM is available, it will help\").\n    *   **Activity Management:** Strategies for conducting group work and field trips, particularly in classes with fewer students.\n    *   **Visual Aids:** Suggestions to use illustrations in workbooks (e.g., \"Upgrade book\") to aid student understanding.\n*   **Inclusion & Assessment:**\n    *   **Multi-Level Classrooms:** Strategies to include children of diverse learning levels within the same class.\n    *   **Reading Techniques:** Specific guidance on read-aloud techniques, question types related to reading, and small-group reading methods.\n    *   **Formative Assessment:** Methods to immediately assess student understanding during lessons.\n*   **Classroom Management:**\n    *   **Rule Setting:** Guidance on establishing classroom rules and building consensus through discussion.\n\n## 3. Systemic Support Needs\nTeachers require structural support that integrates into their daily workflow, including digital tools and mentorship structures.\n\n*   **Digital & Offline Resources:**\n    *   **Offline Video Content:** Request for short, offline videos organized by subject curriculum (to accommodate areas with limited internet).\n    *   **Activity Videos:** Access to videos demonstrating specific classroom activities.\n*   **Mentorship & Guidance:**\n    *   **Regular Feedback:** Need for \"time-to-time guidance\" rather than one-off training sessions.\n    *   **Continuous Training:** Preference for regular, ongoing PD over sporadic events.\n    *   **New Content Suggestions:** A mechanism to suggest new learning materials or updates when they are introduced.\n*   **Material Support:**\n    *   **Illustrated Workbooks:** Integration of illustrations in workbooks to support visual learners.\n    *   **TLM Provision:** Direct provision of Teaching Learning Materials rather than just advice on making them.\n\n## Summary of Sentiment\n*   **Positive Feedback:** Teachers acknowledged the utility of the 5-day General Pedagogy training and expressed willingness to participate in regular sessions.\n*   **Critical Gaps:** The primary friction points are the lack of subject-specific expertise (especially for English teachers trained in Social Science) and the need for ready-to-use resources (lesson plans, TLMs, videos) to reduce workload anxiety.",
+    "executive_synthesis": "# Executive Strategic Summary: MP CPD 2025-26 Classroom Observations\n\n**Date:** October 2025\n**Scope:** Madhya Pradesh Districts (411 Classrooms Observed)\n**Context:** Continuous Professional Development (CPD) Cycle Analysis\n\n---\n\n### 1. Core Strategic Takeaways for MP CPD Project Leadership\n\n*   **Critical Instructional Fidelity Deficit:** The absence of lesson plans in **94.65%** of observed classrooms indicates a systemic breakdown in instructional preparation. This suggests that teaching is occurring in \"survival mode\" rather than structured pedagogy, regardless of teacher presence.\n*   **The Attendance Crisis:** With student attendance at only **52.5%**, the learning ecosystem is fundamentally compromised. Even when teachers are present, nearly half the class is absent, rendering instructional time inefficient and exacerbating learning loss.\n*   **Fluency Without Comprehension:** There is a significant divergence between decoding skills and cognitive understanding. While roughly **72%** of classrooms demonstrate some level of reading fluency (2-3 students), only **45%** achieve high comprehension levels (>70% understanding). This signals a \"Silent Reading\" crisis where students can read words but cannot derive meaning.\n*   **Teacher Preparedness vs. Student Outcomes:** The data reveals that teacher preparedness (Lesson Plans) is not correlating with student performance. In fact, the lack of planning appears to be the primary driver for low comprehension scores, as teachers rely on rote repetition rather than scaffolded inquiry.\n\n### 2. The Paradox: Lesson Planning vs. Actual Classroom Execution\n\n**The \"Improvisation Trap\"**\nThere is a stark paradox between administrative expectations and classroom reality:\n*   **Observation:** 94.65% of classrooms operate without lesson plans.\n*   **Outcome:** ~70% of classrooms still show basic reading fluency among students.\n\n**Analysis:**\nThis suggests that teachers are prioritizing **immediate survival tasks** (getting through the syllabus) over **long-term cognitive development**. The presence of fluency without planning implies that instruction is likely driven by:\n1.  **Rote Memorization:** Students memorize text to pass reading checks without understanding context.\n2.  **Peer Support:** Fluent students may be helping non-fluent peers informally, masking the lack of teacher scaffolding.\n3.  **Low-Barrier Pedagogy:** Teachers are focusing on \"reading aloud\" rather than \"reading to learn.\"\n\n**Strategic Implication:**\nThe absence of lesson plans is not just an administrative error; it is a pedagogical indicator that teachers feel unsupported or overwhelmed, leading them to abandon structured planning in favor of ad-hoc instruction. This directly correlates with the lower comprehension scores (only 16.5% of classrooms have all three students understanding >70%).\n\n### 3. Impact of Teacher Practices on Student Learning Outcomes\n\nThe data indicates that current teacher practices are optimizing for **compliance** rather than **competency**.\n\n| Practice Area | Observation Data | Impact on Learning Outcome |\n| :--- | :--- | :--- |\n| **Lesson Planning** | **94.65% Missing** | Teachers lack a roadmap for scaffolding comprehension. Instruction becomes reactive to time constraints rather than learning objectives. |\n| **Reading Fluency** | **72.5% of classes have 2-3 fluent readers** | Indicates basic decoding skills are being taught (likely through drilling), but this is not translating to deep literacy. |\n| **Comprehension** | **Only 16.5% have all students understanding >70%** | Teacher practices focus on *pronunciation* over *interpretation*. There is a lack of questioning techniques, discussion, or text analysis in the classroom. |\n| **Attendance** | **52.5%** | Chronic absenteeism creates gaps in foundational knowledge that cannot be remediated without structured catch-up plans (which are missing due to no lesson planning). |\n\n**Key Insight:**\nTeacher practices are currently decoupled from cognitive development. Teachers are successfully teaching students *how to read words*, but failing to teach them *what the text means*. This is a critical bottleneck for MP's educational goals.\n\n### 4. Priority Roadmap: Intervention Strategies\n\n#### Phase I: Short-Term (0-3 Months) – Stabilization & Compliance\n*   **Mandatory \"Micro-Planning\" Protocol:** Simplify lesson plan requirements to a 1-page checklist (Learning Objective, Key Question, Activity) rather than full documents. Aim to reduce non-compliance from 94% to <50%.\n*   **Attendance Accountability Loop:** Implement a \"First 15 Minutes\" attendance verification system for teachers and students. Link teacher performance metrics partially to class retention rates.\n*   **Comprehension Drills:** Introduce immediate classroom interventions focused on *Questioning Techniques*. Train teachers to ask open-ended questions during reading sessions rather than just checking pronunciation.\n\n#### Phase II: Long-Term (6-12 Months) – Capacity Building & Culture Shift\n*   **Pedagogical Shift from \"Reading\" to \"Understanding\":** Revise CPD curriculum to focus on *Cognitive Load Theory*. Train teachers on how to scaffold comprehension for struggling readers, moving beyond fluency drills.\n*   **Lesson Plan Digitalization:** Introduce a simple digital tool for lesson planning that auto-generates objectives and activities based on the NCERT/State syllabus, reducing the administrative burden of planning.\n*   **Community Engagement for Attendance:** Launch district-level campaigns to address the root causes of 52.5% attendance (e.g., safety, distance, economic barriers) rather than just blaming absenteeism.\n\n#### Phase III: Sustainability (12+ Months) – Systemic Integration\n*   **Outcome-Based Incentives:** Shift teacher incentives from \"Attendance/Presence\" to \"Student Comprehension Growth.\"\n*   **Peer Observation Networks:** Create clusters of teachers who share best practices on comprehension strategies, reducing the isolation that leads to improvisation.\n\n---\n\n**Executive Recommendation:**\nThe MP CPD Project must pivot immediately from monitoring *presence* (attendance/plans) to monitoring *impact* (comprehension). The current data suggests that without a structural intervention in lesson planning and questioning pedagogy, student literacy will stagnate at the decoding level. **Prioritize Comprehension over Fluency** in the next quarter's training modules."
+  }
+}
