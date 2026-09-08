@@ -1,4 +1,9 @@
-import streamlit as st
+import sys
+import os
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+tabfm_app = '''import streamlit as st
 import pandas as pd
 import numpy as np
 import json
@@ -20,7 +25,7 @@ st.set_page_config(
 
 # Load Logo Base64
 def get_logo_b64():
-    logo_path = r"C:\Users\Peepul\OneDrive - Absolute Return For Kids\HR Dashboard Files\202204_Peepul Logo (1).png"
+    logo_path = r"C:\\Users\\Peepul\\OneDrive - Absolute Return For Kids\\HR Dashboard Files\\202204_Peepul Logo (1).png"
     if os.path.exists(logo_path):
         with open(logo_path, "rb") as f:
             encoded = base64.b64encode(f.read()).decode("utf-8")
@@ -1377,3 +1382,9 @@ st.markdown("""
     <b>Prepared by Ashish</b> | Peepul MP CPD 2025-26 Executive CRO Intelligence Platform (TabFM Engine)
 </div>
 """, unsafe_allow_html=True)
+'''
+
+with open('app.py', 'w', encoding='utf-8') as f:
+    f.write(tabfm_app)
+
+print("app.py successfully updated with dedicated TabFM AI Engine Tab!")
