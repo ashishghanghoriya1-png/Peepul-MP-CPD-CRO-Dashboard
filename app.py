@@ -47,13 +47,13 @@ st.markdown("""
     }
     
     /* Universal Text Node High-Contrast Color Enforcement */
-    .stApp p, .stApp label, .stApp span, .stApp div, .stApp caption, .stApp small {
-        color: #1E293B !important;
+    .stApp p, .stApp label, .stApp span, .stApp caption, .stApp small {
+        color: #1E293B;
         font-weight: 600;
     }
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
-        color: #0F172A !important;
-        font-weight: 800 !important;
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+        color: #0F172A;
+        font-weight: 800;
     }
     
     /* 🎨 ELEGANT MIDNIGHT NAVY SIDEBAR STYLING */
@@ -855,8 +855,8 @@ with tab_story:
 <div style="background:#0F172A; border-radius:14px; padding:22px; margin-bottom:25px; box-shadow:0 8px 30px rgba(15,23,42,0.15);">
 <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1E293B; padding-bottom:12px; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
 <div>
-<h3 style="color:#00F2FE !important; margin:0; font-size:20px; font-weight:800; letter-spacing:0.5px;">📸 AT A GLANCE: CLASSROOM OBSERVATION DATASET STORY</h3>
-<p style="color:#94A3B8 !important; margin:3px 0 0 0; font-size:13px;">Synthesized from 411 sampled primary classrooms across 55 districts in Madhya Pradesh</p>
+<div style="color:#00F2FE !important; margin:0; font-size:20px; font-weight:800; letter-spacing:0.5px;">📸 AT A GLANCE: CLASSROOM OBSERVATION DATASET STORY</div>
+<div style="color:#94A3B8 !important; margin:3px 0 0 0; font-size:13px;">Synthesized from 411 sampled primary classrooms across 55 districts in Madhya Pradesh</div>
 </div>
 <div style="background:rgba(0,242,254,0.1); border:1.5px solid #00F2FE; border-radius:20px; padding:6px 16px; color:#00F2FE !important; font-size:13px; font-weight:800;">
 411 Classrooms Observed
@@ -865,7 +865,7 @@ with tab_story:
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:18px;">
 <div style="background:#1E293B; border-top:5px solid #0284C7; border-radius:10px; padding:18px;">
 <div style="color:#0284C7 !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 1: STUDENT REACH</div>
-<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">🚪 Attendance Gate</h4>
+<div style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">🚪 Attendance Gate</div>
 <div style="font-size:28px; font-weight:800; color:#00F2FE !important;">{h_b['att_rate']}% <span style="font-size:12px; color:#94A3B8;">Present</span></div>
 <div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
 • <b>{present:,} out of {enrolled:,}</b> enrolled students present.<br/>
@@ -874,7 +874,7 @@ with tab_story:
 </div>
 <div style="background:#1E293B; border-top:5px solid #7B2CBF; border-radius:10px; padding:18px;">
 <div style="color:#00F2FE !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 2: PREPARATION</div>
-<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📄 Lesson Plan Gap</h4>
+<div style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📄 Lesson Plan Gap</div>
 <div style="font-size:28px; font-weight:800; color:#FF70A6 !important;">{h_b['lp_pct']}% <span style="font-size:12px; color:#94A3B8;">Observed</span></div>
 <div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
 • <b>76.4% Compliance Disconnect:</b> Survey claimed 80% plan availability, but physical plans were present in only {h_b['lp_pct']}% classrooms ({h_b['align_pct']}% aligned).<br/>
@@ -883,7 +883,7 @@ with tab_story:
 </div>
 <div style="background:#1E293B; border-top:5px solid #FF007F; border-radius:10px; padding:18px;">
 <div style="color:#FF007F !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 3: IN-CLASS PRACTICE</div>
-<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">❓ Active Questioning Gap</h4>
+<div style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">❓ Active Questioning Gap</div>
 <div style="font-size:28px; font-weight:800; color:#FF007F !important;">81.3% <span style="font-size:12px; color:#94A3B8;">Miss CFU</span></div>
 <div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
 • <b>Chorus Calling:</b> 53% of classrooms use chorus answers.<br/>
@@ -893,7 +893,7 @@ with tab_story:
 </div>
 <div style="background:#1E293B; border-top:5px solid #10B981; border-radius:10px; padding:18px;">
 <div style="color:#10B981 !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 4: STUDENT MASTERY</div>
-<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📖 Comprehension Funnel</h4>
+<div style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📖 Comprehension Funnel</div>
 <div style="font-size:28px; font-weight:800; color:#10B981 !important;">{h_b['comp_score']}% <span style="font-size:12px; color:#94A3B8;">Comprehension</span></div>
 <div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
 • <b>Fluency vs Understanding:</b> Fluency is {h_b['fluency_score']}%, but drops to {h_b['comp_score']}% for comprehension.<br/>
