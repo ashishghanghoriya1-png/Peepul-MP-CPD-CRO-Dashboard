@@ -912,11 +912,14 @@ with tab_comp:
 
         st.markdown("""
         <div class="briefing-card">
-            <h4 style="color:#0F172A; margin-top:0;"><b>1. Where the MEL Team Findings Excel (Human Field Strengths):</b></h4>
+            <h4 style="color:#0F172A; margin-top:0;"><b>1. Where the MEL Team Findings Excel (Human Field Observational Strengths):</b></h4>
+            <p>Traditional MEL human observations possess unique qualitative capabilities that no quantitative form or automated algorithm can replace:</p>
             <ul>
-                <li><b>Ground-Truth Reality & Contextual Empathy:</b> Human observers capture subtle classroom dynamics (e.g., physical room heat, rain noise on tin roofs, teacher emotional fatigue, local dialect barriers) that structured form checkboxes miss.</li>
-                <li><b>Authenticity Verification:</b> Human field teams provide ground-truth audit checks to ensure data collector integrity and verify whether written forms accurately reflect real classroom events.</li>
-                <li><b>Qualitative Depth on Edge Cases:</b> Exceptional detail on specific local school situations that fall outside standard statistical categories.</li>
+                <li><b>A. Physical & Environmental Ground Realities:</b> Human observers capture environmental constraints that quantitative form checkboxes omit—such as deafening rain noise on tin roofs during monsoons, extreme classroom heat/ventilation deficits, inadequate seating (students sitting on bare floors), broken blackboards, and single-room multi-grade management (e.g., 1 teacher managing Grades 1–5 simultaneously).</li>
+                <li><b>B. Emotional Dynamics & Teacher-Student Empathy:</b> Human observers detect affective nuances—such as teacher emotional burnout, observation anxiety, non-verbal warmth/encouragement (smiles, nod of approval), and student hesitation or fear of failure due to socio-cultural backgrounds.</li>
+                <li><b>C. Local Dialect & Socio-Linguistic Scaffolding:</b> In many MP districts (e.g., Bundelkhand, Nimar, Malwa, Mahakoshal), teachers actively translate standard Hindi textbook content into local dialects (Bundelkhandi, Nimadi, Malvi, Gondi). Human observers recognize when a child understands a concept in their native dialect, even if they struggle with formal textbook Hindi syntax.</li>
+                <li><b>D. Hawthorne Effect & Authenticity Audit:</b> Human field teams distinguish between genuine daily teaching habits and "staged performance" (e.g., a teacher abruptly pulling out a Lesson Plan or TLM chart only because an observer entered the room).</li>
+                <li><b>E. Grassroots Teacher Innovations & Edge Cases:</b> Human notes capture creative local adaptations—such as a teacher using local stones, leaves, and sticks to teach place value when official state TLM kits are unavailable.</li>
             </ul>
 
             <h4 style="color:#0F172A; margin-top:15px;"><b>2. Where AI Analytics Findings Excel (AI System Strengths):</b></h4>
