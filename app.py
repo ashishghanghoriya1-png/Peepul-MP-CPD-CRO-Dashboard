@@ -382,6 +382,26 @@ st.markdown("""
         background-color: #0F172A !important;
         font-weight: 800 !important;
     }
+    
+    /* Verdict Card Styling (Guaranteed High Contrast) */
+    .verdict-card {
+        background-color: #F0F9FF !important;
+        border: 2.5px solid #0284C7 !important;
+        border-radius: 14px !important;
+        padding: 20px 24px !important;
+        margin-top: 24px !important;
+        box-shadow: 0 4px 15px rgba(2, 132, 199, 0.12) !important;
+    }
+    .verdict-card h4, .verdict-card h4 b, .verdict-card b.verdict-title {
+        color: #0284C7 !important;
+        font-size: 16px !important;
+        font-weight: 900 !important;
+    }
+    .verdict-card p, .verdict-card b, .verdict-card span, .verdict-card li {
+        color: #0F172A !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+    }
 
     /* Footnotes */
     .dashboard-footer {
@@ -966,11 +986,11 @@ with tab_comp:
     <li style="margin-bottom:8px;"><b>Real-Time Interactive Decision Support:</b> Empowers state leaders to filter datasets instantaneously by District, Subject, and Grade.</li>
 </ul>
 
-<div style="color:#00F2FE; margin-top:24px; background-color:#0F172A; padding:16px 20px; border-radius:12px; border:2px solid #00F2FE;">
-    <b style="font-size:15px; color:#00F2FE !important;">🏆 Final Genuine Verdict: The Optimal Human-AI Hybrid Model</b><br/>
-    <p style="font-size:13.5px; font-weight:600; color:#FFFFFF !important; margin-top:8px; margin-bottom:0;">
+<div class="verdict-card" style="background-color:#F0F9FF !important; border:2.5px solid #0284C7 !important; border-radius:14px; padding:20px 24px; margin-top:24px; box-shadow:0 4px 15px rgba(2,132,199,0.12);">
+    <b class="verdict-title" style="font-size:16px !important; color:#0284C7 !important; display:block; margin-bottom:8px;">🏆 Final Genuine Verdict: The Optimal Human-AI Hybrid Model</b>
+    <p style="font-size:13.5px !important; font-weight:600 !important; color:#0F172A !important; line-height:1.6 !important; margin:0 !important;">
         Neither approach is superior in isolation. The MEL Team provides indispensable ground-truth validation and qualitative empathy, while the AI Analytics Engine provides unmatched scale, processing velocity, statistical rigour, and automated strategic decision support. 
-        <b>The state achieves maximum impact by deploying AI Analytics as the primary strategic engine while utilizing MEL teams for targeted ground-truth verification.</b>
+        <b style="color:#0F172A !important; font-weight:800 !important;">The state achieves maximum impact by deploying AI Analytics as the primary strategic engine while utilizing MEL teams for targeted ground-truth verification.</b>
     </p>
 </div>
 </div>""", unsafe_allow_html=True)
