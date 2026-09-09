@@ -942,17 +942,32 @@ with tab_story:
             x='Percentage (%)',
             y='Classroom Indicator',
             orientation='h',
-            color='Percentage (%)',
-            color_continuous_scale=['#FF007F', '#7B2CBF', '#00F2FE', '#10B981'],
+            color='Classroom Indicator',
+            color_discrete_sequence=['#FF007F', '#7B2CBF', '#0284C7', '#3B82F6', '#00F2FE', '#10B981'],
             text='Percentage (%)',
             title="Classroom Execution Indicators (At-a-Glance Summary)"
         )
-        fig_summary_bar.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
+        fig_summary_bar.update_traces(
+            texttemplate='<b>%{text:.1f}%</b>',
+            textposition='outside',
+            textfont=dict(color='#0F172A', size=13.5, family='Segoe UI')
+        )
         fig_summary_bar = apply_systematic_chart_theme(fig_summary_bar, "Classroom Execution Overview")
         fig_summary_bar.update_layout(
-            yaxis=dict(automargin=True, tickfont=dict(color="#0F172A", size=13, family="Segoe UI")),
-            xaxis=dict(automargin=True, tickfont=dict(color="#0F172A", size=13, family="Segoe UI")),
-            margin=dict(l=170, r=50, t=50, b=40)
+            showlegend=False,
+            coloraxis_showscale=False,
+            xaxis=dict(
+                range=[0, 100],
+                automargin=True,
+                title_font=dict(color="#0F172A", size=13),
+                tickfont=dict(color="#0F172A", size=12.5)
+            ),
+            yaxis=dict(
+                automargin=True,
+                title_font=dict(color="#0F172A", size=13),
+                tickfont=dict(color="#0F172A", size=13, family="Segoe UI")
+            ),
+            margin=dict(l=180, r=80, t=50, b=40)
         )
         st.plotly_chart(fig_summary_bar, use_container_width=True)
 
