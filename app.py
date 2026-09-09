@@ -868,8 +868,8 @@ with tab_story:
 <div style="color:#0F172A !important; margin:0; font-size:20px; font-weight:900; letter-spacing:0.3px;">📸 AT A GLANCE: CLASSROOM OBSERVATION DATASET STORY</div>
 <div style="color:#475569 !important; margin:3px 0 0 0; font-size:13.5px; font-weight:600;">Synthesized from 411 sampled primary classrooms across 55 districts in Madhya Pradesh</div>
 </div>
-<div style="background:#0F172A; border-radius:20px; padding:6px 16px; color:#00F2FE !important; font-size:13px; font-weight:800;">
-411 Classrooms Observed
+<div style="background:#0284C7; border-radius:20px; padding:6px 16px; color:#FFFFFF !important; font-size:13px; font-weight:900;">
+<b style="color:#FFFFFF !important;">411 Classrooms Observed</b>
 </div>
 </div>
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:18px;">
