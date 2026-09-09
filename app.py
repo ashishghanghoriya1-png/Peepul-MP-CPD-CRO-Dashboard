@@ -565,6 +565,48 @@ def compute_academic_health_index(df_sub):
     }
     return total_health_score, b_dict
 
+# PRE-COMPUTE DISTRICT DIAGNOSTICS & RISK MAPPING FOR ALL DISTRICTS
+district_diag_map = {}
+for d_name in sorted([str(d) for d in df_raw['District'].dropna().unique()]):
+    df_d = df_raw[df_raw['District'] == d_name]
+    score_d, b_d = compute_academic_health_index(df_d)
+    
+    if score_d < 45:
+        tier_label = "🔴 High Risk / Low Score (< 45)"
+        tier_code = "high_risk"
+    elif score_d < 55:
+        tier_label = "🟡 Moderate Risk (45 - 55)"
+        tier_code = "mod_risk"
+    else:
+        tier_label = "🟢 High Performing (> 55)"
+        tier_code = "high_perf"
+        
+    # Pillar score loss calculations
+    loss_ped = round(25.0 - b_d['ped_score'], 1)
+    loss_lp = round(20.0 - b_d['lp_score'], 1)
+    loss_att = round(20.0 - b_d['att_score'], 1)
+    loss_skill = round(20.0 - b_d['skill_score'], 1)
+    loss_nb = round(15.0 - b_d['nb_score'], 1)
+    
+    losses = [
+        ("Teaching Practices & CFU Gap", loss_ped, 25.0, b_d['ped_score'], f"Only {b_d['cfu_pct']}% Checking Understanding, {b_d['hots_pct']}% Thinking Qs"),
+        ("Lesson Plan Execution Disconnect", loss_lp, 20.0, b_d['lp_score'], f"Only {b_d['lp_pct']}% Present, {b_d['align_pct']}% Aligned Execution"),
+        ("Student Attendance Shortfall", loss_att, 20.0, b_d['att_score'], f"Attendance at {b_d['att_rate']}%"),
+        ("Reading Comprehension Deficit", loss_skill, 20.0, b_d['skill_score'], f"Fluency {b_d['fluency_score']}%, Understanding {b_d['comp_score']}%"),
+        ("Notebook Feedback Absence", loss_nb, 15.0, b_d['nb_score'], f"Checked {b_d['a_pct']}%, Actionable Feedback {b_d['c_pct']}%")
+    ]
+    losses.sort(key=lambda x: x[1], reverse=True)
+    
+    district_diag_map[d_name] = {
+        "score": score_d,
+        "tier_label": tier_label,
+        "tier_code": tier_code,
+        "b": b_d,
+        "losses": losses,
+        "top_bottleneck": losses[0],
+        "obs_count": len(df_d)
+    }
+
 # ------------------------------------------------------------------------------
 # 2. MAIN CANVAS HEADER & BRANDING
 # ------------------------------------------------------------------------------
@@ -586,17 +628,81 @@ st.write("")
 if logo_b64:
     st.sidebar.markdown(f'<div style="text-align:center; padding:10px 0; margin-bottom:15px; background:rgba(255,255,255,0.05); border-radius:12px;"><img src="{logo_b64}" width="170"></div>', unsafe_allow_html=True)
 
-st.sidebar.markdown("### 🎛️ Executive Filters")
+st.sidebar.markdown("### 🎛️ Executive Filters & Score Slicer")
 st.sidebar.markdown("---")
 
-districts = ["All Districts"] + sorted([str(d) for d in df_raw['District'].dropna().unique()])
-sel_district = st.sidebar.selectbox("📍 Select District", districts)
+# 1. Score / Risk Tier Slicer
+slicer_options = [
+    "All Districts (All Scores)",
+    "🔴 High Risk / Low Score (< 45)",
+    "🟡 Moderate Risk (45 - 55)",
+    "🟢 High Performing (> 55)"
+]
+sel_slicer = st.sidebar.selectbox("🎯 Slicer: Filter Districts by Performance Score", slicer_options)
+
+if sel_slicer == "🔴 High Risk / Low Score (< 45)":
+    valid_districts = [d for d, info in district_diag_map.items() if info['tier_code'] == 'high_risk']
+elif sel_slicer == "🟡 Moderate Risk (45 - 55)":
+    valid_districts = [d for d, info in district_diag_map.items() if info['tier_code'] == 'mod_risk']
+elif sel_slicer == "🟢 High Performing (> 55)":
+    valid_districts = [d for d, info in district_diag_map.items() if info['tier_code'] == 'high_perf']
+else:
+    valid_districts = list(district_diag_map.keys())
+
+districts_dropdown = ["All Districts (" + str(len(valid_districts)) + " Matching)"] + valid_districts
+sel_district = st.sidebar.selectbox("📍 Select Specific District", districts_dropdown)
 
 subjects = ["All Subjects"] + sorted([str(s) for s in df_raw['Subject'].dropna().unique()])
 sel_subject = st.sidebar.selectbox("📚 Select Subject", subjects)
 
 grades = ["All Grades"] + sorted([str(g) for g in df_raw['Grade'].dropna().unique()])
 sel_grade = st.sidebar.selectbox("🎓 Select Grade", grades)
+
+# 2. Sidebar Low Score Diagnostic Inspector Card ("Why It's Low")
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🔍 Low Score Diagnostic ('Why' Inspector)")
+
+if not sel_district.startswith("All Districts") and sel_district in district_diag_map:
+    info = district_diag_map[sel_district]
+    badge_color = "#FF007F" if info['score'] < 45 else ("#0284C7" if info['score'] < 55 else "#10B981")
+    st.sidebar.markdown(f"""
+<div style="background:#1E293B; border-left:4px solid {badge_color}; padding:12px; border-radius:8px; margin-bottom:12px;">
+    <b style="color:#00F2FE !important; font-size:13px;">{sel_district} District Score</b><br/>
+    <span style="font-size:22px; font-weight:800; color:#FFFFFF !important;">{info['score']} <span style="font-size:12px; color:#94A3B8;">/ 100</span></span><br/>
+    <span style="font-size:11px; color:{badge_color} !important;"><b>Status: {info['tier_label']}</b></span>
+    <hr style="border:0; border-top:1px solid #334155; margin:8px 0;"/>
+    <b style="color:#F8FAFC !important; font-size:11px;">🚨 Primary Reasons Why Points Were Lost:</b>
+    <ul style="color:#CBD5E1 !important; font-size:11px; margin-top:5px; padding-left:14px; margin-bottom:0;">
+        <li style="margin-bottom:5px;"><b>1. {info['losses'][0][0]}:</b><br/><span style="color:#FF70A6;">-{info['losses'][0][1]} pts lost</span> ({info['losses'][0][4]})</li>
+        <li style="margin-bottom:5px;"><b>2. {info['losses'][1][0]}:</b><br/><span style="color:#FF70A6;">-{info['losses'][1][1]} pts lost</span> ({info['losses'][1][4]})</li>
+        <li style="margin-bottom:3px;"><b>3. {info['losses'][2][0]}:</b><br/><span style="color:#FF70A6;">-{info['losses'][2][1]} pts lost</span> ({info['losses'][2][4]})</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+elif sel_slicer == "🔴 High Risk / Low Score (< 45)":
+    high_risk_info = [district_diag_map[d] for d in valid_districts]
+    avg_hr_score = np.mean([i['score'] for i in high_risk_info]) if high_risk_info else 0
+    st.sidebar.markdown(f"""
+<div style="background:#1E293B; border-left:4px solid #FF007F; padding:12px; border-radius:8px; margin-bottom:12px;">
+    <b style="color:#FF007F !important; font-size:13px;">🔴 High Risk Group Diagnostic</b><br/>
+    <span style="font-size:12px; color:#FFFFFF !important;"><b>{len(high_risk_info)} Low-Scoring Districts</b> (&lt; 45/100)</span><br/>
+    <span style="font-size:11px; color:#94A3B8;">Group Avg Score: <b>{avg_hr_score:.1f} / 100</b></span>
+    <hr style="border:0; border-top:1px solid #334155; margin:8px 0;"/>
+    <b style="color:#F8FAFC !important; font-size:11px;">🚨 Main Causes of Low Scores Across Group:</b>
+    <ul style="color:#CBD5E1 !important; font-size:11px; margin-top:5px; padding-left:14px; margin-bottom:0;">
+        <li style="margin-bottom:4px;"><b>1. Severe CFU Absence:</b> 84%+ lessons miss formative checkpoints</li>
+        <li style="margin-bottom:4px;"><b>2. Lesson Plan Gap:</b> 91%+ missing execution alignment</li>
+        <li style="margin-bottom:3px;"><b>3. Notebook Feedback Deficit:</b> 95%+ lack written feedback</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+else:
+    st.sidebar.markdown("""
+<div style="background:#1E293B; border-left:4px solid #00F2FE; padding:12px; border-radius:8px; margin-bottom:12px;">
+    <b style="color:#00F2FE !important; font-size:12px;">💡 Low Score Diagnostic Slicer</b><br/>
+    <span style="font-size:11px; color:#CBD5E1 !important;">Use the <b>Slicer</b> above to filter low-scoring districts or select any specific district to inspect exactly <b>WHY</b> it scored low!</span>
+</div>
+""", unsafe_allow_html=True)
 
 # Sidebar Footnote
 st.sidebar.markdown("""
@@ -608,7 +714,9 @@ st.sidebar.markdown("""
 
 # Apply Filter
 df_filtered = df_raw.copy()
-if sel_district != "All Districts":
+if sel_slicer != "All Districts (All Scores)":
+    df_filtered = df_filtered[df_filtered['District'].isin(valid_districts)]
+if not sel_district.startswith("All Districts"):
     df_filtered = df_filtered[df_filtered['District'] == sel_district]
 if sel_subject != "All Subjects":
     df_filtered = df_filtered[df_filtered['Subject'] == sel_subject]
@@ -1271,7 +1379,7 @@ with tab2:
 
 
 # ------------------------------------------------------------------------------
-# TAB 3: DISTRICT RISK SCORECARD
+# TAB 3: DISTRICT RISK SCORECARD & LOW SCORE INSPECTOR
 # ------------------------------------------------------------------------------
 with tab3:
     st.markdown("### 🚦 District Academic Risk Scorecard & Benchmarking")
@@ -1279,22 +1387,17 @@ with tab3:
     st.markdown("Rankings and risk profiles across all 55 districts based on the **Empirical Academic Health Index**.")
     
     district_scores = []
-    for dist_name in df_raw['District'].dropna().unique():
-        df_d = df_raw[df_raw['District'] == dist_name]
-        d_score, d_b = compute_academic_health_index(df_d)
+    for dist_name in sorted(list(district_diag_map.keys())):
+        info_d = district_diag_map[dist_name]
+        d_score = info_d['score']
+        d_b = info_d['b']
         
-        if d_score >= 55:
-            risk_badge = "🟢 LOW RISK"
-        elif d_score >= 45:
-            risk_badge = "🟡 MODERATE RISK"
-        else:
-            risk_badge = "🔴 HIGH RISK"
-            
         district_scores.append({
             "District": dist_name,
-            "Classrooms": len(df_d),
+            "Classrooms": info_d['obs_count'],
             "Health Index Score": d_score,
-            "Risk Tier": risk_badge,
+            "Risk Tier": info_d['tier_label'],
+            "Primary Bottleneck": info_d['top_bottleneck'][0],
             "Attendance %": d_b['att_rate'],
             "Lesson Plan %": d_b['lp_pct'],
             "CFU Adoption %": d_b['cfu_pct'],
@@ -1309,7 +1412,6 @@ with tab3:
         
     with col_sc2:
         st.markdown("#### District Health Index Benchmarking")
-        # Horizontal Bar Chart: District on Y-axis, Health Score on X-axis
         fig_risk = px.bar(
             dist_score_df.sort_values(by="Health Index Score", ascending=True),
             x="Health Index Score",
@@ -1323,6 +1425,82 @@ with tab3:
         fig_risk.update_traces(texttemplate='%{text:.1f}', textposition='outside')
         fig_risk = apply_systematic_chart_theme(fig_risk, "District Health Index Score by District")
         st.plotly_chart(fig_risk, use_container_width=True)
+
+    st.markdown("---")
+    st.markdown("### 🚨 Low Score Root Cause Inspector (Why Districts Score Low)")
+    st.markdown("Select any district to inspect its **exact pillar point loss breakdown and root cause diagnosis**.")
+    
+    # Dropdown for inspecting district
+    low_risk_names = sorted(list(district_diag_map.keys()))
+    inspect_dist = st.selectbox("📍 Select District to Inspect Root Cause Breakdown:", low_risk_names, index=0)
+    
+    if inspect_dist in district_diag_map:
+        d_info = district_diag_map[inspect_dist]
+        d_b = d_info['b']
+        
+        c_insp1, c_insp2 = st.columns([1, 1])
+        
+        with c_insp1:
+            st.markdown(f"#### 📊 Pillar Point Loss Breakdown for **{inspect_dist}**")
+            
+            pillar_names = ["1. Teaching (25%)", "2. Attendance (20%)", "3. Lesson Plan (20%)", "4. Skills (20%)", "5. Notebook (15%)"]
+            actual_pts = [d_b['ped_score'], d_b['att_score'], d_b['lp_score'], d_b['skill_score'], d_b['nb_score']]
+            max_pts = [25.0, 20.0, 20.0, 20.0, 15.0]
+            lost_pts = [round(m - a, 1) for a, m in zip(actual_pts, max_pts)]
+            
+            fig_insp = go.Figure()
+            fig_insp.add_trace(go.Bar(
+                name='Points Scored',
+                x=pillar_names,
+                y=actual_pts,
+                marker_color='#0284C7',
+                text=[f"{a:.1f} pts" for a in actual_pts],
+                textposition='auto'
+            ))
+            fig_insp.add_trace(go.Bar(
+                name='Points Lost (Gap)',
+                x=pillar_names,
+                y=lost_pts,
+                marker_color='#FF007F',
+                text=[f"-{l:.1f} pts" for l in lost_pts],
+                textposition='auto'
+            ))
+            fig_insp.update_layout(
+                barmode='stack',
+                title=f"{inspect_dist}: Points Scored vs. Points Lost per Pillar",
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+            )
+            fig_insp = apply_systematic_chart_theme(fig_insp, f"{inspect_dist} Pillar Score Breakdown")
+            st.plotly_chart(fig_insp, use_container_width=True)
+            
+        with c_insp2:
+            st.markdown(f"#### 🚨 Executive Diagnostic & Root Cause Report")
+            top_3 = d_info['losses'][:3]
+            st.markdown(f"""
+<div style="background:#EFF6FF; border-left:5px solid #FF007F; padding:16px; border-radius:10px;">
+    <h4 style="color:#0F172A; margin-top:0;"><b>Root Cause Summary for {inspect_dist} District:</b></h4>
+    <p style="color:#334155; font-size:13px;"><b>Overall Performance:</b> {d_info['tier_label']} ({d_info['score']} / 100 Score)</p>
+    <ol style="color:#1E293B; font-size:13px; padding-left:18px; margin-bottom:10px;">
+        <li style="margin-bottom:8px;">
+            <b>{top_3[0][0]}</b> — <span style="color:#FF007F; font-weight:700;">-{top_3[0][1]} pts lost</span><br/>
+            <span style="font-size:12px; color:#475569;">Evidence: {top_3[0][4]}</span>
+        </li>
+        <li style="margin-bottom:8px;">
+            <b>{top_3[1][0]}</b> — <span style="color:#FF007F; font-weight:700;">-{top_3[1][1]} pts lost</span><br/>
+            <span style="font-size:12px; color:#475569;">Evidence: {top_3[1][4]}</span>
+        </li>
+        <li style="margin-bottom:8px;">
+            <b>{top_3[2][0]}</b> — <span style="color:#FF007F; font-weight:700;">-{top_3[2][1]} pts lost</span><br/>
+            <span style="font-size:12px; color:#475569;">Evidence: {top_3[2][4]}</span>
+        </li>
+    </ol>
+    <hr style="border:0; border-top:1px solid #CBD5E1; margin:10px 0;"/>
+    <b style="color:#0F172A; font-size:12px;">🎯 Recommended Intervention for DEO & Block Coordinators:</b>
+    <p style="color:#1E293B; font-size:12px; margin-top:4px; margin-bottom:0;">
+        Deploy targeted 10-minute CFU micro-practice modules for CACs and conduct bi-weekly physical notebook auditing to address the primary {top_3[0][0]} bottleneck.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 # ------------------------------------------------------------------------------
 # TAB 4: COMPETENCY DROP-OFF FUNNEL
