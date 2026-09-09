@@ -394,6 +394,34 @@ def load_data():
 
 df_raw, tables, qwen_analysis, qual_analysis = load_data()
 
+# Label Cleaning Helper for Human-Readable Charts
+import re
+
+def clean_label(val):
+    if not isinstance(val, str):
+        return str(val)
+    v = val.strip()
+    label_map = {
+        '1. हाँ, केवल बंद अंत (close ended - LOTS) वाले प्रश्न': 'Closed Recall (LOTS)',
+        '2. हाँ, केवल खुले (Open-ended - HOTS) वाले प्रश्न': 'Open Reasoning (HOTS)',
+        '3. हाँ, मिश्रित प्रश्न (open + closed both)': 'Mixed Questions (Open & Closed)',
+        '4. नहीं, कोई प्रश्न नहीं पूछा गया': 'No Questions Asked',
+        '1. हाथ उठाना / थम्स अप': 'Basic (Thumbs-Up / Hand Raise)',
+        '2. व्यक्तिगत प्रश्नों द्वारा समझ की जांच (Exit Ticket)': 'Individual CFU Check (Exit Tickets)',
+        '3. कोई जांच नहीं (chorus yes/no response)': 'No CFU Check (Chorus Yes/No)',
+        '1. नियमित रूप से और बिना देरी के जांची जाती है': 'Regular Checking (No Delay)',
+        '2. कभी-कभी अनियमित रूप से जांची जाती है': 'Irregular Checking',
+        '3. कभी नहीं जांची जाती': 'Never Checked',
+        'i.हाँ': 'Lesson Plan Available',
+        'ii.नहीं': 'No Lesson Plan',
+        'i. हाँ (सभी तीन कार्य सही किए हैं)': 'Full Mastery (All 3 Tasks)',
+        'ii. आंशिक (1-2 कार्य सही किए हैं)': 'Partial Mastery (1-2 Tasks)',
+        'iii. नहीं (कोई कार्य सही नहीं किया)': 'No Mastery (0 Tasks)'
+    }
+    if v in label_map:
+        return label_map[v]
+    return re.sub(r'^[0-9ivxIVX]+\.\s*', '', v)
+
 # DYNAMIC EMPIRICAL ACADEMIC HEALTH INDEX CALCULATION
 def get_col(df_in, prefix):
     matches = [c for c in df_in.columns if str(c).startswith(prefix)]
@@ -1308,9 +1336,9 @@ with tab5:
                 <div class="health-hero-status" style="color:#10B981;">🟢 HIGH ROI IMPACT</div>
             </div>
             <div class="health-hero-details">
-                <b>Target Cohort:</b> {{teacher_cohort:,}} Teachers<br>
-                <b>Cost / Teacher:</b> ₹{{est_cost_per_teacher:,}} / year<br>
-                <b>Est. Total Program Budget:</b> ₹{{tot_budget:,}}
+                <b>Target Cohort:</b> {teacher_cohort:,} Teachers<br>
+                <b>Cost / Teacher:</b> ₹{est_cost_per_teacher:,} / year<br>
+                <b>Est. Total Program Budget:</b> ₹{tot_budget:,}
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1476,7 +1504,7 @@ with tab7:
         st.markdown("#### Cognitive Depth of Questions (LOTS vs HOTS)")
         q31 = get_col(df_filtered, '3.1.')
         if q31 in df_filtered:
-            q31_df = df_filtered[q31].value_counts().reset_index()
+            q31_df = df_filtered[q31].dropna().apply(clean_label).value_counts().reset_index()
             q31_df.columns = ['Question Type', 'Count']
             fig_q31 = px.bar(q31_df, x='Count', y='Question Type', orientation='h',
                              color='Question Type', color_discrete_sequence=['#FF007F', '#7B2CBF', '#00F2FE'],
@@ -1527,7 +1555,7 @@ with tab7:
         st.markdown("#### CFU Formative Assessment Techniques")
         q4 = get_col(df_filtered, '4.')
         if q4 in df_filtered:
-            q4_df = df_filtered[q4].value_counts().reset_index()
+            q4_df = df_filtered[q4].dropna().apply(clean_label).value_counts().reset_index()
             q4_df.columns = ['CFU Method', 'Count']
             fig_q4 = px.pie(q4_df, names='CFU Method', values='Count', hole=0.4,
                             color_discrete_sequence=['#00F2FE', '#3B82F6', '#7B2CBF', '#10B981'])
