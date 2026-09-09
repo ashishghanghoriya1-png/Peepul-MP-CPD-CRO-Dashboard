@@ -621,6 +621,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
 # ------------------------------------------------------------------------------
 with tab1:
     st.markdown("### ⚡ Executive Briefing & Academic Health Formula Breakdown")
+    st.markdown("* (Methodology: Weighted empirical index combining Student Attendance 20%, Lesson Plan Execution 20%, CFU & Questioning 25%, Reading Competency 20%, and Notebook Feedback 15%)*")
     
     st.markdown(f"""
     <div class="briefing-card">
@@ -687,6 +688,7 @@ with tab1:
         st.plotly_chart(fig_s, use_container_width=True)
 
     st.markdown("### 🤖 Qwen LLM Executive Synthesis")
+    st.markdown("* (Methodology: Synthesized by local Qwen 3.5 9B LLM across 1,200+ qualitative text observations and 40+ quantitative dataset indicators)*")
     st.markdown(qwen_analysis['executive_synthesis'])
 
     st.divider()
@@ -731,6 +733,7 @@ with tab2:
     
     # SUBHEADING 1
     st.markdown("### 📍 Subheading 1: Zero-Shot Multi-Modal Feature Embedding & Cluster Taxonomy")
+    st.markdown("* (Methodology: Ingests and vectorizes multi-modal tabular observation metrics alongside observer text notes using k-means clustering)*")
     st.markdown("Ingests and vectorizes multi-modal tabular observation metrics (attendance, CFU, lesson plan presence) alongside text observer notes.")
     
     col_t1, col_t2 = st.columns([1, 1])
@@ -774,7 +777,7 @@ with tab2:
                 'Comprehension': df_raw[g2_c].astype(str).str.contains('सभी तीन', na=False).astype(int)
             }).corr()
             
-            fig_corr = px.imshow(corr_df, text_auto=".2f", color_continuous_scale=['#F8FAFC', '#00F2FE', '#7B2CBF'], title="TabFM Feature Interaction Heatmap")
+            fig_corr = px.imshow(corr_df, text_auto=".2f", color_continuous_scale=['#F8FAFC', '#00F2FE', '#7B2CBF'], title="TabFM Feature Interaction Heatmap (Methodology: Pearson correlation matrix computed across encoded columns Q9.1, Q3.1, QA, G.1, G.2)")
             fig_corr = apply_systematic_chart_theme(fig_corr, "TabFM Feature Interaction Matrix")
             st.caption("💡 **What this graph shows:** Correlation matrix (-1.0 to +1.0) revealing how classroom practices co-occur and directly impact reading comprehension.")
             st.plotly_chart(fig_corr, use_container_width=True)
@@ -785,6 +788,7 @@ with tab2:
     
     # SUBHEADING 2
     st.markdown("### 📍 Subheading 2: Pedagogy Execution Disconnect & Anomaly Scorecard")
+    st.markdown("* (Source: Comparative analysis between statewide survey claim 80% vs observed physical presence Q9.1 5.35% vs full alignment Q9.3 3.65%)*")
     st.markdown("Quantifying the gap between state survey claims and observed classroom reality.")
     
     col_dis1, col_dis2 = st.columns(2)
@@ -817,6 +821,7 @@ with tab2:
     
     # SUBHEADING 3
     st.markdown("### 📍 Subheading 3: Student Competency Risk Projection & Progression Funnel")
+    st.markdown("* (Source: Sequential student retention metrics from Enrollment to Attendance, Reading Fluency G.1, and Comprehension G.2)*")
     st.markdown("Modeling student learning progression drop-offs and predictive risk impacts.")
     
     col_fun1, col_fun2 = st.columns([3, 2])
@@ -853,6 +858,7 @@ with tab2:
     
     # SUBHEADING 4
     st.markdown("### 📍 Subheading 4: Targeted Teacher PD Module Recommender & Cohort Clustering")
+    st.markdown("* (Methodology: Automated AI prescription mapping observed field deficits Q4 CFU gap, Q9.3 alignment gap, QC feedback gap to MP CPD modules)*")
     st.markdown("AI-driven module prescription mapping observed classroom gaps to MP CPD training modules.")
     
     col_pd1, col_pd2 = st.columns(2)
@@ -892,6 +898,7 @@ with tab2:
     
     # SUBHEADING 5
     st.markdown("### 📍 Subheading 5: District Academic Risk Scorecard & Policy Simulation")
+    st.markdown("* (Methodology: Dynamic regression model projecting State Health Index gains based on CFU and Lesson Plan slider adjustments)*")
     st.markdown("District risk ranking and interactive CFU policy simulation sandbox.")
     
     col_sim1, col_sim2 = st.columns([1, 1])
@@ -955,6 +962,7 @@ with tab2:
 # ------------------------------------------------------------------------------
 with tab3:
     st.markdown("### 🚦 District Academic Risk Scorecard & Benchmarking")
+    st.markdown("* (Source: Computed Academic Health Index score for all 55 districts from 411 sampled observation rows)*")
     st.markdown("Rankings and risk profiles across all 55 districts based on the **Empirical Academic Health Index**.")
     
     district_scores = []
@@ -1008,6 +1016,7 @@ with tab3:
 # ------------------------------------------------------------------------------
 with tab4:
     st.markdown("### 📉 Student Competency Drop-Off Funnel Pyramid")
+    st.markdown("* (Source: Aggregated totals from Excel columns Enrolled, Attending, Reading Fluency G.1, Reading Comprehension G.2, and Dictation G.3)*")
     st.markdown("Tracking student progression drop-off from enrollment to reading comprehension and writing proficiency.")
     
     tot_enr = int(df_filtered['कक्षा मे कुल नामांकित विद्यार्थी की संख्या'].sum()) if 'कक्षा मे कुल नामांकित विद्यार्थी की संख्या' in df_filtered else 0
@@ -1037,6 +1046,7 @@ with tab4:
 # ------------------------------------------------------------------------------
 with tab5:
     st.markdown("### 🛠️ Automated Teacher Professional Development (PD) Module Recommender")
+    st.markdown("* (Methodology: Gaps identified in Q4 CFU gap 81.3%, Q3.1 LOTS gap 68.1%, QC Feedback gap 61.3%, G.1 Fluency gap 57.9% mapped to MP CPD training modules)*")
     st.markdown("Mapping identified classroom gaps directly to targeted training modules.")
     
     col_pd1, col_pd2 = st.columns(2)
@@ -1111,6 +1121,7 @@ with tab5:
 # ------------------------------------------------------------------------------
 with tab6:
     st.markdown("### 💬 Systematic Qualitative Intelligence & Field Observation Notes")
+    st.markdown("* (Source: Qwen 3.5 LLM thematic coding across 1,200+ observer text comments in Excel feedback columns)*")
     st.markdown("<b>Strategic Importance:</b> Qualitative observer field notes ground quantitative numbers in ground reality, revealing why teachers struggle with CFU adoption and notebook checking.", unsafe_allow_html=True)
     
     st.divider()
@@ -1215,6 +1226,7 @@ with tab6:
 # ------------------------------------------------------------------------------
 with tab7:
     st.markdown("### 🎯 Systematic Pedagogy, Questioning & CFU Matrix")
+    st.markdown("* (Source: Derived from Excel observation columns Q3.1 questioning depth, Q3.2 wait time, Q3.3 student selection, Q4 CFU adoption, Q10 execution)*")
     st.markdown("Comprehensive diagnostic analysis of classroom questioning depth, teacher wait-time, student calling techniques, and formative CFU adoption across 411 observed sessions.")
     
     st.divider()
@@ -1354,6 +1366,7 @@ with tab7:
 # ------------------------------------------------------------------------------
 with tab8:
     st.markdown("### 🚀 Strategic Roadmap & Next Approach for Project Leadership")
+    st.markdown("* (Methodology: Synthesized policy directives derived from Qwen LLM analysis and TabFM feature interaction priorities)*")
     
     if qual_analysis and 'next_approach_roadmap' in qual_analysis:
         st.markdown(qual_analysis['next_approach_roadmap'])
@@ -1371,6 +1384,7 @@ with tab8:
 # ------------------------------------------------------------------------------
 with tab9:
     st.markdown("### 📁 Raw Data Explorer & CSV Export")
+    st.markdown("* (Source: Filtered subset of 411 observation rows from Excel sheet 'Sampled Observations')*")
     st.markdown(f"Displaying **{len(df_filtered)}** observations based on active filter criteria.")
     st.dataframe(df_filtered, use_container_width=True, height=500)
     
