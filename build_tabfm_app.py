@@ -891,9 +891,10 @@ with tab_story:
 <div style="color:#7B2CBF !important; font-size:11.5px; font-weight:900; letter-spacing:0.5px;">CHAPTER 2: PREPARATION</div>
 <div style="color:#0F172A !important; font-size:17px; margin:6px 0 10px 0; font-weight:900;">📄 Lesson Plan Gap</div>
 <div style="font-size:28px; font-weight:900; color:#7B2CBF !important;">{h_b['lp_pct']}% <span style="font-size:13px; color:#475569;">Observed</span></div>
-<div style="color:#1E293B !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
+<div style="color:#1E293B !important; font-size:12px; margin-top:8px; line-height:1.5;">
 • <b>76.4% Compliance Disconnect:</b> Survey claimed 80% plan availability, but physical plans were present in only {h_b['lp_pct']}% classrooms ({h_b['align_pct']}% aligned).<br/>
-• Teaching remains largely ad-hoc.
+• <b>Root Cause:</b> Ad-hoc teaching causes 81.3% CFU skip & 46.2% comprehension.<br/>
+• <b>CPD Shift:</b> Provide simplified, pre-printed Teacher Guides (TGs).
 </div>
 </div>
 <div style="background:#FFFFFF; border:1.5px solid #CBD5E1; border-top:5px solid #FF007F; border-radius:10px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
@@ -1431,6 +1432,17 @@ with tab2:
         fig_align = apply_systematic_chart_theme(fig_align, "Survey Expectation vs Observed Lesson Plan Execution")
         st.caption("💡 **What this graph shows:** Gap between state survey expectation (80%) vs actual physical lesson plan presence (5.4%) and teaching alignment (3.6%).")
         st.plotly_chart(fig_align, use_container_width=True)
+        st.markdown("""
+<div style="background:#F8FAFC; border:1.5px solid #CBD5E1; border-left:5px solid #7B2CBF; border-radius:10px; padding:14px; margin-top:10px;">
+    <div style="color:#7B2CBF !important; font-size:13px; font-weight:900; margin-bottom:6px;">💡 WHY IS THE LESSON PLAN GAP RELEVANT?</div>
+    <ul style="color:#1E293B !important; font-size:12px; line-height:1.6; margin:0; padding-left:16px;">
+        <li><b>76.4% Compliance Disconnect:</b> Administrative survey claimed 80% plan availability, but observers found physical plans in only <b>5.4%</b> of classrooms (<b>3.6%</b> aligned). Teaching remains largely ad-hoc.</li>
+        <li><b>Root Cause of Downstream Failures:</b> Skipping structured <i>'I Do – We Do – You Do'</i> steps leads directly to <b>81.3%</b> missing CFU and low student comprehension (46.2%).</li>
+        <li><b>Actionable CPD Shift:</b> Low adoption indicates complex planning templates. Training (CPD) must pivot to providing <b>simplified, pre-printed Teacher Guides (TGs)</b>.</li>
+        <li><b>Monitoring Re-orientation:</b> Shift mentor/BAC observation focus from paper log verification to live classroom practice support.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
         
     with col_dis2:
         st.markdown("#### Main Teaching Gaps")
