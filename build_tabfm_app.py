@@ -630,23 +630,23 @@ tot_obs = len(df_filtered)
 enrolled = int(df_filtered['कक्षा मे कुल नामांकित विद्यार्थी की संख्या'].sum()) if 'कक्षा मे कुल नामांकित विद्यार्थी की संख्या' in df_filtered else 0
 present = int(df_filtered['कक्षा मे कुल उपस्थित विद्यार्थी की संख्या'].sum()) if 'कक्षा मे कुल उपस्थित विद्यार्थी की संख्या' in df_filtered else 0
 
-status_text = "MODERATE ACADEMIC HEALTH • EXECUTION GAP IDENTIFIED" if health_score < 60 else "STRONG ACADEMIC HEALTH"
+status_text = "MODERATE PERFORMANCE • TEACHING GAP IDENTIFIED" if health_score < 60 else "STRONG PERFORMANCE"
 status_color = "#0284C7" if health_score >= 50 else "#FF007F"
 
 # Hero Banner
 st.markdown(f"""
 <div class="health-hero-card">
     <div>
-        <div class="health-hero-title">ACADEMIC HEALTH INDEX (MP CPD 2025-26)</div>
+        <div class="health-hero-title">STATE SCHOOL PERFORMANCE SCORE</div>
         <div class="health-hero-val">{health_score} <span class="health-hero-val-sub">/ 100</span></div>
         <div class="health-hero-status" style="color:{status_color};">{status_text}</div>
     </div>
     <div class="health-hero-details">
-        <b>Attendance Score (20%):</b> {h_b['att_score']} pts ({h_b['att_rate']}%)<br/>
-        <b>Lesson Plan Score (20%):</b> {h_b['lp_score']} pts ({h_b['lp_pct']}% Present, {h_b['align_pct']}% Full Alignment)<br/>
-        <b>Pedagogy Score (25%):</b> {h_b['ped_score']} pts ({h_b['cfu_pct']}% CFU, {h_b['hots_pct']}% Mixed/Open Q)<br/>
-        <b>Student Skills (20%):</b> {h_b['skill_score']} pts (Fluency: {h_b['fluency_score']}%, Comp: {h_b['comp_score']}%)<br/>
-        <b>Notebook Check (15%):</b> {h_b['nb_score']} pts ({h_b['a_pct']}% Checked, {h_b['c_pct']}% Feedback)
+        <b>Attendance Score (20% Weight):</b> {h_b['att_score']} pts ({h_b['att_rate']}%)<br/>
+        <b>Lesson Plan Score (20% Weight):</b> {h_b['lp_score']} pts ({h_b['lp_pct']}% Present, {h_b['align_pct']}% Aligned)<br/>
+        <b>Teaching Practice Score (25% Weight):</b> {h_b['ped_score']} pts ({h_b['cfu_pct']}% Checking Understanding, {h_b['hots_pct']}% Thinking Questions)<br/>
+        <b>Student Skills (20% Weight):</b> {h_b['skill_score']} pts (Fluency: {h_b['fluency_score']}%, Understanding: {h_b['comp_score']}%)<br/>
+        <b>Notebook Checking (15% Weight):</b> {h_b['nb_score']} pts ({h_b['a_pct']}% Checked, {h_b['c_pct']}% Feedback)
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -659,7 +659,7 @@ with m1:
     <div class="metric-card">
         <div class="metric-title">CLASSROOMS OBSERVED</div>
         <div class="metric-value">{tot_obs:,}</div>
-        <div class="metric-subtitle">Sampled Observations</div>
+        <div class="metric-subtitle">Sampled Classrooms</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -684,18 +684,18 @@ with m3:
 with m4:
     st.markdown(f"""
     <div class="metric-card-alert">
-        <div class="metric-title">OPEN QUESTIONING %</div>
+        <div class="metric-title">THINKING QUESTIONS %</div>
         <div class="metric-value">{h_b['hots_pct']}%</div>
-        <div class="metric-subtitle" style="color:#FF007F;">Mixed/Open-Ended Qs</div>
+        <div class="metric-subtitle" style="color:#FF007F;">Open & Reasoning Qs</div>
     </div>
     """, unsafe_allow_html=True)
 
 with m5:
     st.markdown(f"""
     <div class="metric-card-green">
-        <div class="metric-title">READING COMPREHENSION</div>
+        <div class="metric-title">READING UNDERSTANDING</div>
         <div class="metric-value">{h_b['comp_score']}%</div>
-        <div class="metric-subtitle" style="color:#10B981;">Weighted Comp Score</div>
+        <div class="metric-subtitle" style="color:#10B981;">Comprehension Rate</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -705,28 +705,28 @@ st.write("")
 # 5. EXPANDED 10-TAB DASHBOARD FRAMEWORK (FEATURING DEDICATED TabFM ENGINE TAB)
 # ------------------------------------------------------------------------------
 tab1, tab_comp, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
-    "📌 Executive Overview",
-    "🔬 Comparative Study: MEL vs. AI",
-    "🧠 TabFM AI Engine",
-    "🚦 District Risk Scorecard",
-    "📉 Competency Funnel",
-    "🛠️ Teacher PD Recommender",
-    "💬 Qualitative Intelligence & Field Notes",
-    "🎯 Pedagogy & Questioning Matrix",
-    "🚀 Strategic Roadmap & Interventions",
-    "📁 Raw Data Explorer & CSV Export"
+    "📌 Executive Summary",
+    "🔬 Study Comparison: MEL vs AI",
+    "🧠 AI Insights Engine",
+    "🚦 District Performance Ranking",
+    "📉 Student Learning Steps",
+    "🛠️ Teacher Training Suggestions",
+    "💬 Observer Notes & Feedback",
+    "🎯 Classroom Teaching Details",
+    "🚀 Action Plan & Next Steps",
+    "📁 Download & View Raw Data"
 ])
 
 # ------------------------------------------------------------------------------
 # TAB 1: EXECUTIVE OVERVIEW
 # ------------------------------------------------------------------------------
 with tab1:
-    st.markdown("### ⚡ Executive Briefing & Academic Health Formula Breakdown")
-    st.markdown("* (Methodology: Weighted empirical index combining Student Attendance 20%, Lesson Plan Execution 20%, CFU & Questioning 25%, Reading Competency 20%, and Notebook Feedback 15%)*")
+    st.markdown("### ⚡ Executive Summary & State Performance Score Breakdown")
+    st.markdown("* (Methodology: Weighted empirical score combining Student Attendance 20%, Lesson Plan Execution 20%, Teaching Practices & Questioning 25%, Reading & Writing Skills 20%, and Notebook Checking 15%)*")
     
     st.markdown(f"""
     <div class="briefing-card">
-        <h4 style="color:#0F172A; margin-top:0;"><b>Empirical Academic Health Index Formula & Weighting (Current Score: {health_score} / 100):</b></h4>
+        <h4 style="color:#0F172A; margin-top:0;"><b>How the State School Performance Score (Current Score: {health_score} / 100) is Calculated:</b></h4>
         <table style="width:100%; border-collapse:collapse; margin-top:10px; font-size:13px;">
             <tr style="background:#F1F5F9; border-bottom:2px solid #CBD5E1;">
                 <th style="padding:8px; text-align:left;">Pillar</th>
@@ -735,31 +735,31 @@ with tab1:
                 <th style="padding:8px; text-align:left;">Empirical Metrics Used</th>
             </tr>
             <tr style="border-bottom:1px solid #E2E8F0;">
-                <td style="padding:8px;"><b>1. Student Attendance & Retention</b></td>
+                <td style="padding:8px;"><b>1. Student Attendance</b></td>
                 <td style="padding:8px; text-align:center;"><b>20%</b></td>
                 <td style="padding:8px; text-align:center; color:#0284C7;"><b>{h_b['att_score']} pts</b></td>
                 <td style="padding:8px;">Student Attendance Rate ({h_b['att_rate']}%)</td>
             </tr>
             <tr style="border-bottom:1px solid #E2E8F0;">
-                <td style="padding:8px;"><b>2. Lesson Plan & Execution Alignment</b></td>
+                <td style="padding:8px;"><b>2. Lesson Plan Preparation & Alignment</b></td>
                 <td style="padding:8px; text-align:center;"><b>20%</b></td>
                 <td style="padding:8px; text-align:center; color:#7B2CBF;"><b>{h_b['lp_score']} pts</b></td>
                 <td style="padding:8px;">Plan Presence ({h_b['lp_pct']}%) + Full Alignment ({h_b['align_pct']}%)</td>
             </tr>
             <tr style="border-bottom:1px solid #E2E8F0;">
-                <td style="padding:8px;"><b>3. Pedagogy & Questioning Depth</b></td>
+                <td style="padding:8px;"><b>3. Teaching Practices & Questioning</b></td>
                 <td style="padding:8px; text-align:center;"><b>25%</b></td>
                 <td style="padding:8px; text-align:center; color:#FF007F;"><b>{h_b['ped_score']} pts</b></td>
-                <td style="padding:8px;">CFU Method Adoption ({h_b['cfu_pct']}%) + Open Questioning ({h_b['hots_pct']}%)</td>
+                <td style="padding:8px;">Checking Understanding ({h_b['cfu_pct']}%) + Thinking Questions ({h_b['hots_pct']}%)</td>
             </tr>
             <tr style="border-bottom:1px solid #E2E8F0;">
-                <td style="padding:8px;"><b>4. Student Competency Outcomes</b></td>
+                <td style="padding:8px;"><b>4. Student Reading & Writing Skills</b></td>
                 <td style="padding:8px; text-align:center;"><b>20%</b></td>
                 <td style="padding:8px; text-align:center; color:#10B981;"><b>{h_b['skill_score']} pts</b></td>
-                <td style="padding:8px;">Weighted Reading Fluency ({h_b['fluency_score']}%) + Comprehension ({h_b['comp_score']}%)</td>
+                <td style="padding:8px;">Reading Fluency ({h_b['fluency_score']}%) + Reading Understanding ({h_b['comp_score']}%)</td>
             </tr>
             <tr>
-                <td style="padding:8px;"><b>5. Notebook Checking & Feedback</b></td>
+                <td style="padding:8px;"><b>5. Notebook Checking & Teacher Feedback</b></td>
                 <td style="padding:8px; text-align:center;"><b>15%</b></td>
                 <td style="padding:8px; text-align:center; color:#64748B;"><b>{h_b['nb_score']} pts</b></td>
                 <td style="padding:8px;">Regular Checking ({h_b['a_pct']}%) + Actionable Feedback ({h_b['c_pct']}%)</td>
@@ -1021,15 +1021,15 @@ with tab_comp:
 # TAB 2: DEDICATED TabFM AI ENGINE & IN-CONTEXT LEARNING (ICL) TRANSFORMER
 # ------------------------------------------------------------------------------
 with tab2:
-    st.markdown("## 🧠 Tabular Foundation Model (TabFM) AI Engine")
-    st.markdown("Zero-shot multi-modal feature embedding, pedagogy anomaly detection, and predictive competency simulation.")
+    st.markdown("## 🧠 AI Data Insights Engine")
+    st.markdown("Automated pattern recognition and intelligent analysis across all 411 observed classrooms.")
     
     st.markdown("---")
     
     # SUBHEADING 1
-    st.markdown("### 📍 Subheading 1: Zero-Shot Multi-Modal Feature Embedding & Cluster Taxonomy")
-    st.markdown("* (Methodology: Ingests and vectorizes multi-modal tabular observation metrics alongside observer text notes using k-means clustering)*")
-    st.markdown("Ingests and vectorizes multi-modal tabular observation metrics (attendance, CFU, lesson plan presence) alongside text observer notes.")
+    st.markdown("### 📍 1. Main Classroom Types Identified by AI")
+    st.markdown("* (Methodology: Grouped classroom observations into 3 clear performance categories based on teaching practices)*")
+    st.markdown("Analyzes attendance, lesson plan usage, checking understanding (CFU), and reading scores to categorize classrooms.")
     
     col_t1, col_t2 = st.columns([1, 1])
     
@@ -1082,42 +1082,42 @@ with tab2:
     st.markdown("---")
     
     # SUBHEADING 2
-    st.markdown("### 📍 Subheading 2: Pedagogy Execution Disconnect & Anomaly Scorecard")
-    st.markdown("* (Source: Comparative analysis between statewide survey claim 80% vs observed physical presence Q9.1 5.35% vs full alignment Q9.3 3.65%)*")
-    st.markdown("Quantifying the gap between state survey claims and observed classroom reality.")
+    st.markdown("### 📍 2. Main Teaching Gaps Found in Classrooms")
+    st.markdown("* (Source: Comparing survey claims vs. what observers actually saw in classrooms)*")
+    st.markdown("Quantifying the gap between official survey expectations and daily classroom practice.")
     
     col_dis1, col_dis2 = st.columns(2)
     with col_dis1:
-        st.markdown("#### The Lesson Plan Alignment Gap")
+        st.markdown("#### The Lesson Plan Gap")
         align_df = pd.DataFrame({
-            'Category': ['State Survey Claim', 'Observed Physical Presence', 'Observed Full Alignment'],
+            'Category': ['State Survey Expectation', 'Observed Lesson Plan', 'Observed Full Alignment'],
             'Percentage (%)': [80.0, 5.35, 3.65]
         })
         fig_align = px.bar(align_df, x='Category', y='Percentage (%)', color='Category', 
                            color_discrete_sequence=['#7B2CBF', '#00F2FE', '#FF007F'], text='Percentage (%)')
-        fig_align = apply_systematic_chart_theme(fig_align, "State Survey vs Observed Lesson Plan Execution")
-        st.caption("💡 **What this graph shows:** Empirical gap between survey claims (80% lesson plan availability) vs observed physical presence (5.35%) and execution alignment (3.65%).")
+        fig_align = apply_systematic_chart_theme(fig_align, "Survey Expectation vs Observed Lesson Plan Execution")
+        st.caption("💡 **What this graph shows:** Gap between state survey expectation (80%) vs actual physical lesson plan presence (5.4%) and teaching alignment (3.6%).")
         st.plotly_chart(fig_align, use_container_width=True)
         
     with col_dis2:
-        st.markdown("#### Critical Pedagogical Anomalies")
+        st.markdown("#### Main Teaching Gaps")
         st.markdown("""
         <div class="qual-card qual-card-pink">
-            <h4>🚨 Formative Assessment (CFU) Absence: <b>81.3% Gap</b></h4>
-            <p>81.3% of observed lessons proceed without any Check for Understanding (CFU) points during instruction.</p>
+            <h4>🚨 Checking Understanding (CFU) Gap: <b>81.3% Missing</b></h4>
+            <p>81.3% of observed lessons proceed without teachers checking if students understand the concept before moving forward.</p>
         </div>
         <div class="qual-card qual-card-purple">
-            <h4>📝 Notebook Checking & Correction Gap: <b>61.3% Deficit</b></h4>
-            <p>Only 38.7% of student notebooks undergo regular checking, and only 40.1% of checked notebooks contain actionable feedback notes.</p>
+            <h4>📝 Notebook Checking & Feedback Gap: <b>61.3% Deficit</b></h4>
+            <p>Only 38.7% of notebooks are checked regularly, and only 40.1% of checked notebooks contain helpful teacher feedback notes.</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
     
     # SUBHEADING 3
-    st.markdown("### 📍 Subheading 3: Student Competency Risk Projection & Progression Funnel")
-    st.markdown("* (Source: Sequential student retention metrics from Enrollment to Attendance, Reading Fluency G.1, and Comprehension G.2)*")
-    st.markdown("Modeling student learning progression drop-offs and predictive risk impacts.")
+    st.markdown("### 📍 3. Student Learning Progression & Drop-Off Points")
+    st.markdown("* (Source: Tracking student retention from Enrollment to Attendance, Reading Fluency, and Comprehension)*")
+    st.markdown("Tracking step-by-step student learning progress from enrollment down to writing ability.")
     
     col_fun1, col_fun2 = st.columns([3, 2])
     with col_fun1:
@@ -1192,14 +1192,14 @@ with tab2:
     st.markdown("---")
     
     # SUBHEADING 5
-    st.markdown("### 📍 Subheading 5: District Academic Risk Scorecard & Policy Simulation")
-    st.markdown("* (Methodology: Dynamic regression model projecting State Health Index gains based on CFU and Lesson Plan slider adjustments)*")
-    st.markdown("District risk ranking and interactive CFU policy simulation sandbox.")
+    st.markdown("### 📍 5. District Performance Ranking & Impact Simulator")
+    st.markdown("* (Source: Simulated score gains based on improving CFU checking and lesson plan execution)*")
+    st.markdown("District performance ranking and interactive policy simulator.")
     
     col_sim1, col_sim2 = st.columns([1, 1])
     
     with col_sim1:
-        st.markdown("#### 🔮 TabFM Policy Simulation Controls")
+        st.markdown("#### 🔮 Policy Simulator: See Predicted Score Gains")
         sim_cfu_boost = st.slider("Simulated CFU Adoption Improvement:", 0, 50, 20, 5, help="Increase in % of classrooms conducting CFU")
         sim_lp_boost = st.slider("Simulated Lesson Plan Execution Improvement:", 0, 50, 15, 5, help="Increase in % of aligned lesson plan execution")
         
@@ -1210,7 +1210,7 @@ with tab2:
         st.markdown(f"""
         <div class="health-hero-card">
             <div>
-                <div class="health-hero-title">Predicted State Academic Health Score</div>
+                <div class="health-hero-title">Predicted State Performance Score</div>
                 <div class="health-hero-val">{boosted_health:.1f} <span class="health-hero-val-sub">/ 100</span></div>
                 <div class="health-hero-status" style="color: {'#10B981' if boosted_health >= 60 else '#0284C7'};">
                     {'🟢 STRONG GAIN' if boosted_health >= 60 else '🔵 MODERATE GAIN'} (Baseline: {base_health}/100)
@@ -1218,37 +1218,37 @@ with tab2:
             </div>
             <div class="health-hero-details">
                 <b>Predicted Impact:</b><br>
-                +{(boosted_health - base_health):.1f} pts Health Increase<br>
-                +{(sim_cfu_boost * 0.6):.1f}% Comprehension Rise
+                +{(boosted_health - base_health):.1f} pts Score Increase<br>
+                +{(sim_cfu_boost * 0.6):.1f}% Reading Understanding Gain
             </div>
         </div>
         """, unsafe_allow_html=True)
         
     with col_sim2:
-        st.markdown("#### District Academic Risk Ranking")
+        st.markdown("#### District Performance Ranking")
         district_scores = []
         for dist_name in df_raw['District'].dropna().unique():
             df_d = df_raw[df_raw['District'] == dist_name]
             d_score, d_b = compute_academic_health_index(df_d)
             district_scores.append({
                 "District": dist_name,
-                "Health Index Score": d_score,
-                "Risk Tier": "🔴 HIGH RISK" if d_score < 45 else ("🟡 MODERATE RISK" if d_score < 55 else "🟢 LOW RISK")
+                "Health Score": d_score,
+                "Status": "🔴 NEEDS URGENT SUPPORT" if d_score < 45 else ("🟡 NEEDS ATTENTION" if d_score < 55 else "🟢 DOING WELL")
             })
-        dist_score_df = pd.DataFrame(district_scores).sort_values(by="Health Index Score", ascending=True)
+        dist_score_df = pd.DataFrame(district_scores).sort_values(by="Health Score", ascending=True)
         
         fig_sim_dist = px.bar(
             dist_score_df,
-            x="Health Index Score",
+            x="Health Score",
             y="District",
             orientation="h",
-            color="Health Index Score",
+            color="Health Score",
             color_continuous_scale=['#FF007F', '#00F2FE', '#10B981'],
-            text="Health Index Score",
-            title="TabFM District Health Index Ranking"
+            text="Health Score",
+            title="District Performance Ranking (0-100)"
         )
         fig_sim_dist.update_traces(texttemplate='%{text:.1f}', textposition='outside')
-        fig_sim_dist = apply_systematic_chart_theme(fig_sim_dist, "District Health Scores (District on Y-Axis)")
+        fig_sim_dist = apply_systematic_chart_theme(fig_sim_dist, "District Performance Ranking")
         st.plotly_chart(fig_sim_dist, use_container_width=True)
 
 
