@@ -846,6 +846,71 @@ tab1, tab_comp, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
 # TAB 1: EXECUTIVE OVERVIEW
 # ------------------------------------------------------------------------------
 with tab1:
+    # 📸 THE BIG PICTURE: VISUAL DATA STORYBOARD (WHAT HAPPENED ACROSS 411 CLASSROOMS)
+    st.markdown("""
+<div style="background:#0F172A; border-radius:14px; padding:22px; margin-bottom:25px; box-shadow:0 8px 30px rgba(15,23,42,0.15);">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1E293B; padding-bottom:12px; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
+        <div>
+            <h3 style="color:#00F2FE !important; margin:0; font-size:20px; font-weight:800; letter-spacing:0.5px;">📸 THE BIG PICTURE: WHAT HAPPENED IN 411 MP CLASSROOMS</h3>
+            <p style="color:#94A3B8 !important; margin:3px 0 0 0; font-size:13px;">Visual classroom journey synthesis combining quantitative tallies & 1,200+ field notes across Madhya Pradesh</p>
+        </div>
+        <div style="background:rgba(0,242,254,0.1); border:1px solid #00F2FE; border-radius:20px; padding:5px 14px; color:#00F2FE; font-size:12px; font-weight:700;">
+            411 Sampled Primary Classrooms
+        </div>
+    </div>
+    
+    <!-- 4 Visual Story Cards in Grid -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:16px;">
+        
+        <!-- Chapter 1 -->
+        <div style="background:#1E293B; border-top:4px solid #0284C7; border-radius:10px; padding:16px;">
+            <div style="color:#0284C7; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 1: STUDENT REACH</div>
+            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">🚪 Attendance Gate</h4>
+            <div style="font-size:26px; font-weight:800; color:#00F2FE !important;">52.5% <span style="font-size:12px; color:#94A3B8;">Present</span></div>
+            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
+                • <b>6,328 out of 12,053</b> enrolled students present.<br/>
+                • Nearly <b>1 out of 2 children is absent daily</b>, creating an immediate reach barrier.
+            </div>
+        </div>
+        
+        <!-- Chapter 2 -->
+        <div style="background:#1E293B; border-top:4px solid #7B2CBF; border-radius:10px; padding:16px;">
+            <div style="color:#7B2CBF; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 2: PREPARATION</div>
+            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">📄 Lesson Plan Disconnect</h4>
+            <div style="font-size:26px; font-weight:800; color:#FF70A6 !important;">5.4% <span style="font-size:12px; color:#94A3B8;">Observed</span></div>
+            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
+                • <b>76.4% Compliance Gap:</b> Survey claimed 80% plan availability, but physical plans were present in only 5.4% classrooms.<br/>
+                • Teaching remains largely ad-hoc.
+            </div>
+        </div>
+        
+        <!-- Chapter 3 -->
+        <div style="background:#1E293B; border-top:4px solid #FF007F; border-radius:10px; padding:16px;">
+            <div style="color:#FF007F; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 3: IN-CLASS PRACTICE</div>
+            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">❓ Active Questioning Gap</h4>
+            <div style="font-size:26px; font-weight:800; color:#FF007F !important;">81.3% <span style="font-size:12px; color:#94A3B8;">Miss CFU</span></div>
+            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
+                • <b>Chorus Calling:</b> 53% of classrooms use chorus answers.<br/>
+                • <b>Zero Wait-Time:</b> 43% ask questions with 0s thinking time.<br/>
+                • Passive lectures dominate.
+            </div>
+        </div>
+        
+        <!-- Chapter 4 -->
+        <div style="background:#1E293B; border-top:4px solid #10B981; border-radius:10px; padding:16px;">
+            <div style="color:#10B981; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 4: STUDENT MASTERY</div>
+            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">📖 Comprehension Funnel</h4>
+            <div style="font-size:26px; font-weight:800; color:#10B981 !important;">46.2% <span style="font-size:12px; color:#94A3B8;">Comprehension</span></div>
+            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
+                • <b>Fluency vs Understanding:</b> Fluency is 67.1%, but drops to 46.2% for comprehension.<br/>
+                • <b>Notebook Feedback Gap:</b> 96% lack written notes.
+            </div>
+        </div>
+        
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
     st.markdown("### ⚡ Executive Summary & State Performance Score Breakdown")
     st.markdown("* (Methodology: Weighted empirical score combining Student Attendance 20%, Lesson Plan Execution 20%, Teaching Practices & Questioning 25%, Reading & Writing Skills 20%, and Notebook Checking 15%)*")
     
