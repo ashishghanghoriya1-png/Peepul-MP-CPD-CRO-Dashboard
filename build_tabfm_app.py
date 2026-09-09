@@ -718,13 +718,17 @@ Prepared by Ashish | Peepul MP CPD Executive CRO Intelligence Platform
 2. **Module 104**: Open-Ended HOTS Questioning & Reasoning Guides
 3. **Module 202**: Actionable Error Correction & Feedback Stamps
 """
-    col_dl1, col_dl2 = st.columns(2)
+    col_dl1, col_dl2, col_dl3 = st.columns(3)
     with col_dl1:
         st.download_button("📑 Download Official Executive Briefing (.md)", exec_report_md.encode('utf-8'), "MP_CPD_2025-26_Executive_Briefing.md", "text/markdown")
     with col_dl2:
         if os.path.exists("MP_CPD_CRO_MEL_vs_AI_Comparative_Study.pdf"):
             with open("MP_CPD_CRO_MEL_vs_AI_Comparative_Study.pdf", "rb") as pdf_f:
-                st.download_button("📕 Download MEL vs AI Comparative Study Report (.pdf)", pdf_f.read(), "MP_CPD_CRO_MEL_vs_AI_Comparative_Study.pdf", "application/pdf")
+                st.download_button("📕 Download MEL vs AI Comparative Study (.pdf)", pdf_f.read(), "MP_CPD_CRO_MEL_vs_AI_Comparative_Study.pdf", "application/pdf")
+    with col_dl3:
+        if os.path.exists("MP_CPD_CRO_AI_Superiority_Report.pdf"):
+            with open("MP_CPD_CRO_AI_Superiority_Report.pdf", "rb") as pdf_f2:
+                st.download_button("🏆 Download AI Superiority Evaluation Report (.pdf)", pdf_f2.read(), "MP_CPD_CRO_AI_Superiority_Report.pdf", "application/pdf")
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
