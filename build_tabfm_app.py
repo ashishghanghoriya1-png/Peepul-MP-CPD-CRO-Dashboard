@@ -134,22 +134,64 @@ st.markdown("""
         font-weight: 800 !important;
     }
     
-    /* Download Buttons & Primary Action Buttons */
-    .stDownloadButton button, button[kind="primary"], button[kind="secondary"] {
+    /* 🎯 UNIVERSAL ULTRA HIGH-CONTRAST BUTTON STYLING (FIXES ALL DOWNLOAD & ACTION BUTTONS) */
+    .stDownloadButton button, 
+    div[data-testid="stDownloadButton"] button, 
+    [data-testid="stDownloadButton"] button,
+    .stButton button, 
+    button[kind="primary"], 
+    button[kind="secondary"],
+    button[data-testid="baseButton-secondary"],
+    button[data-testid="baseButton-primary"] {
         background-color: #0F172A !important;
         color: #00F2FE !important;
-        border: 2px solid #00F2FE !important;
-        border-radius: 10px !important;
-        font-weight: 800 !important;
+        border: 2.5px solid #00F2FE !important;
+        border-radius: 12px !important;
+        font-weight: 900 !important;
         font-size: 14px !important;
-        padding: 10px 20px !important;
-        box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2) !important;
+        padding: 12px 24px !important;
+        box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25) !important;
         transition: all 0.2s ease-in-out !important;
     }
-    .stDownloadButton button:hover, button[kind="primary"]:hover, button[kind="secondary"]:hover {
+    
+    /* ENFORCE CYAN / WHITE COLOR ON ALL INNER CHILD TEXT NODES INSIDE BUTTONS */
+    .stDownloadButton button *, 
+    div[data-testid="stDownloadButton"] button *, 
+    [data-testid="stDownloadButton"] button *,
+    .stButton button *, 
+    button[kind="primary"] *, 
+    button[kind="secondary"] *,
+    button[data-testid="baseButton-secondary"] *,
+    button[data-testid="baseButton-primary"] * {
+        color: #00F2FE !important;
+        font-weight: 900 !important;
+        font-size: 14px !important;
+    }
+
+    /* HOVER STATE: BRIGHT SKY BLUE BACKGROUND WITH BOLD WHITE TEXT */
+    .stDownloadButton button:hover, 
+    div[data-testid="stDownloadButton"] button:hover, 
+    [data-testid="stDownloadButton"] button:hover,
+    .stButton button:hover, 
+    button[kind="primary"]:hover, 
+    button[kind="secondary"]:hover,
+    button[data-testid="baseButton-secondary"]:hover,
+    button[data-testid="baseButton-primary"]:hover {
         background-color: #0284C7 !important;
+        border-color: #00F2FE !important;
+        box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45) !important;
+    }
+    
+    .stDownloadButton button:hover *, 
+    div[data-testid="stDownloadButton"] button:hover *, 
+    [data-testid="stDownloadButton"] button:hover *,
+    .stButton button:hover *, 
+    button[kind="primary"]:hover *, 
+    button[kind="secondary"]:hover *,
+    button[data-testid="baseButton-secondary"]:hover *,
+    button[data-testid="baseButton-primary"]:hover * {
         color: #FFFFFF !important;
-        border-color: #0284C7 !important;
+        font-weight: 900 !important;
     }
     
     /* Health Hero Card Styling */
