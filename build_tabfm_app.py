@@ -631,7 +631,19 @@ st.write("")
 # 3. 🎨 ELEGANT MIDNIGHT NAVY SIDEBAR CONTROL PANEL
 # ------------------------------------------------------------------------------
 if logo_b64:
-    st.sidebar.markdown(f'<div style="text-align:center; padding:10px 0; margin-bottom:15px; background:rgba(255,255,255,0.05); border-radius:12px;"><img src="{logo_b64}" width="170"></div>', unsafe_allow_html=True)
+    st.sidebar.markdown(f'<div style="text-align:center; padding:10px 0; margin-bottom:12px; background:rgba(255,255,255,0.05); border-radius:12px;"><img src="{logo_b64}" width="165"></div>', unsafe_allow_html=True)
+
+# State Dataset Scope Micro-Card
+st.sidebar.markdown("""
+<div style="background:#1E293B; border:1px solid #334155; padding:10px; border-radius:10px; margin-bottom:15px; text-align:center;">
+    <div style="font-size:11px; color:#00F2FE; font-weight:700; letter-spacing:0.5px;">MADHYA PRADESH CRO DATASET</div>
+    <div style="display:flex; justify-content:space-around; margin-top:6px;">
+        <div><b style="color:#FFFFFF; font-size:14px;">411</b><br/><span style="font-size:10px; color:#94A3B8;">Classrooms</span></div>
+        <div><b style="color:#FFFFFF; font-size:14px;">55</b><br/><span style="font-size:10px; color:#94A3B8;">Districts</span></div>
+        <div><b style="color:#FFFFFF; font-size:14px;">1.2k+</b><br/><span style="font-size:10px; color:#94A3B8;">Notes</span></div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.sidebar.markdown("### 🎛️ Executive Filters & Score Slicer")
 st.sidebar.markdown("---")
@@ -662,6 +674,16 @@ sel_subject = st.sidebar.selectbox("📚 Select Subject", subjects)
 
 grades = ["All Grades"] + sorted([str(g) for g in df_raw['Grade'].dropna().unique()])
 sel_grade = st.sidebar.selectbox("🎓 Select Grade", grades)
+
+# Sidebar Risk Tier Legend Box
+st.sidebar.markdown("""
+<div style="background:rgba(15,23,42,0.6); border:1px dashed #334155; padding:8px 10px; border-radius:8px; margin-top:10px; margin-bottom:12px; font-size:11px;">
+    <b style="color:#00F2FE !important;">District Score Benchmark Legend:</b><br/>
+    <span style="color:#FF007F;">🔴 High Risk (&lt;45)</span> &nbsp;|&nbsp; 
+    <span style="color:#0284C7;">🟡 Moderate (45-55)</span> &nbsp;|&nbsp; 
+    <span style="color:#10B981;">🟢 Strong (&gt;55)</span>
+</div>
+""", unsafe_allow_html=True)
 
 # 2. Sidebar Low Score Diagnostic Inspector Card ("Why It's Low")
 st.sidebar.markdown("---")
@@ -918,6 +940,32 @@ with tab1:
                        color_discrete_sequence=['#00F2FE', '#3B82F6', '#7B2CBF', '#FF007F', '#10B981'])
         fig_s = apply_systematic_chart_theme(fig_s, "Subject Mix Breakdown")
         st.plotly_chart(fig_s, use_container_width=True)
+
+    st.markdown("""
+<div style="background:#F8FAFC; border:1.5px solid #CBD5E1; border-radius:10px; padding:16px; margin-top:15px; margin-bottom:25px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+    <h4 style="color:#0F172A; margin-top:0; margin-bottom:12px;"><b>💡 Top 3 Simple Takeaways for State Leadership (10-Second Summary)</b></h4>
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border-top:4px solid #0284C7; padding:14px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.03);">
+            <b style="color:#0284C7; font-size:14px;">1. The Attendance Gate</b><br/>
+            <p style="color:#334155; font-size:12.5px; margin-top:6px; margin-bottom:0; line-height:1.5;">
+                <b>52.5% Attendance Rate:</b> Nearly half of enrolled students miss school daily, creating an immediate prerequisite reach barrier.
+            </p>
+        </div>
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border-top:4px solid #FF007F; padding:14px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.03);">
+            <b style="color:#FF007F; font-size:14px;">2. The Active Teaching Gap</b><br/>
+            <p style="color:#334155; font-size:12.5px; margin-top:6px; margin-bottom:0; line-height:1.5;">
+                <b>81.3% Miss Active CFU:</b> Most lessons proceed without checking if students understood, leading to a drop in reading comprehension.
+            </p>
+        </div>
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border-top:4px solid #7B2CBF; padding:14px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.03);">
+            <b style="color:#7B2CBF; font-size:14px;">3. The Feedback Disconnect</b><br/>
+            <p style="color:#334155; font-size:12.5px; margin-top:6px; margin-bottom:0; line-height:1.5;">
+                <b>96% Lack Actionable Notes:</b> Student notebooks are either unchecked or signed without specific correction guidance.
+            </p>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("### 🤖 Qwen LLM Executive Synthesis")
     st.markdown("* (Methodology: Synthesized by local Qwen 3.5 9B LLM across 1,200+ qualitative text observations and 40+ quantitative dataset indicators)*")
@@ -1863,6 +1911,35 @@ with tab7:
 with tab8:
     st.markdown("### 🚀 Strategic Roadmap & Next Approach for Project Leadership")
     st.markdown("* (Methodology: Synthesized policy directives derived from Qwen LLM analysis and TabFM feature interaction priorities)*")
+    
+    st.markdown("""
+<div style="background:#EFF6FF; border-left:5px solid #10B981; padding:18px; border-radius:10px; margin-top:10px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+    <h4 style="color:#0F172A; margin-top:0; margin-bottom:12px;"><b>🎯 Simple Action Guide by District Role (What to Do Tomorrow)</b></h4>
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border:1px solid #CBD5E1; padding:14px; border-radius:8px;">
+            <b style="color:#0F172A; font-size:13.5px;">🏛️ District Education Officers (DEOs)</b>
+            <ul style="color:#334155; font-size:12px; margin-top:6px; padding-left:16px; margin-bottom:0; line-height:1.5;">
+                <li>Review block-wise attendance below 45%.</li>
+                <li>Mandate CACs check notebook feedback quality during routine school visits.</li>
+            </ul>
+        </div>
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border:1px solid #CBD5E1; padding:14px; border-radius:8px;">
+            <b style="color:#0F172A; font-size:13.5px;">🧑‍🏫 Cluster Coordinators (CACs)</b>
+            <ul style="color:#334155; font-size:12px; margin-top:6px; padding-left:16px; margin-bottom:0; line-height:1.5;">
+                <li>Observe 10-minute Check for Understanding (CFU) in classrooms.</li>
+                <li>Model open-ended questioning during monthly teacher meetings.</li>
+            </ul>
+        </div>
+        <div style="flex:1; min-width:250px; background:#FFFFFF; border:1px solid #CBD5E1; padding:14px; border-radius:8px;">
+            <b style="color:#0F172A; font-size:13.5px;">👩‍🏫 Primary Classroom Teachers</b>
+            <ul style="color:#334155; font-size:12px; margin-top:6px; padding-left:16px; margin-bottom:0; line-height:1.5;">
+                <li>Wait 3-5 seconds after asking a question before taking answers.</li>
+                <li>Write 1 specific correction note in 5 student notebooks daily.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
     
     if qual_analysis and 'next_approach_roadmap' in qual_analysis:
         st.markdown(qual_analysis['next_approach_roadmap'])
