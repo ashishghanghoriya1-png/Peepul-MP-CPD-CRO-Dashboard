@@ -374,8 +374,13 @@ st.markdown("""
         color: #0F172A !important;
         font-weight: 800 !important;
     }
-    .briefing-card p, .briefing-card li, .briefing-card b, .briefing-card td, .briefing-card th {
+    .briefing-card p, .briefing-card li, .briefing-card b, .briefing-card td {
         color: #1E293B !important;
+    }
+    .briefing-card table th, .briefing-card th {
+        color: #00F2FE !important;
+        background-color: #0F172A !important;
+        font-weight: 800 !important;
     }
 
     /* Footnotes */
@@ -855,12 +860,12 @@ with tab_comp:
 
         st.markdown("""
         <div class="briefing-card">
-            <table style="width:100%; border-collapse:collapse; font-size:13px;">
-                <tr style="background:#0F172A; color:#FFFFFF;">
-                    <th style="padding:10px; text-align:left; color:#00F2FE;">Pillar / Domain</th>
-                    <th style="padding:10px; text-align:left; color:#FFFFFF;">MEL Team Findings ('Rough + Analysis')</th>
-                    <th style="padding:10px; text-align:left; color:#00F2FE;">AI Analytics Engine Findings</th>
-                    <th style="padding:10px; text-align:left; color:#FFFFFF;">Strategic Value Added / Policy Insight</th>
+            <table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;">
+                <tr style="background-color:#0F172A !important; border-bottom:2.5px solid #00F2FE;">
+                    <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Pillar / Domain</th>
+                    <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">MEL Team Findings ('Rough + Analysis')</th>
+                    <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">AI Analytics Engine Findings</th>
+                    <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Strategic Value Added / Policy Insight</th>
                 </tr>
                 <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
                     <td style="padding:10px; font-weight:800; color:#0F172A;">1. Attendance & Reach</td>
