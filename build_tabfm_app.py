@@ -832,9 +832,10 @@ with m5:
 st.write("")
 
 # ------------------------------------------------------------------------------
-# 5. EXPANDED 10-TAB DASHBOARD FRAMEWORK (FEATURING DEDICATED TabFM ENGINE TAB)
+# 5. EXPANDED 11-TAB DASHBOARD FRAMEWORK (FEATURING DEDICATED BIG PICTURE TAB)
 # ------------------------------------------------------------------------------
-tab1, tab_comp, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+tab_story, tab1, tab_comp, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    "📸 Big Picture: What Data Says",
     "📌 Executive Summary",
     "🔬 Study Comparison: MEL vs AI",
     "🧠 AI Insights Engine",
@@ -848,74 +849,132 @@ tab1, tab_comp, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
 ])
 
 # ------------------------------------------------------------------------------
-# TAB 1: EXECUTIVE OVERVIEW
+# TAB STORY: BIG PICTURE VISUAL DATA STORYBOARD
 # ------------------------------------------------------------------------------
-with tab1:
-    # 📸 THE BIG PICTURE: VISUAL DATA STORYBOARD (WHAT HAPPENED ACROSS 411 CLASSROOMS)
-    st.markdown("""
-<div style="background:#0F172A; border-radius:14px; padding:22px; margin-bottom:25px; box-shadow:0 8px 30px rgba(15,23,42,0.15);">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1E293B; padding-bottom:12px; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
-        <div>
-            <h3 style="color:#00F2FE !important; margin:0; font-size:20px; font-weight:800; letter-spacing:0.5px;">📸 THE BIG PICTURE: WHAT HAPPENED IN 411 MP CLASSROOMS</h3>
-            <p style="color:#94A3B8 !important; margin:3px 0 0 0; font-size:13px;">Visual classroom journey synthesis combining quantitative tallies & 1,200+ field notes across Madhya Pradesh</p>
-        </div>
-        <div style="background:rgba(0,242,254,0.1); border:1px solid #00F2FE; border-radius:20px; padding:5px 14px; color:#00F2FE; font-size:12px; font-weight:700;">
-            411 Sampled Primary Classrooms
-        </div>
-    </div>
+with tab_story:
+    st.markdown("## 📸 The Big Picture: What the CRO Data Revealed Across 411 Classrooms")
+    st.markdown("*A visual journey synthesizing quantitative tallies & 1,200+ field notes across Madhya Pradesh primary schools.*")
+    st.markdown("---")
     
-    <!-- 4 Visual Story Cards in Grid -->
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:16px;">
-        
-        <!-- Chapter 1 -->
-        <div style="background:#1E293B; border-top:4px solid #0284C7; border-radius:10px; padding:16px;">
-            <div style="color:#0284C7; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 1: STUDENT REACH</div>
-            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">🚪 Attendance Gate</h4>
-            <div style="font-size:26px; font-weight:800; color:#00F2FE !important;">52.5% <span style="font-size:12px; color:#94A3B8;">Present</span></div>
-            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
-                • <b>6,328 out of 12,053</b> enrolled students present.<br/>
-                • Nearly <b>1 out of 2 children is absent daily</b>, creating an immediate reach barrier.
-            </div>
-        </div>
-        
-        <!-- Chapter 2 -->
-        <div style="background:#1E293B; border-top:4px solid #7B2CBF; border-radius:10px; padding:16px;">
-            <div style="color:#7B2CBF; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 2: PREPARATION</div>
-            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">📄 Lesson Plan Disconnect</h4>
-            <div style="font-size:26px; font-weight:800; color:#FF70A6 !important;">5.4% <span style="font-size:12px; color:#94A3B8;">Observed</span></div>
-            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
-                • <b>76.4% Compliance Gap:</b> Survey claimed 80% plan availability, but physical plans were present in only 5.4% classrooms.<br/>
-                • Teaching remains largely ad-hoc.
-            </div>
-        </div>
-        
-        <!-- Chapter 3 -->
-        <div style="background:#1E293B; border-top:4px solid #FF007F; border-radius:10px; padding:16px;">
-            <div style="color:#FF007F; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 3: IN-CLASS PRACTICE</div>
-            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">❓ Active Questioning Gap</h4>
-            <div style="font-size:26px; font-weight:800; color:#FF007F !important;">81.3% <span style="font-size:12px; color:#94A3B8;">Miss CFU</span></div>
-            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
-                • <b>Chorus Calling:</b> 53% of classrooms use chorus answers.<br/>
-                • <b>Zero Wait-Time:</b> 43% ask questions with 0s thinking time.<br/>
-                • Passive lectures dominate.
-            </div>
-        </div>
-        
-        <!-- Chapter 4 -->
-        <div style="background:#1E293B; border-top:4px solid #10B981; border-radius:10px; padding:16px;">
-            <div style="color:#10B981; font-size:11px; font-weight:800; letter-spacing:0.5px;">CHAPTER 4: STUDENT MASTERY</div>
-            <h4 style="color:#FFFFFF !important; font-size:16px; margin:6px 0 10px 0; font-weight:800;">📖 Comprehension Funnel</h4>
-            <div style="font-size:26px; font-weight:800; color:#10B981 !important;">46.2% <span style="font-size:12px; color:#94A3B8;">Comprehension</span></div>
-            <div style="color:#CBD5E1 !important; font-size:12px; margin-top:8px; line-height:1.4;">
-                • <b>Fluency vs Understanding:</b> Fluency is 67.1%, but drops to 46.2% for comprehension.<br/>
-                • <b>Notebook Feedback Gap:</b> 96% lack written notes.
-            </div>
-        </div>
-        
-    </div>
+    st.markdown(f"""
+<div style="background:#0F172A; border-radius:14px; padding:22px; margin-bottom:25px; box-shadow:0 8px 30px rgba(15,23,42,0.15);">
+<div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1E293B; padding-bottom:12px; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
+<div>
+<h3 style="color:#00F2FE !important; margin:0; font-size:20px; font-weight:800; letter-spacing:0.5px;">📸 AT A GLANCE: CLASSROOM OBSERVATION DATASET STORY</h3>
+<p style="color:#94A3B8 !important; margin:3px 0 0 0; font-size:13px;">Synthesized from 411 sampled primary classrooms across 55 districts in Madhya Pradesh</p>
+</div>
+<div style="background:rgba(0,242,254,0.1); border:1.5px solid #00F2FE; border-radius:20px; padding:6px 16px; color:#00F2FE !important; font-size:13px; font-weight:800;">
+411 Classrooms Observed
+</div>
+</div>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:18px;">
+<div style="background:#1E293B; border-top:5px solid #0284C7; border-radius:10px; padding:18px;">
+<div style="color:#0284C7 !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 1: STUDENT REACH</div>
+<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">🚪 Attendance Gate</h4>
+<div style="font-size:28px; font-weight:800; color:#00F2FE !important;">{h_b['att_rate']}% <span style="font-size:12px; color:#94A3B8;">Present</span></div>
+<div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
+• <b>{present:,} out of {enrolled:,}</b> enrolled students present.<br/>
+• Nearly <b>1 out of 2 children is absent daily</b>, creating an immediate reach barrier.
+</div>
+</div>
+<div style="background:#1E293B; border-top:5px solid #7B2CBF; border-radius:10px; padding:18px;">
+<div style="color:#00F2FE !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 2: PREPARATION</div>
+<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📄 Lesson Plan Gap</h4>
+<div style="font-size:28px; font-weight:800; color:#FF70A6 !important;">{h_b['lp_pct']}% <span style="font-size:12px; color:#94A3B8;">Observed</span></div>
+<div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
+• <b>76.4% Compliance Disconnect:</b> Survey claimed 80% plan availability, but physical plans were present in only {h_b['lp_pct']}% classrooms ({h_b['align_pct']}% aligned).<br/>
+• Teaching remains largely ad-hoc.
+</div>
+</div>
+<div style="background:#1E293B; border-top:5px solid #FF007F; border-radius:10px; padding:18px;">
+<div style="color:#FF007F !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 3: IN-CLASS PRACTICE</div>
+<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">❓ Active Questioning Gap</h4>
+<div style="font-size:28px; font-weight:800; color:#FF007F !important;">81.3% <span style="font-size:12px; color:#94A3B8;">Miss CFU</span></div>
+<div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
+• <b>Chorus Calling:</b> 53% of classrooms use chorus answers.<br/>
+• <b>Zero Wait-Time:</b> 43% ask questions with 0s thinking time.<br/>
+• Passive lectures dominate.
+</div>
+</div>
+<div style="background:#1E293B; border-top:5px solid #10B981; border-radius:10px; padding:18px;">
+<div style="color:#10B981 !important; font-size:11.5px; font-weight:800; letter-spacing:0.5px;">CHAPTER 4: STUDENT MASTERY</div>
+<h4 style="color:#FFFFFF !important; font-size:17px; margin:6px 0 10px 0; font-weight:800;">📖 Comprehension Funnel</h4>
+<div style="font-size:28px; font-weight:800; color:#10B981 !important;">{h_b['comp_score']}% <span style="font-size:12px; color:#94A3B8;">Comprehension</span></div>
+<div style="color:#CBD5E1 !important; font-size:12.5px; margin-top:8px; line-height:1.5;">
+• <b>Fluency vs Understanding:</b> Fluency is {h_b['fluency_score']}%, but drops to {h_b['comp_score']}% for comprehension.<br/>
+• <b>Notebook Feedback Gap:</b> 96% lack written notes.
+</div>
+</div>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
+    col_vis1, col_vis2 = st.columns([1.2, 1])
+    
+    with col_vis1:
+        st.markdown("### 📊 What Is Happening Inside MP Classrooms?")
+        cro_summary_df = pd.DataFrame({
+            'Classroom Indicator': [
+                'Attendance Rate',
+                'Reading Fluency',
+                'Reading Comprehension',
+                'Notebook Checked',
+                'CFU Conducted',
+                'Lesson Plan Aligned'
+            ],
+            'Percentage (%)': [
+                h_b['att_rate'],
+                h_b['fluency_score'],
+                h_b['comp_score'],
+                h_b['a_pct'],
+                h_b['cfu_pct'],
+                h_b['align_pct']
+            ]
+        }).sort_values(by='Percentage (%)', ascending=True)
+        
+        fig_summary_bar = px.bar(
+            cro_summary_df,
+            x='Percentage (%)',
+            y='Classroom Indicator',
+            orientation='h',
+            color='Percentage (%)',
+            color_continuous_scale=['#FF007F', '#7B2CBF', '#00F2FE', '#10B981'],
+            text='Percentage (%)',
+            title="Classroom Execution Indicators (At-a-Glance Summary)"
+        )
+        fig_summary_bar.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
+        fig_summary_bar = apply_systematic_chart_theme(fig_summary_bar, "Classroom Execution Overview")
+        st.plotly_chart(fig_summary_bar, use_container_width=True)
+
+    with col_vis2:
+        st.markdown("### 💡 Core Takeaways: The 3 Main Gaps Identified")
+        st.markdown("""
+<div style="background:#F8FAFC; border:1.5px solid #CBD5E1; border-radius:10px; padding:18px; box-shadow:0 2px 10px rgba(0,0,0,0.03);">
+<div style="margin-bottom:15px; background:#FFFFFF; border-left:5px solid #0284C7; padding:12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+<b style="color:#0284C7; font-size:14px;">1. The Attendance Reach Barrier</b>
+<p style="color:#334155; font-size:12.5px; margin-top:4px; margin-bottom:0; line-height:1.5;">
+Only <b>52.5%</b> of enrolled students are present in class on any given day. Even perfect teaching cannot impact absent children.
+</p>
+</div>
+<div style="margin-bottom:15px; background:#FFFFFF; border-left:5px solid #FF007F; padding:12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+<b style="color:#FF007F; font-size:14px;">2. The Active Teaching & Questioning Gap</b>
+<p style="color:#334155; font-size:12.5px; margin-top:4px; margin-bottom:0; line-height:1.5;">
+<b>81.3%</b> of observed lessons skip checking for student understanding. Teachers rely on chorus answers and immediate calling without giving thinking time.
+</p>
+</div>
+<div style="background:#FFFFFF; border-left:5px solid #7B2CBF; padding:12px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+<b style="color:#7B2CBF; font-size:14px;">3. The Notebook Diagnostic Feedback Disconnect</b>
+<p style="color:#334155; font-size:12.5px; margin-top:4px; margin-bottom:0; line-height:1.5;">
+Only <b>38.7%</b> of notebooks are checked regularly, and <b>96%</b> of feedback is missing or generic (e.g. signature without correction guidance).
+</p>
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+# ------------------------------------------------------------------------------
+# TAB 1: EXECUTIVE OVERVIEW
+# ------------------------------------------------------------------------------
+with tab1:
     st.markdown("### ⚡ Executive Summary & State Performance Score Breakdown")
     st.markdown("* (Methodology: Weighted empirical score combining Student Attendance 20%, Lesson Plan Execution 20%, Teaching Practices & Questioning 25%, Reading & Writing Skills 20%, and Notebook Checking 15%)*")
     
