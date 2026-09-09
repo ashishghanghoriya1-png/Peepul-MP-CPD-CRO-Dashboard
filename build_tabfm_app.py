@@ -863,54 +863,52 @@ with tab_comp:
         st.markdown("### 📊 Side-by-Side Quantitative Findings Comparison")
         st.markdown("Comparing descriptive percentage tallies from the MEL Team (`Rough + Analysis` sheet) with our empirical AI TabFM & Health Index calculations.")
 
-        st.markdown("""
-        <div class="briefing-card">
-            <table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;">
-                <tr style="background-color:#0F172A !important; border-bottom:2.5px solid #00F2FE;">
-                    <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Pillar / Domain</th>
-                    <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">MEL Team Findings ('Rough + Analysis')</th>
-                    <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">AI Analytics Engine Findings</th>
-                    <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Strategic Value Added / Policy Insight</th>
-                </tr>
-                <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">1. Attendance & Reach</td>
-                    <td style="padding:10px;">Average enrollment ~29, average attendance ~15 (~51.7% attendance).</td>
-                    <td style="padding:10px;"><b>52.5% Attendance Rate</b> mapped to <b>10.5 / 20 pts</b> in Health Index. Identified district range from 34.1% to 78.3%.</td>
-                    <td style="padding:10px;">Proves that low student attendance is a structural prerequisite barrier limiting overall learning outcomes.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">2. Lesson Plan Execution</td>
-                    <td style="padding:10px;">22 teachers (~5.35%) had written lesson plans; 15 (~3.65%) fully aligned with Teacher Guide.</td>
-                    <td style="padding:10px;"><b>0.9 / 20 pts</b> in Health Index. Uncovered a <b>76.35% disconnect</b> between official compliance claims (80%) and actual practice.</td>
-                    <td style="padding:10px;">Exposes passive compliance vs actual classroom fidelity gap.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">3. Questioning Depth & CFU</td>
-                    <td style="padding:10px;">91% asked Qs (46% LOTS close-ended, 45% mixed); 43% no wait-time; 53% chorus responses; 60% no CFU.</td>
-                    <td style="padding:10px;"><b>19.5 / 25 pts</b> in Health Index. Proved via TabFM interactions that <b>chorus calling masks learning gaps</b> and &lt;40% CFU triggers a <b>34% drop</b> in comprehension.</td>
-                    <td style="padding:10px;">Prioritizes CFU as the #1 actionable lever for state CPD training modules.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">4. Student Practice & Group Work</td>
-                    <td style="padding:10px;">50% no independent work time given; 82% no group work opportunities; 30% circulation with teacher support.</td>
-                    <td style="padding:10px;">Isolated independent work vs group work interaction effect; group work adoption remains dangerously low (18%).</td>
-                    <td style="padding:10px;">Identifies peer-to-peer active learning as an unexploited pedagogy channel in government schools.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">5. Notebook Feedback Integrity</td>
-                    <td style="padding:10px;">38.7% checked regularly; 65% errors identified but only 18% corrected; 56% no feedback; only 4% actionable written notes.</td>
-                    <td style="padding:10px;"><b>5.9 / 15 pts</b> in Health Index. Quantified the exact feedback gap: 96% of feedback is either missing or generic ('good/okay').</td>
-                    <td style="padding:10px;">Demonstrates that copy checking is currently passive sign-off rather than instructional remediation.</td>
-                </tr>
-                <tr style="background:#F8FAFC;">
-                    <td style="padding:10px; font-weight:800; color:#0F172A;">6. Student Outcome Spot-Checks</td>
-                    <td style="padding:10px;">67% reading fluency rate, 46% reading comprehension rate, 48% writing competence.</td>
-                    <td style="padding:10px;"><b>11.3 / 20 pts</b> in Health Index. Modeled the <b>Competency Drop-Off Funnel</b> (Enrollment -&gt; Fluency -&gt; Comprehension -&gt; Writing).</td>
-                    <td style="padding:10px;">Shows that reading fluency alone does not guarantee comprehension without active vocabulary instruction.</td>
-                </tr>
-            </table>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("""<div class="briefing-card">
+<table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;">
+    <tr style="background-color:#0F172A !important; border-bottom:2.5px solid #00F2FE;">
+        <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Pillar / Domain</th>
+        <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">MEL Team Findings ('Rough + Analysis')</th>
+        <th style="padding:12px 10px; text-align:left; color:#00F2FE !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">AI Analytics Engine Findings</th>
+        <th style="padding:12px 10px; text-align:left; color:#FFFFFF !important; background-color:#0F172A !important; font-weight:800; font-size:13.5px;">Strategic Value Added / Policy Insight</th>
+    </tr>
+    <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">1. Attendance & Reach</td>
+        <td style="padding:10px;">Average enrollment ~29, average attendance ~15 (~51.7% attendance).</td>
+        <td style="padding:10px;"><b>52.5% Attendance Rate</b> mapped to <b>10.5 / 20 pts</b> in Health Index. Identified district range from 34.1% to 78.3%.</td>
+        <td style="padding:10px;">Proves that low student attendance is a structural prerequisite barrier limiting overall learning outcomes.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">2. Lesson Plan Execution</td>
+        <td style="padding:10px;">22 teachers (~5.35%) had written lesson plans; 15 (~3.65%) fully aligned with Teacher Guide.</td>
+        <td style="padding:10px;"><b>0.9 / 20 pts</b> in Health Index. Uncovered a <b>76.35% disconnect</b> between official compliance claims (80%) and actual practice.</td>
+        <td style="padding:10px;">Exposes passive compliance vs actual classroom fidelity gap.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">3. Questioning Depth & CFU</td>
+        <td style="padding:10px;">91% asked Qs (46% LOTS close-ended, 45% mixed); 43% no wait-time; 53% chorus responses; 60% no CFU.</td>
+        <td style="padding:10px;"><b>19.5 / 25 pts</b> in Health Index. Proved via TabFM interactions that <b>chorus calling masks learning gaps</b> and &lt;40% CFU triggers a <b>34% drop</b> in comprehension.</td>
+        <td style="padding:10px;">Prioritizes CFU as the #1 actionable lever for state CPD training modules.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">4. Student Practice & Group Work</td>
+        <td style="padding:10px;">50% no independent work time given; 82% no group work opportunities; 30% circulation with teacher support.</td>
+        <td style="padding:10px;">Isolated independent work vs group work interaction effect; group work adoption remains dangerously low (18%).</td>
+        <td style="padding:10px;">Identifies peer-to-peer active learning as an unexploited pedagogy channel in government schools.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">5. Notebook Feedback Integrity</td>
+        <td style="padding:10px;">38.7% checked regularly; 65% errors identified but only 18% corrected; 56% no feedback; only 4% actionable written notes.</td>
+        <td style="padding:10px;"><b>5.9 / 15 pts</b> in Health Index. Quantified the exact feedback gap: 96% of feedback is either missing or generic ('good/okay').</td>
+        <td style="padding:10px;">Demonstrates that copy checking is currently passive sign-off rather than instructional remediation.</td>
+    </tr>
+    <tr style="background:#F8FAFC;">
+        <td style="padding:10px; font-weight:800; color:#0F172A;">6. Student Outcome Spot-Checks</td>
+        <td style="padding:10px;">67% reading fluency rate, 46% reading comprehension rate, 48% writing competence.</td>
+        <td style="padding:10px;"><b>11.3 / 20 pts</b> in Health Index. Modeled the <b>Competency Drop-Off Funnel</b> (Enrollment -&gt; Fluency -&gt; Comprehension -&gt; Writing).</td>
+        <td style="padding:10px;">Shows that reading fluency alone does not guarantee comprehension without active vocabulary instruction.</td>
+    </tr>
+</table>
+</div>""", unsafe_allow_html=True)
 
     with cs_tab2:
         st.markdown("### 💬 Qualitative Intelligence: Manual Text Summaries vs. LLM Natural Language Taxonomy")
@@ -918,75 +916,69 @@ with tab_comp:
 
         col_q1, col_q2 = st.columns(2)
         with col_q1:
-            st.markdown("""
-            <div class="qual-card qual-card-purple">
-                <h4><b>📋 Traditional MEL Qualitative Approach:</b></h4>
-                <ul>
-                    <li><b>Method:</b> Manual reading and high-level grouping of free-text field entries.</li>
-                    <li><b>Scope:</b> Sample of ~40-50 classroom notes summarized into bullet points.</li>
-                    <li><b>Limitations:</b>
-                        <ul>
-                            <li>Highly vulnerable to subjective reviewer bias.</li>
-                            <li>Cannot easily cross-tabulate qualitative comments with quantitative metrics (e.g. text notes for low-CFU schools).</li>
-                            <li>Time-consuming manual review process taking days/weeks.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("""<div class="qual-card qual-card-purple">
+<h4><b>📋 Traditional MEL Qualitative Approach:</b></h4>
+<ul style="color:#1E293B; font-weight:600;">
+    <li><b>Method:</b> Manual reading and high-level grouping of free-text field entries.</li>
+    <li><b>Scope:</b> Sample of ~40-50 classroom notes summarized into bullet points.</li>
+    <li><b>Limitations:</b>
+        <ul>
+            <li>Highly vulnerable to subjective reviewer bias.</li>
+            <li>Cannot easily cross-tabulate qualitative comments with quantitative metrics (e.g. text notes for low-CFU schools).</li>
+            <li>Time-consuming manual review process taking days/weeks.</li>
+        </ul>
+    </li>
+</ul>
+</div>""", unsafe_allow_html=True)
         with col_q2:
-            st.markdown("""
-            <div class="qual-card qual-card-cyan">
-                <h4><b>🤖 Deep AI / Qwen LLM Taxonomy Engine:</b></h4>
-                <ul>
-                    <li><b>Method:</b> Automated multi-lingual (Hindi/English) zero-shot classification using Qwen 3.5 9B LLM.</li>
-                    <li><b>Scope:</b> 100% of all 1,268 qualitative text entries categorized into a structured taxonomy:
-                        <ul>
-                            <li><b>409 Positive Strengths:</b> TLM usage, encouraging language, warm classroom atmosphere.</li>
-                            <li><b>410 Pedagogical Gaps:</b> Lack of wait-time, chorus calling, absence of exit tickets.</li>
-                            <li><b>335 PD Needs:</b> Demand for CFU micro-teaching, TLM integration, multi-grade management.</li>
-                            <li><b>114 School Infrastructure Notes:</b> Seating shortage, roof repairs, TLM storage kits.</li>
-                        </ul>
-                    </li>
-                    <li><b>Advantage:</b> Instantaneous, unbiased, 100% reproducible, and directly actionable for curriculum teams.</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("""<div class="qual-card qual-card-cyan">
+<h4><b>🤖 Deep AI / Qwen LLM Taxonomy Engine:</b></h4>
+<ul style="color:#1E293B; font-weight:600;">
+    <li><b>Method:</b> Automated multi-lingual (Hindi/English) zero-shot classification using Qwen 3.5 9B LLM.</li>
+    <li><b>Scope:</b> 100% of all 1,268 qualitative text entries categorized into a structured taxonomy:
+        <ul>
+            <li><b>409 Positive Strengths:</b> TLM usage, encouraging language, warm classroom atmosphere.</li>
+            <li><b>410 Pedagogical Gaps:</b> Lack of wait-time, chorus calling, absence of exit tickets.</li>
+            <li><b>335 PD Needs:</b> Demand for CFU micro-teaching, TLM integration, multi-grade management.</li>
+            <li><b>114 School Infrastructure Notes:</b> Seating shortage, roof repairs, TLM storage kits.</li>
+        </ul>
+    </li>
+    <li><b>Advantage:</b> Instantaneous, unbiased, 100% reproducible, and directly actionable for curriculum teams.</li>
+</ul>
+</div>""", unsafe_allow_html=True)
 
     with cs_tab3:
         st.markdown("### 🎯 Genuine & Objective Comparative Evaluation (Whose Findings Are Better?)")
         st.markdown("*An honest, unbiased assessment evaluating where the MEL Team excels, where AI Analytics excels, and how combining both yields the optimal decision-support system.*")
 
-        st.markdown("""
-        <div class="briefing-card">
-            <h4 style="color:#0F172A; margin-top:0;"><b>1. Where the MEL Team Findings Excel (Human Field Observational Strengths):</b></h4>
-            <p>Traditional MEL human observations possess unique qualitative capabilities that no quantitative form or automated algorithm can replace:</p>
-            <ul>
-                <li><b>A. Physical & Environmental Ground Realities:</b> Human observers capture environmental constraints that quantitative form checkboxes omit—such as deafening rain noise on tin roofs during monsoons, extreme classroom heat/ventilation deficits, inadequate seating (students sitting on bare floors), broken blackboards, and single-room multi-grade management (e.g., 1 teacher managing Grades 1–5 simultaneously).</li>
-                <li><b>B. Emotional Dynamics & Teacher-Student Empathy:</b> Human observers detect affective nuances—such as teacher emotional burnout, observation anxiety, non-verbal warmth/encouragement (smiles, nod of approval), and student hesitation or fear of failure due to socio-cultural backgrounds.</li>
-                <li><b>C. Local Dialect & Socio-Linguistic Scaffolding:</b> In many MP districts (e.g., Bundelkhand, Nimar, Malwa, Mahakoshal), teachers actively translate standard Hindi textbook content into local dialects (Bundelkhandi, Nimadi, Malvi, Gondi). Human observers recognize when a child understands a concept in their native dialect, even if they struggle with formal textbook Hindi syntax.</li>
-                <li><b>D. Hawthorne Effect & Authenticity Audit:</b> Human field teams distinguish between genuine daily teaching habits and "staged performance" (e.g., a teacher abruptly pulling out a Lesson Plan or TLM chart only because an observer entered the room).</li>
-                <li><b>E. Grassroots Teacher Innovations & Edge Cases:</b> Human notes capture creative local adaptations—such as a teacher using local stones, leaves, and sticks to teach place value when official state TLM kits are unavailable.</li>
-            </ul>
+        st.markdown("""<div class="briefing-card">
+<h4 style="color:#0F172A; margin-top:0;"><b>1. Where the MEL Team Findings Excel (Human Field Observational Strengths):</b></h4>
+<p style="color:#1E293B; font-weight:600; font-size:13.5px;">Traditional MEL human observations possess unique qualitative capabilities that no quantitative form or automated algorithm can replace:</p>
+<ul style="color:#1E293B; font-weight:600; font-size:13.5px; line-height:1.6;">
+    <li style="margin-bottom:8px;"><b>A. Physical & Environmental Ground Realities:</b> Human observers capture environmental constraints that quantitative form checkboxes omit—such as deafening rain noise on tin roofs during monsoons, extreme classroom heat/ventilation deficits, inadequate seating (students sitting on bare floors), broken blackboards, and single-room multi-grade management (e.g., 1 teacher managing Grades 1–5 simultaneously).</li>
+    <li style="margin-bottom:8px;"><b>B. Emotional Dynamics & Teacher-Student Empathy:</b> Human observers detect affective nuances—such as teacher emotional burnout, observation anxiety, non-verbal warmth/encouragement (smiles, nod of approval), and student hesitation or fear of failure due to socio-cultural backgrounds.</li>
+    <li style="margin-bottom:8px;"><b>C. Local Dialect & Socio-Linguistic Scaffolding:</b> In many MP districts (e.g., Bundelkhand, Nimar, Malwa, Mahakoshal), teachers actively translate standard Hindi textbook content into local dialects (Bundelkhandi, Nimadi, Malvi, Gondi). Human observers recognize when a child understands a concept in their native dialect, even if they struggle with formal textbook Hindi syntax.</li>
+    <li style="margin-bottom:8px;"><b>D. Hawthorne Effect & Authenticity Audit:</b> Human field teams distinguish between genuine daily teaching habits and "staged performance" (e.g., a teacher abruptly pulling out a Lesson Plan or TLM chart only because an observer entered the room).</li>
+    <li style="margin-bottom:8px;"><b>E. Grassroots Teacher Innovations & Edge Cases:</b> Human notes capture creative local adaptations—such as a teacher using local stones, leaves, and sticks to teach place value when official state TLM kits are unavailable.</li>
+</ul>
 
-            <h4 style="color:#0F172A; margin-top:15px;"><b>2. Where AI Analytics Findings Excel (AI System Strengths):</b></h4>
-            <ul>
-                <li><b>100% Data Coverage & Zero Omission:</b> Processes all 1,200+ observations instantly, eliminating sampling bias and manual tally errors.</li>
-                <li><b>Standardized Mathematical Rigour (Academic Health Index 48.1/100):</b> Synthesizes disparate percentage tables into a single weighted, actionable index prioritized by educational impact.</li>
-                <li><b>Non-Linear Interaction & Risk Modeling:</b> Discovers non-obvious correlations (e.g. proving that chorus calling masks learning gaps, and that &lt;40% CFU leads to a 34% drop in comprehension).</li>
-                <li><b>Automated District Risk Scorecards:</b> Uses Random Forest machine learning to rank districts by risk and automatically map them to priority PD training modules.</li>
-                <li><b>Real-Time Interactive Decision Support:</b> Empowers state leaders to filter datasets instantaneously by District, Subject, and Grade.</li>
-            </ul>
+<h4 style="color:#0F172A; margin-top:20px;"><b>2. Where AI Analytics Findings Excel (AI System Strengths):</b></h4>
+<ul style="color:#1E293B; font-weight:600; font-size:13.5px; line-height:1.6;">
+    <li style="margin-bottom:8px;"><b>100% Data Coverage & Zero Omission:</b> Processes all 1,200+ observations instantly, eliminating sampling bias and manual tally errors.</li>
+    <li style="margin-bottom:8px;"><b>Standardized Mathematical Rigour (Academic Health Index 48.1/100):</b> Synthesizes disparate percentage tables into a single weighted, actionable index prioritized by educational impact.</li>
+    <li style="margin-bottom:8px;"><b>Non-Linear Interaction & Risk Modeling:</b> Discovers non-obvious correlations (e.g. proving that chorus calling masks learning gaps, and that &lt;40% CFU leads to a 34% drop in comprehension).</li>
+    <li style="margin-bottom:8px;"><b>Automated District Risk Scorecards:</b> Uses Random Forest machine learning to rank districts by risk and automatically map them to priority PD training modules.</li>
+    <li style="margin-bottom:8px;"><b>Real-Time Interactive Decision Support:</b> Empowers state leaders to filter datasets instantaneously by District, Subject, and Grade.</li>
+</ul>
 
-            <h4 style="color:#00F2FE; margin-top:20px; background:#0F172A; padding:12px 16px; border-radius:10px;">
-                <b>🏆 Final Genuine Verdict: The Optimal Human-AI Hybrid Model</b><br/>
-                <span style="font-size:13px; font-weight:600; color:#FFFFFF;">
-                    Neither approach is superior in isolation. The MEL Team provides indispensable ground-truth validation and qualitative empathy, while the AI Analytics Engine provides unmatched scale, processing velocity, statistical rigour, and automated strategic decision support. 
-                    <b>The state achieves maximum impact by deploying AI Analytics as the primary strategic engine while utilizing MEL teams for targeted ground-truth verification.</b>
-                </span>
-            </h4>
-        </div>
-        """, unsafe_allow_html=True)
+<div style="color:#00F2FE; margin-top:24px; background-color:#0F172A; padding:16px 20px; border-radius:12px; border:2px solid #00F2FE;">
+    <b style="font-size:15px; color:#00F2FE !important;">🏆 Final Genuine Verdict: The Optimal Human-AI Hybrid Model</b><br/>
+    <p style="font-size:13.5px; font-weight:600; color:#FFFFFF !important; margin-top:8px; margin-bottom:0;">
+        Neither approach is superior in isolation. The MEL Team provides indispensable ground-truth validation and qualitative empathy, while the AI Analytics Engine provides unmatched scale, processing velocity, statistical rigour, and automated strategic decision support. 
+        <b>The state achieves maximum impact by deploying AI Analytics as the primary strategic engine while utilizing MEL teams for targeted ground-truth verification.</b>
+    </p>
+</div>
+</div>""", unsafe_allow_html=True)
 
     with cs_tab4:
         st.markdown("### 📥 Download Official Comparative PDF Reports")
