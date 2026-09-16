@@ -1118,55 +1118,35 @@ with tab1:
 """, unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### 📐 System Architecture: 6-Step Local LLM & Analytics Pipeline")
-    st.markdown("*How Qwen Local LLM, Analytics Engine, Knowledge Base Creation, RAG Retrieval, Dashboard & Dialog Box interact.*")
+    st.markdown("### 📐 System Architecture: Local LLM (Qwen / DeepSeek) & Analytics Data Pipeline")
+    st.markdown("*How user input, Qwen/DeepSeek analytics engine, local knowledge base, retrieval mechanism, dashboard & dialog box interact.*")
     
     st.markdown("""
 <div style="background:#FFFFFF; border:2px solid #0F172A; border-radius:12px; padding:20px; margin-bottom:25px; box-shadow:0 4px 15px rgba(15,23,42,0.06);">
     <div style="font-size:16px; font-weight:900; color:#0F172A; border-bottom:2px solid #E2E8F0; padding-bottom:8px; margin-bottom:15px;">
-        🤖 6-Step Local LLM & Analytics System Architecture
+        🤖 Local LLM (Qwen / DeepSeek) & Analytics Data Pipeline
     </div>
     
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin-bottom:15px;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:12px; margin-bottom:15px;">
         <div style="background:#EEF2FF; border:1.5px solid #6366F1; border-radius:8px; padding:12px;">
-            <b style="color:#4338CA; font-size:11px;">STEP 1: LOCAL LLM CORE</b><br/>
-            <b style="color:#1E1B4B; font-size:13px;">🧠 Qwen / Local LLM</b><br/>
-            <span style="font-size:11.5px; color:#3730A3;">Local inference engine with 100% data privacy and zero API latency.</span>
+            <b style="color:#4338CA; font-size:11px;">STEP 1: INPUT & ENGINE</b><br/>
+            <b style="color:#1E1B4B; font-size:13px;">📥 User Query & Input</b><br/>
+            <span style="font-size:11.5px; color:#3730A3;">Type query or upload Doc, PDF, Excel files into Analytics Engine connected to Qwen / DeepSeek.</span>
         </div>
-        <div style="background:#F3E8FF; border:1.5px solid #A855F7; border-radius:8px; padding:12px;">
-            <b style="color:#7E22CE; font-size:11px;">STEP 2: ANALYTICS CORE</b><br/>
-            <b style="color:#3B0764; font-size:13px;">⚡ Analytics Engine</b><br/>
-            <span style="font-size:11.5px; color:#6B21A8;">Connected algorithms computing health index, scores & data cleaning.</span>
+        <div style="background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:12px;">
+            <b style="color:#92400E; font-size:11px;">STEP 2: KNOWLEDGE CREATION</b><br/>
+            <b style="color:#451A03; font-size:13px;">🗄️ Local Knowledge Base</b><br/>
+            <span style="font-size:11.5px; color:#78350F;">Engine iterates over inputs to build & update local knowledge mapped to the dashboard.</span>
         </div>
-        <div style="background:#E0F2FE; border:1.5px solid #0284C7; border-radius:8px; padding:12px;">
-            <b style="color:#0369A1; font-size:11px;">STEP 3: FILE INGESTION</b><br/>
-            <b style="color:#0C4A6E; font-size:13px;">📄 Multi-Format Input</b><br/>
-            <span style="font-size:11.5px; color:#075985;">Upload options for Doc, PDF, Excel (.xlsx), and CSV dataset files.</span>
+        <div style="background:#CCFBF1; border:1.5px solid #14B8A6; border-radius:8px; padding:12px;">
+            <b style="color:#0F766E; font-size:11px;">STEP 3: RETRIEVAL ENGINE</b><br/>
+            <b style="color:#134E4A; font-size:13px;">🔍 Semantic Retrieval</b><br/>
+            <span style="font-size:11.5px; color:#115E59;">Fetches verified context, metric evidence & data facts from knowledge base.</span>
         </div>
-    </div>
-    
-    <div style="background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:12px; margin-bottom:12px; text-align:center;">
-        <b style="color:#92400E; font-size:11px;">STEP 4: ITERATIVE KNOWLEDGE CREATION</b><br/>
-        <b style="color:#451A03; font-size:13px;">🗄️ Local Knowledge Base & Thesaurus</b><br/>
-        <span style="font-size:11.5px; color:#78350F;">Analytic Engine iterates over inputs to build a domain-specific vector store & dictionary.</span>
-    </div>
-    
-    <div style="background:#CCFBF1; border:1.5px solid #14B8A6; border-radius:8px; padding:12px; margin-bottom:15px; text-align:center;">
-        <b style="color:#0F766E; font-size:11px;">STEP 5: RETRIEVAL MECHANISM</b><br/>
-        <b style="color:#134E4A; font-size:13px;">🔍 RAG Retrieval Engine</b><br/>
-        <span style="font-size:11.5px; color:#115E59;">Queries local knowledge base to fetch verified context, tallies & field evidence.</span>
-    </div>
-    
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
         <div style="background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:12px;">
-            <b style="color:#1D4ED8; font-size:11px;">STEP 6A: VISUAL OUTPUT</b><br/>
-            <b style="color:#1E3A8A; font-size:13px;">📊 Visual Dashboard</b><br/>
-            <span style="font-size:11.5px; color:#1E40AF;">Renders Plotly charts, 11 Streamlit tabs & district rankings.</span>
-        </div>
-        <div style="background:#FFE4E6; border:1.5px solid #E11D48; border-radius:8px; padding:12px;">
-            <b style="color:#BE123C; font-size:11px;">STEP 6B: INTERACTIVE CONVERSATION</b><br/>
-            <b style="color:#881337; font-size:13px;">💬 LLM Dialog Box (Q&A)</b><br/>
-            <span style="font-size:11.5px; color:#9F1239;">"Anybody can ask a question, and it answers directly from the knowledge base."</span>
+            <b style="color:#1D4ED8; font-size:11px;">STEP 4: OUTPUT PRESENTATION</b><br/>
+            <b style="color:#1E3A8A; font-size:13px;">📊 Dashboard & LLM Dialog Box</b><br/>
+            <span style="font-size:11.5px; color:#1E40AF;">Reflects outputs in Dashboard & interactive Q&A Dialog Box so anyone can ask and get answers.</span>
         </div>
     </div>
 </div>
@@ -1313,7 +1293,7 @@ Prepared by Ashish | Peepul MP CPD Executive CRO Intelligence Platform
 # ------------------------------------------------------------------------------
 with tab_comp:
     st.markdown("## 🔬 Comprehensive Comparative Study: MEL Team Findings vs. Deep AI Analytics Engine")
-    st.markdown("*A rigorous, transparent comparison between traditional MEL human field observation synthesis and our 100% automated AI TabFM/Qwen Data Intelligence System.*")
+    st.markdown("*A rigorous, transparent comparison between traditional MEL human field observation synthesis and our 100% automated AI Local LLM Engine/Qwen Data Intelligence System.*")
     st.markdown("---")
 
     # High Level Comparison Banner Cards
@@ -1363,7 +1343,7 @@ with tab_comp:
 
     with cs_tab1:
         st.markdown("### 📊 Side-by-Side Quantitative Findings Comparison")
-        st.markdown("Comparing descriptive percentage tallies from the MEL Team (`Rough + Analysis` sheet) with our empirical AI TabFM & Health Index calculations.")
+        st.markdown("Comparing descriptive percentage tallies from the MEL Team (`Rough + Analysis` sheet) with our empirical AI Local LLM Engine & Health Index calculations.")
 
         st.markdown("""<div class="briefing-card">
 <table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;">
@@ -1388,7 +1368,7 @@ with tab_comp:
     <tr style="border-bottom:1px solid #E2E8F0; background:#FFFFFF;">
         <td style="padding:10px; font-weight:800; color:#0F172A;">3. Questioning Depth & CFU</td>
         <td style="padding:10px;">91% asked Qs (46% LOTS close-ended, 45% mixed); 43% no wait-time; 53% chorus responses; 60% no CFU.</td>
-        <td style="padding:10px;"><b>19.5 / 25 pts</b> in Health Index. Proved via TabFM interactions that <b>chorus calling masks learning gaps</b> and &lt;40% CFU triggers a <b>34% drop</b> in comprehension.</td>
+        <td style="padding:10px;"><b>19.5 / 25 pts</b> in Health Index. Proved via Local LLM Engine interactions that <b>chorus calling masks learning gaps</b> and &lt;40% CFU triggers a <b>34% drop</b> in comprehension.</td>
         <td style="padding:10px;">Prioritizes CFU as the #1 actionable lever for state CPD training modules.</td>
     </tr>
     <tr style="border-bottom:1px solid #E2E8F0; background:#F8FAFC;">
@@ -1500,7 +1480,7 @@ with tab_comp:
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-# TAB 2: DEDICATED TabFM AI ENGINE & IN-CONTEXT LEARNING (ICL) TRANSFORMER
+# TAB 2: DEDICATED Local LLM Engine AI ENGINE & IN-CONTEXT LEARNING (ICL) TRANSFORMER
 # ------------------------------------------------------------------------------
 with tab2:
     st.markdown("## 🧠 AI Data Insights Engine")
@@ -1518,7 +1498,7 @@ with tab2:
     with col_t1:
         st.markdown("""
         <div class="briefing-card">
-            <h4><b>TabFM Multi-Modal Feature Weights & Pillars:</b></h4>
+            <h4><b>Local LLM Engine Multi-Modal Feature Weights & Pillars:</b></h4>
             <ul>
                 <li><b>Student Attendance (20% Weight):</b> Baseline baseline presence & participation.</li>
                 <li><b>Lesson Plan Alignment (20% Weight):</b> Physical presence (5.35%) & execution fidelity (3.65%).</li>
@@ -1531,7 +1511,7 @@ with tab2:
         
         st.markdown("""
         <div class="qual-card qual-card-cyan">
-            <h4><b>TabFM AI Cluster Archetype Breakdown</b></h4>
+            <h4><b>Local LLM Engine AI Cluster Archetype Breakdown</b></h4>
             <p><b>Cluster A (High-Fidelity Classrooms - 18.4%):</b> Regular CFU, active independent student practice, aligned lesson plan.</p>
             <p><b>Cluster B (Rote-Dominant Classrooms - 42.1%):</b> Written lesson plan compliance but missing CFU and low open questioning.</p>
             <p><b>Cluster C (High-Risk Academic Zones - 39.5%):</b> Low attendance (<45%), absent notebook feedback, low reading fluency.</p>
@@ -1554,12 +1534,12 @@ with tab2:
                 'Comprehension': df_raw[g2_c].astype(str).str.contains('सभी तीन', na=False).astype(int)
             }).corr()
             
-            fig_corr = px.imshow(corr_df, text_auto=".2f", color_continuous_scale=['#F8FAFC', '#00F2FE', '#7B2CBF'], title="TabFM Feature Interaction Heatmap (Methodology: Pearson correlation matrix computed across encoded columns Q9.1, Q3.1, QA, G.1, G.2)")
-            fig_corr = apply_systematic_chart_theme(fig_corr, "TabFM Feature Interaction Matrix")
+            fig_corr = px.imshow(corr_df, text_auto=".2f", color_continuous_scale=['#F8FAFC', '#00F2FE', '#7B2CBF'], title="Local LLM Engine Feature Interaction Heatmap (Methodology: Pearson correlation matrix computed across encoded columns Q9.1, Q3.1, QA, G.1, G.2)")
+            fig_corr = apply_systematic_chart_theme(fig_corr, "Local LLM Engine Feature Interaction Matrix")
             st.caption("💡 **What this graph shows:** Correlation matrix (-1.0 to +1.0) revealing how classroom practices co-occur and directly impact reading comprehension.")
             st.plotly_chart(fig_corr, use_container_width=True)
         except Exception as e:
-            st.info("TabFM Matrix active.")
+            st.info("Local LLM Engine Matrix active.")
 
     st.markdown("---")
     
@@ -1633,7 +1613,7 @@ with tab2:
         st.plotly_chart(fig_funnel, use_container_width=True)
         
     with col_fun2:
-        st.markdown("#### ⚡ TabFM Predictive Risk Alert")
+        st.markdown("#### ⚡ Local LLM Engine Predictive Risk Alert")
         st.markdown("""
         <div class="qual-card qual-card-green">
             <h4><b>Impact of Missing CFU on Comprehension:</b></h4>
@@ -2224,7 +2204,7 @@ with tab7:
 # ------------------------------------------------------------------------------
 with tab8:
     st.markdown("### 🚀 Strategic Roadmap & Next Approach for Project Leadership")
-    st.markdown("* (Methodology: Synthesized policy directives derived from Qwen LLM analysis and TabFM feature interaction priorities)*")
+    st.markdown("* (Methodology: Synthesized policy directives derived from Qwen LLM analysis and Local LLM Engine feature interaction priorities)*")
     
     st.markdown("""
 <div style="background:#EFF6FF; border-left:5px solid #10B981; padding:18px; border-radius:10px; margin-top:10px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
@@ -2281,6 +2261,6 @@ with tab9:
 # UNIVERSAL DASHBOARD FOOTNOTE
 st.markdown("""
 <div class="dashboard-footer">
-    <b>Prepared by Ashish</b> | Peepul MP CPD 2025-26 Executive CRO Intelligence Platform (TabFM Engine)
+    <b>Prepared by Ashish</b> | Peepul MP CPD 2025-26 Executive CRO Intelligence Platform (Qwen / DeepSeek Local LLM Engine)
 </div>
 """, unsafe_allow_html=True)
