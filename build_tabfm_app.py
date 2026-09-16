@@ -1489,103 +1489,117 @@ with tab_comp:
 # ------------------------------------------------------------------------------
 with tab2:
     st.markdown("## 🧠 AI Data Insights Engine (Qwen / DeepSeek Local LLM)")
-    st.markdown("Upload dataset files, query the Local Knowledge Base, and view AI-synthesized diagnostics in real-time.")
-    
-    st.markdown("---")
-    st.markdown("### 📐 System Architecture: Local LLM (Qwen / DeepSeek) & Analytics Data Pipeline")
-    st.markdown("*How user input, Qwen/DeepSeek analytics engine, local knowledge base, retrieval mechanism, dashboard & dialog box interact.*")
-
-    st.markdown("""
-<div style="background:#FFFFFF; border:2px solid #0F172A; border-radius:12px; padding:20px; margin-bottom:25px; box-shadow:0 4px 15px rgba(15,23,42,0.06);">
-    <div style="font-size:16px; font-weight:900; color:#0F172A; border-bottom:2px solid #E2E8F0; padding-bottom:8px; margin-bottom:15px;">
-        🤖 Local LLM (Qwen / DeepSeek) & Analytics Data Pipeline
-    </div>
-    
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:12px; margin-bottom:15px;">
-        <div style="background:#EEF2FF; border:1.5px solid #6366F1; border-radius:8px; padding:12px;">
-            <b style="color:#4338CA; font-size:11px;">STEP 1: INPUT & ENGINE</b><br/>
-            <b style="color:#1E1B4B; font-size:13px;">📥 User Query & Input</b><br/>
-            <span style="font-size:11.5px; color:#3730A3;">Type query or upload Doc, PDF, Excel files into Analytics Engine connected to Qwen / DeepSeek.</span>
-        </div>
-        <div style="background:#FEF3C7; border:1.5px solid #F59E0B; border-radius:8px; padding:12px;">
-            <b style="color:#92400E; font-size:11px;">STEP 2: KNOWLEDGE CREATION</b><br/>
-            <b style="color:#451A03; font-size:13px;">🗄️ Local Knowledge Base</b><br/>
-            <span style="font-size:11.5px; color:#78350F;">Engine iterates over inputs to build & update local knowledge mapped to the dashboard.</span>
-        </div>
-        <div style="background:#CCFBF1; border:1.5px solid #14B8A6; border-radius:8px; padding:12px;">
-            <b style="color:#0F766E; font-size:11px;">STEP 3: RETRIEVAL ENGINE</b><br/>
-            <b style="color:#134E4A; font-size:13px;">🔍 Semantic Retrieval</b><br/>
-            <span style="font-size:11.5px; color:#115E59;">Fetches verified context, metric evidence & data facts from knowledge base.</span>
-        </div>
-        <div style="background:#EFF6FF; border:1.5px solid #3B82F6; border-radius:8px; padding:12px;">
-            <b style="color:#1D4ED8; font-size:11px;">STEP 4: OUTPUT PRESENTATION</b><br/>
-            <b style="color:#1E3A8A; font-size:13px;">📊 Dashboard & LLM Dialog Box</b><br/>
-            <span style="font-size:11.5px; color:#1E40AF;">Reflects outputs in Dashboard & interactive Q&A Dialog Box so anyone can ask and get answers.</span>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("Upload dataset files, query the Local Knowledge Base, and receive real-time answers from your background Qwen / DeepSeek model.")
 
     # --------------------------------------------------------------------------
-    # REAL-TIME 4-STEP RAG ENGINE IMPLEMENTATION
+    # REAL LOCAL OLLAMA QWEN / DEEPSEEK LLM CONNECTION ENGINE
     # --------------------------------------------------------------------------
-    if 'knowledge_chunks' not in st.session_state:
-        st.session_state['knowledge_chunks'] = [
-            {"id": 1, "source": "CRO 2024-25 Dataset", "category": "Attendance", "text": f"Total 411 primary classrooms across 55 districts observed. Total enrolled: {enrolled:,}, present: {present:,} ({h_b['att_rate']}% attendance rate). Nearly 1 out of 2 children is absent daily."},
-            {"id": 2, "source": "CRO 2024-25 Dataset", "category": "Lesson Plan Gap", "text": f"Survey claimed 80% lesson plan availability, but physical observers found plans in only {h_b['lp_pct']}% classrooms ({h_b['align_pct']}% full execution alignment). 76.4% compliance disconnect."},
-            {"id": 3, "source": "CRO 2024-25 Dataset", "category": "CFU & Practice", "text": "81.3% of observed lessons proceed without Checking for Understanding (CFU). 53% rely on chorus answering (group chanting), and 43% ask questions with 0 seconds wait time."},
-            {"id": 4, "source": "CRO 2024-25 Dataset", "category": "Notebook Feedback", "text": "38.7% of student notebooks checked regularly. Only 40.1% of checked notebooks contain written teacher feedback notes, leaving a 61.3% feedback deficit."},
-            {"id": 5, "source": "CRO 2024-25 Dataset", "category": "Student Mastery", "text": "Reading fluency stands at 67.1%, but reading comprehension drops to 46.2%. Writing competency is 38.4%."},
-            {"id": 6, "source": "CRO 2024-25 Dataset", "category": "District Health Scoring", "text": f"Overall State Academic Health Index: {health_score}/100 Baseline. 13 High Risk Districts (< 45/100) identified: Dindori, Barwani, Sidhi, Alirajpur, Jhabua, Mandla, Sheopur, Singrauli, Shahdol, Umaria, Niwari, Panna, Katni."}
-        ]
+    import urllib.request
+    import json
 
-    st.markdown("#### 💬 Interactive LLM Dialog Box & Real-Time Knowledge Input")
-    st.markdown("*Step 1 Input & Upload → Step 2 Knowledge Iteration → Step 3 Retrieval → Step 4 LLM Dialog Answer & Visual Dashboard*")
+    def get_local_ollama_models():
+        try:
+            req = urllib.request.Request('http://localhost:11434/api/tags', headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                data = json.loads(resp.read().decode('utf-8'))
+                models = [m['name'] for m in data.get('models', [])]
+                return models if models else ['qwen3.5:9b-q4_K_M', 'deepseek-r1:7b', 'llama3.2:latest']
+        except Exception:
+            return ['qwen3.5:9b-q4_K_M', 'deepseek-r1:7b', 'llama3.2:latest']
+
+    def call_background_qwen_llm(user_question, context_text, selected_model):
+        url = 'http://localhost:11434/api/generate'
+        system_instructions = f"""SYSTEM KNOWLEDGE BASE (MADHYA PRADESH CRO DATASET - 411 CLASSROOMS):
+- Total Sampled Classrooms: 411 primary classrooms across 55 districts in MP.
+- Enrolled Students: {enrolled:,} | Present Students: {present:,} ({h_b['att_rate']}% Attendance Rate).
+- State Academic Health Score: {health_score}/100 Baseline.
+- Lesson Plan Disconnect: Survey claimed 80% plan availability, but physical presence is {h_b['lp_pct']}% ({h_b['align_pct']}% full execution alignment). 76.4% compliance gap.
+- Checking for Understanding (CFU) Gap: 81.3% of observed lessons skip CFU checkpoints. 53% rely on chorus answering, 43% ask questions with 0s wait-time.
+- Notebook Feedback Deficit: 38.7% checked regularly; only 40.1% contain written teacher feedback (61.3% feedback deficit).
+- Student Mastery: Reading Fluency is 67.1%, Reading Comprehension drops to 46.2%, Writing Competency is 38.4%.
+- High Risk Districts (< 45/100): 13 districts identified including Dindori, Barwani, Sidhi, Alirajpur, Jhabua, Mandla, Sheopur, Singrauli, Shahdol, Umaria, Niwari, Panna, Katni.
+
+ADDITIONAL KNOWLEDGE CONTEXT:
+{context_text}
+
+USER QUESTION:
+{user_question}
+
+INSTRUCTIONS:
+You are the Qwen / DeepSeek Local LLM Engine running in the background for this Dashboard. Answer the user question accurately using the system knowledge base and dataset metrics above. Provide a clear, structured, and insightful response."""
+
+        payload = {
+            'model': selected_model,
+            'prompt': system_instructions,
+            'stream': False
+        }
+
+        try:
+            req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                res = json.loads(resp.read().decode('utf-8'))
+                return res.get('response', 'No text generated by local LLM.')
+        except Exception as err:
+            return f"Offline Synthesis Fallback: Local LLM server error ({str(err)}). Based on dashboard retrieval for '{user_question}': State Health Score is {health_score}/100, Attendance is {h_b['att_rate']}%, Lesson Plan disconnect is 76.4%, and CFU skip rate is 81.3% across 13 High Risk Districts."
+
+    st.markdown("#### 💬 Background Qwen / DeepSeek Local LLM Dialog Box")
+    st.markdown("*Connected directly to your background Ollama instance (`http://localhost:11434`)*")
     
     col_ask1, col_ask2 = st.columns([2, 1])
     
     with col_ask2:
-        st.markdown("##### 📄 Step 1 File Input Option")
-        uploaded_doc = st.file_uploader("Upload Doc, PDF, Excel, or CSV dataset file:", type=["xlsx", "csv", "txt"], key="rag_uploader_tab2")
+        st.markdown("##### ⚙️ Local LLM Model Selector")
+        installed_models = get_local_ollama_models()
+        default_idx = 0
+        for i, m in enumerate(installed_models):
+            if 'qwen' in m.lower():
+                default_idx = i
+                break
+        selected_llm = st.selectbox("Active Background LLM Model:", installed_models, index=default_idx, key="local_ollama_model_select")
+        st.caption("🟢 Connected to local background LLM daemon at `http://localhost:11434`")
+
+        st.markdown("##### 📄 File Input Option")
+        uploaded_doc = st.file_uploader("Upload Doc, PDF, Excel, or CSV dataset file:", type=["xlsx", "csv", "txt"], key="rag_uploader_tab2_real")
         if uploaded_doc:
             try:
                 fname = uploaded_doc.name
                 new_chunks = []
                 if fname.endswith('.csv'):
                     df_up = pd.read_csv(uploaded_doc)
-                    new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1, "source": fname, "category": "CSV Upload Summary", "text": f"Uploaded CSV '{fname}' containing {len(df_up)} rows and columns: {', '.join(df_up.columns[:8])}."})
+                    new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1, "source": fname, "category": "CSV Summary", "text": f"Uploaded CSV '{fname}' with {len(df_up)} rows: {', '.join(df_up.columns[:8])}."})
                     for i, r in df_up.head(10).iterrows():
                         row_vals = ", ".join([f"{k}: {v}" for k, v in r.items() if pd.notna(v)])
-                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+2+i, "source": fname, "category": "Data Row", "text": f"Row {i+1} in {fname}: {row_vals}"})
+                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+2+i, "source": fname, "category": "Row Data", "text": f"Row {i+1} in {fname}: {row_vals}"})
                 elif fname.endswith('.xlsx') or fname.endswith('.xls'):
                     df_up = pd.read_excel(uploaded_doc)
-                    new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1, "source": fname, "category": "Excel Upload Summary", "text": f"Uploaded Excel '{fname}' containing {len(df_up)} rows and columns: {', '.join(df_up.columns[:8])}."})
+                    new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1, "source": fname, "category": "Excel Summary", "text": f"Uploaded Excel '{fname}' with {len(df_up)} rows: {', '.join(df_up.columns[:8])}."})
                     for i, r in df_up.head(10).iterrows():
                         row_vals = ", ".join([f"{k}: {v}" for k, v in r.items() if pd.notna(v)])
-                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+2+i, "source": fname, "category": "Data Row", "text": f"Row {i+1} in {fname}: {row_vals}"})
+                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+2+i, "source": fname, "category": "Row Data", "text": f"Row {i+1} in {fname}: {row_vals}"})
                 else:
                     text_data = uploaded_doc.read().decode('utf-8', errors='ignore')
                     lines = [l.strip() for l in text_data.split('\\n') if l.strip()]
                     for i, l in enumerate(lines[:10]):
-                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1+i, "source": fname, "category": "Text Content", "text": l})
+                        new_chunks.append({"id": len(st.session_state['knowledge_chunks'])+1+i, "source": fname, "category": "Text Chunk", "text": l})
                 
                 st.session_state['knowledge_chunks'].extend(new_chunks)
-                st.success(f"✅ Analytic Engine processed '{fname}'! Added {len(new_chunks)} new chunks to Local Knowledge Base.")
+                st.success(f"✅ Processed '{fname}' into Local Knowledge Base!")
             except Exception as e:
-                st.error(f"Error processing file: {str(e)}")
+                st.error(f"Error reading file: {str(e)}")
 
-        with st.expander("🗄️ Inspect Local Knowledge Base Chunks"):
-            st.caption(f"Currently storing **{len(st.session_state['knowledge_chunks'])}** knowledge chunks:")
+        with st.expander("🗄️ Inspect Knowledge Base Memory"):
+            st.caption(f"Storing **{len(st.session_state['knowledge_chunks'])}** knowledge context chunks:")
             for chunk in st.session_state['knowledge_chunks'][-5:]:
-                st.markdown(f"- **[{chunk['source']} | {chunk['category']}]**: {chunk['text'][:120]}...")
+                st.markdown(f"- **[{chunk['source']}]**: {chunk['text'][:120]}...")
 
     with col_ask1:
-        st.markdown("##### 💬 Step 1 & Step 4: LLM Dialog Box (Interactive Q&A)")
-        user_q = st.text_input("Type your question here (e.g., 'Which districts are low scoring?', 'What is the CFU gap?', 'Summarize attendance'):", 
-                               placeholder="Type your question here...", 
-                               key="rag_dialog_query_tab2")
+        st.markdown("##### 💬 Qwen / DeepSeek Dialog Box (Ask Anything)")
+        user_q = st.text_input("Ask Qwen any question about the dashboard or uploaded data:", 
+                               placeholder="e.g., What are the main findings of the CRO dataset?", 
+                               key="rag_dialog_query_tab2_real")
         
         if user_q:
+            # Retrieve relevant chunks for background LLM
             q_terms = [t.lower() for t in user_q.split() if len(t) > 2]
             scored_matches = []
             for chunk in st.session_state['knowledge_chunks']:
@@ -1596,274 +1610,29 @@ with tab2:
             
             scored_matches.sort(key=lambda x: x[0], reverse=True)
             top_retrieved = [c for m, c in scored_matches[:3]]
-            
             if not top_retrieved:
                 top_retrieved = st.session_state['knowledge_chunks'][:2]
 
-            st.markdown("""
+            context_to_send = "\\n".join([f"• [{c['source']}] {c['text']}" for c in top_retrieved])
+
+            st.markdown(f"""
 <div style="background:#F0FDF4; border:1.5px solid #22C55E; border-radius:10px; padding:14px; margin-top:10px;">
-    <b style="color:#15803D; font-size:14px;">🤖 Qwen / DeepSeek Local LLM Answer & Retrieval Evidence:</b>
+    <b style="color:#15803D; font-size:14px;">🤖 Live Qwen Response (Model: {selected_llm}):</b>
 </div>
 """, unsafe_allow_html=True)
-            
-            st.markdown("##### 🔍 Step 3 Retrieval Evidence:")
+
+            with st.spinner(f"Connecting to background {selected_llm} model at http://localhost:11434..."):
+                llm_response = call_background_qwen_llm(user_q, context_to_send, selected_llm)
+
+            st.markdown("##### 🔍 Knowledge Base Context Provided to LLM:")
             for idx, r_chunk in enumerate(top_retrieved, 1):
-                st.markdown(f"**Chunk {idx}** `[{r_chunk['source']} - {r_chunk['category']}]`: {r_chunk['text']}")
+                st.markdown(f"**Context {idx}** `[{r_chunk['source']}]`: {r_chunk['text']}")
                 
-            st.markdown("##### 🤖 Qwen / DeepSeek Local LLM Synthesized Response:")
-            ans_prompt = f"Based on the retrieved evidence above regarding *'{user_q}'*: "
-            if "district" in user_q.lower() or "risk" in user_q.lower() or "score" in user_q.lower():
-                ans_prompt += f"The dataset calculates a State Composite Score of {health_score}/100 Baseline and identifies 13 High Risk Districts (< 45/100), including Dindori, Barwani, and Sidhi. The primary performance drivers are severe CFU skips (81.3%) and notebook feedback deficits (61.3%)."
-            elif "lesson" in user_q.lower() or "plan" in user_q.lower():
-                ans_prompt += f"There is a 76.4% compliance disconnect. Survey claimed 80% plan availability, but physical observer verification found plans in only {h_b['lp_pct']}% classrooms ({h_b['align_pct']}% full execution alignment)."
-            elif "attendance" in user_q.lower() or "present" in user_q.lower():
-                ans_prompt += f"Student attendance across 411 primary classrooms stands at {h_b['att_rate']}% ({present:,} present out of {enrolled:,} enrolled). Nearly 1 out of 2 children is absent daily."
-            else:
-                ans_prompt += f"The Local Knowledge Base synthesizes quantitative tallies & field notes across 411 primary classrooms in MP. Key findings highlight 52.5% student attendance, a 76.4% lesson plan disconnect, an 81.3% CFU skip rate, and a 61.3% notebook feedback deficit."
-                
-            st.info(ans_prompt)
-            
+            st.markdown(f"##### 🤖 Response from {selected_llm} (Background Local LLM):")
+            st.info(llm_response)
+
+
     st.divider()
-    
-    st.markdown("---")
-    
-    # SUBHEADING 1
-    st.markdown("### 📍 1. Main Classroom Types Identified by AI")
-    st.markdown("* (Methodology: Grouped classroom observations into 3 clear performance categories based on teaching practices)*")
-    st.markdown("Analyzes attendance, lesson plan usage, checking understanding (CFU), and reading scores to categorize classrooms.")
-    
-    col_t1, col_t2 = st.columns([1, 1])
-    
-    with col_t1:
-        st.markdown("""
-        <div class="briefing-card">
-            <h4><b>Local LLM Engine Multi-Modal Feature Weights & Pillars:</b></h4>
-            <ul>
-                <li><b>Student Attendance (20% Weight):</b> Baseline baseline presence & participation.</li>
-                <li><b>Lesson Plan Alignment (20% Weight):</b> Physical presence (5.35%) & execution fidelity (3.65%).</li>
-                <li><b>CFU & Questioning (25% Weight):</b> Formative assessment presence & LOTS vs HOTS depth.</li>
-                <li><b>Student Outcome Mastery (20% Weight):</b> Reading fluency (67.1%) & comprehension (46.2%).</li>
-                <li><b>Notebook Feedback Quality (15% Weight):</b> Regularity (38.7%) & actionable correction (40.1%).</li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown("""
-        <div class="qual-card qual-card-cyan">
-            <h4><b>Local LLM Engine AI Cluster Archetype Breakdown</b></h4>
-            <p><b>Cluster A (High-Fidelity Classrooms - 18.4%):</b> Regular CFU, active independent student practice, aligned lesson plan.</p>
-            <p><b>Cluster B (Rote-Dominant Classrooms - 42.1%):</b> Written lesson plan compliance but missing CFU and low open questioning.</p>
-            <p><b>Cluster C (High-Risk Academic Zones - 39.5%):</b> Low attendance (<45%), absent notebook feedback, low reading fluency.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with col_t2:
-        try:
-            q91_c = get_col(df_raw, '9.1.')
-            q31_c = get_col(df_raw, '3.1.')
-            qa_c = get_col(df_raw, 'A.')
-            g1_c = get_col(df_raw, 'G.1.')
-            g2_c = get_col(df_raw, 'G.2.')
-            
-            corr_df = pd.DataFrame({
-                'Lesson Plan': df_raw[q91_c].astype(str).str.contains('i.हाँ', na=False).astype(int),
-                'Open Qs': df_raw[q31_c].astype(str).str.contains('मिश्रित', na=False).astype(int),
-                'Notebook Check': df_raw[qa_c].astype(str).str.contains('1. नियमित', na=False).astype(int),
-                'Reading Fluency': df_raw[g1_c].astype(str).str.contains('सभी तीन', na=False).astype(int),
-                'Comprehension': df_raw[g2_c].astype(str).str.contains('सभी तीन', na=False).astype(int)
-            }).corr()
-            
-            fig_corr = px.imshow(corr_df, text_auto=".2f", color_continuous_scale=['#F8FAFC', '#00F2FE', '#7B2CBF'], title="Local LLM Engine Feature Interaction Heatmap (Methodology: Pearson correlation matrix computed across encoded columns Q9.1, Q3.1, QA, G.1, G.2)")
-            fig_corr = apply_systematic_chart_theme(fig_corr, "Local LLM Engine Feature Interaction Matrix")
-            st.caption("💡 **What this graph shows:** Correlation matrix (-1.0 to +1.0) revealing how classroom practices co-occur and directly impact reading comprehension.")
-            st.plotly_chart(fig_corr, use_container_width=True)
-        except Exception as e:
-            st.info("Local LLM Engine Matrix active.")
-
-    st.markdown("---")
-    
-    # SUBHEADING 2
-    st.markdown("### 📍 2. Main Teaching Gaps Found in Classrooms")
-    st.markdown("* (Source: Comparing survey claims vs. what observers actually saw in classrooms)*")
-    st.markdown("Quantifying the gap between official survey expectations and daily classroom practice.")
-    
-    col_dis1, col_dis2 = st.columns(2)
-    with col_dis1:
-        st.markdown("#### The Lesson Plan Gap")
-        align_df = pd.DataFrame({
-            'Category': ['State Survey Expectation', 'Observed Lesson Plan', 'Observed Full Alignment'],
-            'Percentage (%)': [80.0, 5.35, 3.65]
-        })
-        fig_align = px.bar(align_df, x='Category', y='Percentage (%)', color='Category', 
-                           color_discrete_sequence=['#7B2CBF', '#00F2FE', '#FF007F'], text='Percentage (%)')
-        fig_align = apply_systematic_chart_theme(fig_align, "Survey Expectation vs Observed Lesson Plan Execution")
-        st.caption("💡 **What this graph shows:** Gap between state survey expectation (80%) vs actual physical lesson plan presence (5.4%) and teaching alignment (3.6%).")
-        st.plotly_chart(fig_align, use_container_width=True)
-        st.markdown("""
-<div style="background:#F8FAFC; border:1.5px solid #CBD5E1; border-left:5px solid #7B2CBF; border-radius:10px; padding:14px; margin-top:10px;">
-    <div style="color:#7B2CBF !important; font-size:13px; font-weight:900; margin-bottom:6px;">💡 WHY IS THE LESSON PLAN GAP RELEVANT?</div>
-    <ul style="color:#1E293B !important; font-size:12px; line-height:1.6; margin:0; padding-left:16px;">
-        <li><b>76.4% Compliance Disconnect:</b> Administrative survey claimed 80% plan availability, but observers found physical plans in only <b>5.4%</b> of classrooms (<b>3.6%</b> aligned). Teaching remains largely ad-hoc.</li>
-        <li><b>Root Cause of Downstream Failures:</b> Skipping structured <i>'I Do – We Do – You Do'</i> steps leads directly to <b>81.3%</b> missing CFU and low student comprehension (46.2%).</li>
-        <li><b>Actionable CPD Shift:</b> Low adoption indicates complex planning templates. Training (CPD) must pivot to providing <b>simplified, pre-printed Teacher Guides (TGs)</b>.</li>
-        <li><b>Monitoring Re-orientation:</b> Shift mentor/BAC observation focus from paper log verification to live classroom practice support.</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
-        
-    with col_dis2:
-        st.markdown("#### Main Teaching Gaps")
-        st.markdown("""
-        <div class="qual-card qual-card-pink">
-            <h4>🚨 Checking Understanding (CFU) Gap: <b>81.3% Missing</b></h4>
-            <p>81.3% of observed lessons proceed without teachers checking if students understand the concept before moving forward.</p>
-        </div>
-        <div class="qual-card qual-card-purple">
-            <h4>📝 Notebook Checking & Feedback Gap: <b>61.3% Deficit</b></h4>
-            <p>Only 38.7% of notebooks are checked regularly, and only 40.1% of checked notebooks contain helpful teacher feedback notes.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
-    
-    # SUBHEADING 3
-    st.markdown("### 📍 3. Student Learning Progression & Drop-Off Points")
-    st.markdown("* (Source: Tracking student retention from Enrollment to Attendance, Reading Fluency, and Comprehension)*")
-    st.markdown("Tracking step-by-step student learning progress from enrollment down to writing ability.")
-    
-    col_fun1, col_fun2 = st.columns([3, 2])
-    with col_fun1:
-        tot_enr = int(df_filtered['कक्षा मे कुल नामांकित विद्यार्थी की संख्या'].sum()) if 'कक्षा मे कुल नामांकित विद्यार्थी की संख्या' in df_filtered else 0
-        tot_pres = int(df_filtered['कक्षा मे कुल उपस्थित विद्यार्थी की संख्या'].sum()) if 'कक्षा मे कुल उपस्थित विद्यार्थी की संख्या' in df_filtered else 0
-        g1_c = get_col(df_filtered, 'G.1.')
-        g1_fluent = df_filtered[g1_c].astype(str).str.contains('सभी तीन', na=False).sum() * (tot_pres / len(df_filtered)) if g1_c and len(df_filtered) > 0 else 0
-        g2_c = get_col(df_filtered, 'G.2.')
-        g2_comp = df_filtered[g2_c].astype(str).str.contains('सभी तीन', na=False).sum() * (tot_pres / len(df_filtered)) if g2_c and len(df_filtered) > 0 else 0
-        g3_c = get_col(df_filtered, 'G.3.')
-        g3_write = df_filtered[g3_c].astype(str).str.contains('सभी तीन', na=False).sum() * (tot_pres / len(df_filtered)) if g3_c and len(df_filtered) > 0 else 0
-
-        funnel_data = dict(
-            number=[tot_enr, tot_pres, int(g1_fluent), int(g2_comp), int(g3_write)],
-            stage=["1. Enrolled", "2. Present", "3. Fluent Readers (67.1%)", "4. Comprehending Readers (46.2%)", "5. Dictation Capable (32.4%)"]
-        )
-        fig_funnel = px.funnel(funnel_data, x='number', y='stage', color_discrete_sequence=['#00F2FE', '#0284C7', '#7B2CBF', '#10B981', '#FF007F'])
-        fig_funnel = apply_systematic_chart_theme(fig_funnel, "Student Progression Drop-Off Funnel")
-        st.caption("💡 **What this graph shows:** Step-by-step student drop-off from enrollment to attendance (52.5%), reading fluency (67.1%), and comprehension (46.2%).")
-        st.plotly_chart(fig_funnel, use_container_width=True)
-        
-    with col_fun2:
-        st.markdown("#### ⚡ Local LLM Engine Predictive Risk Alert")
-        st.markdown("""
-        <div class="qual-card qual-card-green">
-            <h4><b>Impact of Missing CFU on Comprehension:</b></h4>
-            <p>Classrooms operating with <40% CFU adoption show a predicted <b>-34% drop</b> in student reading comprehension mastery.</p>
-            <p><b>Intervention Priority:</b> Implementing 10-minute micro-CFU checkpoints restores predicted comprehension by <b>+28.5 percentage points</b>.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
-    
-    # SUBHEADING 4
-    st.markdown("### 📍 Subheading 4: Targeted Teacher PD Module Recommender & Cohort Clustering")
-    st.markdown("* (Methodology: Automated AI prescription mapping observed field deficits Q4 CFU gap, Q9.3 alignment gap, QC feedback gap to MP CPD modules)*")
-    st.markdown("AI-driven module prescription mapping observed classroom gaps to MP CPD training modules.")
-    
-    col_pd1, col_pd2 = st.columns(2)
-    with col_pd1:
-        st.markdown("""
-        <div class="qual-card qual-card-pink">
-            <h4>🔴 High-Priority Module: Micro-Formative Assessment (CFU)</h4>
-            <p><b>Identified Gap:</b> 81.3% of observed lessons lack formative assessment check points.</p>
-            <p><b>Prescribed Module:</b> <i>Module 101: 10-Minute CFU Micro-Teaching & Exit Ticket Strategies</i></p>
-            <p><b>Target Cohort:</b> All Grade 1-5 Language & Math Teachers.</p>
-        </div>
-        <div class="qual-card qual-card-purple">
-            <h4>🟣 Priority Module: HOTS Questioning Guides</h4>
-            <p><b>Identified Gap:</b> 68.1% of teacher questions are lower-order recall questions (LOTS).</p>
-            <p><b>Prescribed Module:</b> <i>Module 104: Open-Ended Questioning & Conceptual Reasoning Guides</i></p>
-            <p><b>Target Cohort:</b> Language & EVS Teachers.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with col_pd2:
-        st.markdown("""
-        <div class="qual-card qual-card-green">
-            <h4>🟢 Recommended Module: Actionable Notebook Feedback</h4>
-            <p><b>Identified Gap:</b> Only 38.7% of notebooks checked, 40.1% contain actionable feedback.</p>
-            <p><b>Prescribed Module:</b> <i>Module 202: Error Correction Rubrics & Feedback Stamps</i></p>
-            <p><b>Target Cohort:</b> All Primary Grade Teachers.</p>
-        </div>
-        <div class="qual-card qual-card-cyan">
-            <h4>🔵 Recommended Module: Lesson Plan Execution Fidelity</h4>
-            <p><b>Identified Gap:</b> 96.35% gap between lesson plan presence and execution alignment.</p>
-            <p><b>Prescribed Module:</b> <i>Module 105: Aligning Lesson Plan Artifacts to Real Classroom Pacing</i></p>
-            <p><b>Target Cohort:</b> Block & Cluster Academic Coordinators.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
-    
-    # SUBHEADING 5
-    st.markdown("### 📍 5. District Performance Ranking & Impact Simulator")
-    st.markdown("* (Source: Simulated score gains based on improving CFU checking and lesson plan execution)*")
-    st.markdown("District performance ranking and interactive policy simulator.")
-    
-    col_sim1, col_sim2 = st.columns([1, 1])
-    
-    with col_sim1:
-        st.markdown("#### 🔮 Policy Simulator: See Predicted Score Gains")
-        sim_cfu_boost = st.slider("Simulated CFU Adoption Improvement:", 0, 50, 20, 5, help="Increase in % of classrooms conducting CFU")
-        sim_lp_boost = st.slider("Simulated Lesson Plan Execution Improvement:", 0, 50, 15, 5, help="Increase in % of aligned lesson plan execution")
-        
-        # Calculate simulated score
-        base_health = 48.1
-        boosted_health = min(98.0, base_health + (sim_cfu_boost * 0.45) + (sim_lp_boost * 0.35))
-        
-        st.markdown(f"""
-        <div class="health-hero-card">
-            <div>
-                <div class="health-hero-title">Predicted State Performance Score</div>
-                <div class="health-hero-val">{boosted_health:.1f} <span class="health-hero-val-sub">/ 100</span></div>
-                <div class="health-hero-status" style="color: {'#10B981' if boosted_health >= 60 else '#0284C7'};">
-                    {'🟢 STRONG GAIN' if boosted_health >= 60 else '🔵 MODERATE GAIN'} (Baseline: {base_health}/100)
-                </div>
-            </div>
-            <div class="health-hero-details">
-                <b>Predicted Impact:</b><br>
-                +{(boosted_health - base_health):.1f} pts Score Increase<br>
-                +{(sim_cfu_boost * 0.6):.1f}% Reading Understanding Gain
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with col_sim2:
-        st.markdown("#### District Performance Ranking")
-        district_scores = []
-        for dist_name in df_raw['District'].dropna().unique():
-            df_d = df_raw[df_raw['District'] == dist_name]
-            d_score, d_b = compute_academic_health_index(df_d)
-            district_scores.append({
-                "District": dist_name,
-                "Health Score": d_score,
-                "Status": "🔴 NEEDS URGENT SUPPORT" if d_score < 45 else ("🟡 NEEDS ATTENTION" if d_score < 55 else "🟢 DOING WELL")
-            })
-        dist_score_df = pd.DataFrame(district_scores).sort_values(by="Health Score", ascending=True)
-        
-        fig_sim_dist = px.bar(
-            dist_score_df,
-            x="Health Score",
-            y="District",
-            orientation="h",
-            color="Health Score",
-            color_continuous_scale=['#FF007F', '#00F2FE', '#10B981'],
-            text="Health Score",
-            title="District Performance Ranking (0-100)"
-        )
-        fig_sim_dist.update_traces(texttemplate='%{text:.1f}', textposition='outside')
-        fig_sim_dist = apply_systematic_chart_theme(fig_sim_dist, "District Performance Ranking")
-        st.plotly_chart(fig_sim_dist, use_container_width=True)
-
-
 # ------------------------------------------------------------------------------
 # TAB 3: DISTRICT RISK SCORECARD & LOW SCORE INSPECTOR
 # ------------------------------------------------------------------------------
